@@ -9,4 +9,9 @@
         welcome.Show()
 
     End Sub
+
+    Private Sub button2_Click(sender As Object, e As RoutedEventArgs) Handles button2.Click
+
+
+    End Sub
 End Class
