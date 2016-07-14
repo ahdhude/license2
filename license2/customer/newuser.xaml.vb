@@ -1,4 +1,7 @@
-﻿Public Class newuser
+﻿Imports System.Windows.Controls
+Imports System.Windows.Input
+
+Public Class newuser
     Dim island_id As Integer
 
     Private Sub btn_close_Click(sender As Object, e As RoutedEventArgs) Handles btn_close.Click
@@ -83,10 +86,27 @@
     End Function
 
     Private Sub btn_submit_Click(sender As Object, e As RoutedEventArgs) Handles btn_submit.Click
+        Call customervalidate()
+
+    End Sub
+
+
+
+    Function addcustomer()
         Call getislandid()
         Dim db As New databaseDataSetTableAdapters.customerTableAdapter
         db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, DOB.Text, textBox_phone.Text, textbox_idnum.Text, island_id)
 
         MsgBox("Customer added")
+    End Function
+
+
+    Function customervalidate()
+
+
+    End Function
+
+    Private Sub textBox_TargetUpdated(sender As Object, e As DataTransferEventArgs)
+
     End Sub
 End Class
