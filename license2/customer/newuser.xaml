@@ -15,7 +15,7 @@
     <Window.Effect>
         <DropShadowEffect/>
     </Window.Effect>
-    <Grid ScrollViewer.VerticalScrollBarVisibility="Disabled" DataContext="{StaticResource AtollViewSource}">
+    <Grid x:Name="mygrid" ScrollViewer.VerticalScrollBarVisibility="Disabled" DataContext="{StaticResource AtollViewSource}">
         <Grid.RowDefinitions>
             <RowDefinition Height="55*"/>
             <RowDefinition Height="42*"/>
@@ -39,14 +39,11 @@
             <ColumnDefinition Width="211*"/>
             <ColumnDefinition Width="24*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel HorizontalAlignment="Left"   VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="0,8" Height="39" Width="230" >
-            <Label x:Name="label" Content="Customer Information" FontWeight="Bold" FontFamily="Calibri" FontSize="24"/>
-        </StackPanel>
         <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"   Grid.Row="2" VerticalAlignment="Stretch" >
-            <TextBox x:Name="textbox_name"  TextWrapping="Wrap" materialDesign:HintAssist.Hint="Full Name" Height="28" FontSize="14" TabIndex="1"/>
+            <TextBox x:Name="textbox_name"  TextWrapping="Wrap" materialDesign:HintAssist.Hint="Full Name" Height="28" FontSize="14" TabIndex="1" />
         </StackPanel>
         <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" VerticalAlignment="Stretch">
-            <materialDesign:PackIcon Kind ="Account" Height="auto" Width="auto" />
+            <materialDesign:PackIcon x:Name="icon_name" Kind ="Account" Height="auto" Width="auto" />
         </StackPanel>
         <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="4" VerticalAlignment="Stretch" >
             <TextBox x:Name="textbox_idnum" Height="30" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Id Number" FontSize="14" TabIndex="2" MaxLength="7"/>
@@ -89,6 +86,8 @@
         <materialDesign:PackIcon Kind ="HomeModern" Height="30" Width="34" Grid.Column="4" Grid.Row="6" />
         <TextBox x:Name="textBox_phone" Grid.Column="5" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap"  VerticalAlignment="Stretch" materialDesign:HintAssist.Hint="Phone No" MaxLength="7"/>
         <materialDesign:PackIcon Kind ="Phone" Height="31" Width="34" Grid.Column="4" Grid.Row="8" Grid.RowSpan="2" />
+        <Label x:Name="label" Content="Customer Information" FontWeight="Bold" FontFamily="Calibri" FontSize="24" Grid.ColumnSpan="3" Margin="10,16,52,0"/>
+
 
     </Grid>
 </Window>

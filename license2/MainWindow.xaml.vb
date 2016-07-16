@@ -11,6 +11,9 @@
     End Sub
 
     Private Sub button2_Click(sender As Object, e As RoutedEventArgs) Handles button2.Click
+        Dim customer As New customer
+        customer.Show()
+
 
 
     End Sub
