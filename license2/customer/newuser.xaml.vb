@@ -94,19 +94,52 @@ Public Class newuser
 
     Function addcustomer()
         Call getislandid()
-        Dim db As New databaseDataSetTableAdapters.customerTableAdapter
-        db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, DOB.Text, textBox_phone.Text, textbox_idnum.Text, island_id)
 
-        MsgBox("Customer added")
+        Call customervalidate()
+        'Dim db As New databaseDataSetTableAdapters.customerTableAdapter
+        'db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, DOB.Text, textBox_phone.Text, textbox_idnum.Text, island_id)
+
+        'MsgBox("Customer added")
     End Function
 
 
     Function customervalidate()
+        If textbox_name.Text = "" Then
+            textbox_name.Foreground = Brushes.Red
+            icon_name.Foreground = Brushes.Red
+        End If
+
+
+
+        For Each ctrl As Control In mygrid.Children
+
+            If TypeOf ctrl Is TextBox Then
+                Dim tb As TextBox = TryCast(ctrl, TextBox)
+                MsgBox(tb.Text)
+
+            End If
+        Next
 
 
     End Function
 
+
+
+
+    Function defaultfields()
+
+
+
+    End Function
+
+
+
+
     Private Sub textBox_TargetUpdated(sender As Object, e As DataTransferEventArgs)
+
+    End Sub
+
+    Private Sub textbox_name_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textbox_name.TextChanged
 
     End Sub
 End Class
