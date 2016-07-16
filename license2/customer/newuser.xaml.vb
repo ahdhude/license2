@@ -78,12 +78,19 @@
         Dim db As New databaseDataSetTableAdapters.IslandTableAdapter
         island_id = db.IslandidGetDataBy(combo_island.Text).Rows(0).Item(0)
 
-        MsgBox(island_id)
+
 
     End Function
 
     Private Sub btn_submit_Click(sender As Object, e As RoutedEventArgs) Handles btn_submit.Click
         Call getislandid()
+        Dim db As New databaseDataSetTableAdapters.customerTableAdapter
+
+
+        db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, DOB.Text, textBox_phone.Text, textbox_linum.Text, island_id)
+
+
+
 
     End Sub
 End Class

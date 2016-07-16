@@ -44,7 +44,7 @@
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5">
-            <ComboBox  HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" IsEditable="True" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" FontSize="22"  />
+            <ComboBox  HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" IsEditable="True" HorizontalAlignment="Stretch" VerticalContentAlignment="Stretch" FontSize="22" materialDesign:HintAssist.Hint="ID Num" />
         </StackPanel>
         <StackPanel Grid.Column="6" Grid.Row="4" VerticalAlignment="Stretch"   >
             <materialDesign:PopupBox Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}" 

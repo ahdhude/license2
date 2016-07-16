@@ -87,7 +87,7 @@
         <materialDesign:PackIcon Kind ="Home" Height="30" Width="Auto" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Stretch" />
         <materialDesign:PackIcon Kind ="City" Height="31" Width="34" Grid.Column="4" Grid.Row="4" />
         <materialDesign:PackIcon Kind ="HomeModern" Height="30" Width="34" Grid.Column="4" Grid.Row="6" />
-        <TextBox x:Name="textBox" Grid.Column="5" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap"  VerticalAlignment="Stretch" materialDesign:HintAssist.Hint="Phone No" MaxLength="7"/>
+        <TextBox x:Name="textBox_phone" Grid.Column="5" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap"  VerticalAlignment="Stretch" materialDesign:HintAssist.Hint="Phone No" MaxLength="7"/>
         <materialDesign:PackIcon Kind ="Phone" Height="31" Width="34" Grid.Column="4" Grid.Row="8" Grid.RowSpan="2" />
 
     </Grid>
