@@ -3,6 +3,7 @@ Imports System.Windows.Input
 
 Public Class newuser
     Dim island_id As Integer
+    Dim idnum As String
 
     Private Sub btn_close_Click(sender As Object, e As RoutedEventArgs) Handles btn_close.Click
         Me.Close()
@@ -13,7 +14,7 @@ Public Class newuser
     End Sub
 
     Private Sub DatePicker_GotFocus(sender As Object, e As RoutedEventArgs)
-        DOB.IsDropDownOpen = True
+
     End Sub
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
@@ -94,10 +95,11 @@ Public Class newuser
 
     Function addcustomer()
         Call getislandid()
+
         Dim db As New databaseDataSetTableAdapters.customerTableAdapter
 
 
-        db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, DOB.Text, textBox_phone.Text, textbox_linum.Text, island_id)
+        'db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, dob.Text, textBox_phone.Text, textbox_linum.Text, island_id)
 
 
 
@@ -111,42 +113,135 @@ Public Class newuser
 
 
     Function customervalidate()
-        If textbox_name.Text = "" Then
-            textbox_name.Foreground = Brushes.Red
-            icon_name.Foreground = Brushes.Red
-        End If
-
-
-
-        For Each ctrl As Control In mygrid.Children
+        For Each ctrl As Control In stack1.Children
 
             If TypeOf ctrl Is TextBox Then
                 Dim tb As TextBox = TryCast(ctrl, TextBox)
-                MsgBox(tb.Text)
+                If tb.Text = "" Then
+                    tb.Foreground = Brushes.Red
+                    tb.Text = "please enter a valid item"
+
+                End If
+            ElseIf TypeOf ctrl Is DatePicker Then
+                Dim dp As DatePicker = TryCast(ctrl, DatePicker)
+                If dp.Text = "" Then
+                    dp.Foreground = Brushes.Red
+
+                End If
 
             End If
+
+
         Next
 
 
+        For Each ctrl As Control In stack2.Children
+
+            If TypeOf ctrl Is TextBox Then
+                Dim tb As TextBox = TryCast(ctrl, TextBox)
+                If tb.Text = "" Then
+                    tb.Foreground = Brushes.Red
+                    tb.Text = "please enter a valid item"
+
+                End If
+            ElseIf TypeOf ctrl Is ComboBox Then
+
+                Dim combo As ComboBox = TryCast(ctrl, ComboBox)
+                Try
+                    If combo.SelectedItem = "" Then
+
+
+                        combo.Foreground = Brushes.Red
+                        combo.Text = "please enter a valid item"
+
+
+
+                    End If
+                Catch ex As Exception
+
+                End Try
+
+
+            End If
+
+
+
+        Next
+
     End Function
 
 
+    Private Sub textbox_address_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles textbox_address.GotMouseCapture
+
+        If textbox_address.Text = "please enter a valid item" Then
+            textbox_address.Clear()
+            textbox_address.Foreground = Brushes.Black
+        Else
+
+        End If
+    End Sub
+
+    Private Sub textBox_phone_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBox_phone.TextChanged
+        If textBox_phone.Text = "please enter a valid item" Then
+            textBox_phone.Clear()
+            textBox_phone.Foreground = Brushes.Black
+        Else
+
+        End If
+    End Sub
+
+    Private Sub textbox_idnum_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles textbox_idnum.GotMouseCapture
+        If textbox_idnum.Text = "please enter a valid item" Then
+            textbox_idnum.Clear()
+            textbox_idnum.Foreground = Brushes.Black
+        Else
+
+        End If
+    End Sub
+
+    Private Sub textbox_linum_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles textbox_linum.GotMouseCapture
+        If textbox_linum.Text = "please enter a valid item" Then
+            textbox_linum.Clear()
+            textbox_linum.Foreground = Brushes.Black
+        Else
+
+        End If
+    End Sub
+
+    Private Sub textbox_name_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles textbox_name.GotMouseCapture
+        If textbox_name.Text = "please enter a valid item" Then
+            textbox_name.Clear()
+            textbox_name.Foreground = Brushes.Black
+        Else
+
+        End If
+    End Sub
+
+    Private Sub textBox_phone_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles textBox_phone.GotMouseCapture
+        If textBox_phone.Text = "please enter a valid item" Then
+            textBox_phone.Clear()
+            textBox_phone.Foreground = Brushes.Black
+        Else
+
+        End If
+    End Sub
+
+    Private Sub combo_island_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles combo_island.GotMouseCapture
+        combo_island.Foreground = Brushes.Black
+    End Sub
+
+    Private Sub dob_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles dob.GotMouseCapture
+        dob.Foreground = Brushes.Black
+    End Sub
 
 
-    Function defaultfields()
+    Function idvalidate()
 
 
+        idnum = textbox_idnum.Text
+
+        Dim db As New databaseDataSetTableAdapters.customerTableAdapter
+        idnum = db.GetData().Rows(0).Item(2)
 
     End Function
-
-
-
-
-    Private Sub textBox_TargetUpdated(sender As Object, e As DataTransferEventArgs)
-
-    End Sub
-
-    Private Sub textbox_name_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textbox_name.TextChanged
-
-    End Sub
 End Class

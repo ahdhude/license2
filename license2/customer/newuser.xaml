@@ -17,76 +17,52 @@
     </Window.Effect>
     <Grid x:Name="mygrid" ScrollViewer.VerticalScrollBarVisibility="Disabled" DataContext="{StaticResource AtollViewSource}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="55*"/>
-            <RowDefinition Height="42*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="31*"/>
-            <RowDefinition Height="16*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="14*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="38*"/>
-            <RowDefinition Height="41*"/>
-            <RowDefinition Height="16*"/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="43*"/>
-            <ColumnDefinition Width="31*"/>
-            <ColumnDefinition Width="218*"/>
-            <ColumnDefinition Width="37*"/>
-            <ColumnDefinition Width="34*"/>
-            <ColumnDefinition Width="211*"/>
-            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="78*"/>
+            <ColumnDefinition Width="219*"/>
+            <ColumnDefinition Width="71*"/>
+            <ColumnDefinition Width="212*"/>
+            <ColumnDefinition Width="18*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"   Grid.Row="2" VerticalAlignment="Stretch" >
-            <TextBox x:Name="textbox_name"  TextWrapping="Wrap" materialDesign:HintAssist.Hint="Full Name" Height="28" FontSize="14" TabIndex="1" />
-        </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" VerticalAlignment="Stretch">
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="43,97,4,231">
             <materialDesign:PackIcon x:Name="icon_name" Kind ="Account" Height="auto" Width="auto" />
         </StackPanel>
-        <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="4" VerticalAlignment="Stretch" >
-            <TextBox x:Name="textbox_idnum" Height="30" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Id Number" FontSize="14" TabIndex="2" MaxLength="7"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="4" VerticalAlignment="Stretch">
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="43,142,4,185">
             <materialDesign:PackIcon Kind ="Numeric" Height="auto" Width="auto"  />
         </StackPanel>
-        <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="6" VerticalAlignment="Stretch" >
-            <DatePicker HorizontalAlignment="Stretch" Name="DOB" TabIndex="3" materialDesign:HintAssist.Hint="DOB" VerticalAlignment="Stretch" Height="31" FontSize="14" SelectedDateFormat="Short" GotFocus="DatePicker_GotFocus" />
-        </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch" Height="30" Grid.Row="6" VerticalAlignment="Top">
+        <StackPanel HorizontalAlignment="Stretch" Height="30" VerticalAlignment="Top" Margin="43,189,4,0">
             <materialDesign:PackIcon Kind ="Calendar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="34" Width="Auto" />
         </StackPanel>
-        <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="8" VerticalAlignment="Stretch">
-            <TextBox x:Name="textbox_linum" TabIndex="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap" materialDesign:HintAssist.Hint="License Number" VerticalAlignment="Stretch" Height="29" FontSize="14" MaxLength="7" />
-        </StackPanel>
-        <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="8" VerticalAlignment="Stretch" >
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="43,233,4,95" >
             <materialDesign:PackIcon Kind ="Numeric"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="35" Width="Auto" />
         </StackPanel>
-        <Button x:Name="btn_submit" TabIndex="8" Content="Submit" Grid.Column="2" HorizontalAlignment="Left" Margin="44,0,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Height="41"/>
-        <Button x:Name="btn_close"  TabIndex="9" Content="Close" Grid.Column="5" HorizontalAlignment="Left" Margin="39,0,0,0" Grid.Row="10" VerticalAlignment="Top" Width="80" Height="41"/>
-        <StackPanel Grid.Column="5" HorizontalAlignment="Stretch"  Grid.Row="2" VerticalAlignment="Stretch" >
-            <TextBox x:Name="textbox_address" TabIndex="5" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Address"  Height="28
-                     " FontSize="14"/>
+        <Button x:Name="btn_submit" TabIndex="8" Content="Submit" HorizontalAlignment="Left" Margin="40,301,0,0" VerticalAlignment="Top" Width="80" Height="41" Grid.Column="1"/>
+        <Button x:Name="btn_close"  TabIndex="9" Content="Close" HorizontalAlignment="Left" Margin="34,301,0,0" VerticalAlignment="Top" Width="80" Height="41" Grid.Column="3"/>
+        <materialDesign:PackIcon Kind ="Home" Height="30" Width="Auto" HorizontalAlignment="Stretch" Margin="32,97,5,0" Grid.Column="2" />
+        <materialDesign:PackIcon Kind ="City" Height="31" Width="34" Margin="32,142,0,0" Grid.Column="2" />
+        <materialDesign:PackIcon Kind ="HomeModern" Height="30" Width="34" Margin="32,189,0,0" Grid.Column="2" />
+        <materialDesign:PackIcon Kind ="Phone" Height="31" Width="34" Margin="32,233,0,0" Grid.Column="2" />
+        <Label x:Name="label" Content="Customer Information" FontWeight="Bold" FontFamily="Calibri" FontSize="24" Margin="10,16,57,303" Grid.ColumnSpan="2"/>
+        <StackPanel x:Name="stack1" Grid.Column="1" HorizontalAlignment="Left" Height="177" Margin="0,87,0,0" VerticalAlignment="Top" Width="219">
+            <TextBox x:Name="textbox_name"  TextWrapping="Wrap" materialDesign:HintAssist.Hint="Full Name" materialDesign:HintAssist.IsFloating="True" FontSize="14" TabIndex="1" Margin="0,0,1,0" Height="44" />
+            <TextBox x:Name="textbox_idnum" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Id Number" materialDesign:HintAssist.IsFloating="True" FontSize="14" TabIndex="2" MaxLength="7" Margin="0,0,1,0" Height="44"/>
+            <DatePicker  HorizontalAlignment="Stretch" x:Name="dob" TabIndex="3" materialDesign:HintAssist.Hint="Dob" materialDesign:HintAssist.IsFloating="True" VerticalAlignment="Bottom" FontSize="14" SelectedDateFormat="Short" GotFocus="DatePicker_GotFocus" Margin="0,0,1,0" Height="44" VerticalContentAlignment="Bottom" />
+            <TextBox x:Name="textbox_linum" TabIndex="4" HorizontalAlignment="Stretch"  TextWrapping="Wrap" materialDesign:HintAssist.Hint="License Number" materialDesign:HintAssist.IsFloating="True" VerticalAlignment="Stretch" FontSize="14" MaxLength="7" Margin="0,0,1,0" Height="44" />
         </StackPanel>
-        <StackPanel Grid.Column="5" HorizontalAlignment="Stretch"  Grid.Row="4" VerticalAlignment="Stretch">
-            <ComboBox x:Name="AtollComboBox" DisplayMemberPath="Name"  ItemsSource="{Binding}" SelectedValuePath="Id" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" materialDesign:HintAssist.Hint="Atoll" SelectedIndex="-1" IsEditable="True">
+        <StackPanel x:Name="stack2" Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Left" Height="177" Margin="0,87,0,0" VerticalAlignment="Top" Width="214">
+            <TextBox x:Name="textbox_address" TabIndex="5" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Address" FontSize="14" Margin="0,0,3,0" Height="44"/>
+            <ComboBox x:Name="AtollComboBox" materialDesign:HintAssist.IsFloating="True" DisplayMemberPath="Name"  ItemsSource="{Binding}" SelectedValuePath="Id" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" materialDesign:HintAssist.Hint="Atoll" SelectedIndex="-1" IsEditable="True" Margin="0,0,3,0" Height="44" VerticalContentAlignment="Center">
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <VirtualizingStackPanel/>
                     </ItemsPanelTemplate>
                 </ComboBox.ItemsPanel>
             </ComboBox>
+            <ComboBox x:Name="combo_island" TabIndex="7" VerticalAlignment="Stretch" FontSize="14" materialDesign:HintAssist.Hint="Island" SelectedIndex="0" Margin="0,0,3,0" Height="44" VerticalContentAlignment="Bottom" materialDesign:HintAssist.IsFloating="True" />
+            <TextBox x:Name="textBox_phone" HorizontalAlignment="Stretch" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap"  VerticalAlignment="Stretch" materialDesign:HintAssist.Hint="Phone No" MaxLength="7" Margin="0,0,3,0" Height="44"/>
         </StackPanel>
-        <StackPanel Grid.Column="5" HorizontalAlignment="Stretch"  Grid.Row="6" VerticalAlignment="Stretch" >
-            <ComboBox x:Name="combo_island" TabIndex="7" VerticalAlignment="Stretch" Height="30" FontSize="14" materialDesign:HintAssist.Hint="Island" SelectedIndex="0"/>
-        </StackPanel>
-        <materialDesign:PackIcon Kind ="Home" Height="30" Width="Auto" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Stretch" />
-        <materialDesign:PackIcon Kind ="City" Height="31" Width="34" Grid.Column="4" Grid.Row="4" />
-        <materialDesign:PackIcon Kind ="HomeModern" Height="30" Width="34" Grid.Column="4" Grid.Row="6" />
-        <TextBox x:Name="textBox_phone" Grid.Column="5" HorizontalAlignment="Stretch" Grid.Row="8" TextWrapping="Wrap"  VerticalAlignment="Stretch" materialDesign:HintAssist.Hint="Phone No" MaxLength="7"/>
-        <materialDesign:PackIcon Kind ="Phone" Height="31" Width="34" Grid.Column="4" Grid.Row="8" Grid.RowSpan="2" />
-        <Label x:Name="label" Content="Customer Information" FontWeight="Bold" FontFamily="Calibri" FontSize="24" Grid.ColumnSpan="3" Margin="10,16,52,0"/>
 
 
     </Grid>
