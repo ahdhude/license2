@@ -27,23 +27,23 @@
             <ColumnDefinition Width="18*"/>
         </Grid.ColumnDefinitions>
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="43,97,4,231">
-            <materialDesign:PackIcon x:Name="icon_name" Kind ="Account" Height="auto" Width="auto" />
+            <materialDesign:PackIcon x:Name="icon_name" Kind ="Account" Height="auto" Width="auto" Foreground="{Binding Foreground, ElementName=textbox_name}" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="43,142,4,185">
-            <materialDesign:PackIcon Kind ="Numeric" Height="auto" Width="auto"  />
+            <materialDesign:PackIcon Kind ="Numeric" Height="auto" Width="auto" Foreground="{Binding Foreground, ElementName=textbox_idnum}"  />
         </StackPanel>
         <StackPanel HorizontalAlignment="Stretch" Height="30" VerticalAlignment="Top" Margin="43,189,4,0">
-            <materialDesign:PackIcon Kind ="Calendar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="34" Width="Auto" />
+            <materialDesign:PackIcon Kind ="Calendar" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="34" Width="Auto" Foreground="{Binding Foreground, ElementName=dob}" />
         </StackPanel>
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="43,233,4,95" >
-            <materialDesign:PackIcon Kind ="Numeric"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="35" Width="Auto" />
+            <materialDesign:PackIcon Kind ="Numeric"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="35" Width="Auto" Foreground="{Binding Foreground, ElementName=textbox_linum}" />
         </StackPanel>
         <Button x:Name="btn_submit" TabIndex="8" Content="Submit" HorizontalAlignment="Left" Margin="40,301,0,0" VerticalAlignment="Top" Width="80" Height="41" Grid.Column="1"/>
         <Button x:Name="btn_close"  TabIndex="9" Content="Close" HorizontalAlignment="Left" Margin="34,301,0,0" VerticalAlignment="Top" Width="80" Height="41" Grid.Column="3"/>
-        <materialDesign:PackIcon Kind ="Home" Height="30" Width="Auto" HorizontalAlignment="Stretch" Margin="32,97,5,0" Grid.Column="2" />
-        <materialDesign:PackIcon Kind ="City" Height="31" Width="34" Margin="32,142,0,0" Grid.Column="2" />
-        <materialDesign:PackIcon Kind ="HomeModern" Height="30" Width="34" Margin="32,189,0,0" Grid.Column="2" />
-        <materialDesign:PackIcon Kind ="Phone" Height="31" Width="34" Margin="32,233,0,0" Grid.Column="2" />
+        <materialDesign:PackIcon Kind ="Home" Height="30" Width="Auto" HorizontalAlignment="Stretch" Margin="32,97,5,0" Grid.Column="2" Foreground="{Binding Foreground, ElementName=textbox_address}" />
+        <materialDesign:PackIcon Kind ="City" Height="31" Width="34" Margin="32,142,0,0" Grid.Column="2" Foreground="{Binding Foreground, ElementName=AtollComboBox}" />
+        <materialDesign:PackIcon Kind ="HomeModern" Height="30" Width="34" Margin="32,189,0,0" Grid.Column="2" Foreground="{Binding Foreground, ElementName=combo_island}" />
+        <materialDesign:PackIcon Kind ="Phone" Height="31" Width="34" Margin="32,233,0,0" Grid.Column="2" Foreground="{Binding Foreground, ElementName=textBox_phone}" />
         <Label x:Name="label" Content="Customer Information" FontWeight="Bold" FontFamily="Calibri" FontSize="24" Margin="10,16,57,303" Grid.ColumnSpan="2"/>
         <StackPanel x:Name="stack1" Grid.Column="1" HorizontalAlignment="Left" Height="177" Margin="0,87,0,0" VerticalAlignment="Top" Width="219">
             <TextBox x:Name="textbox_name"  TextWrapping="Wrap" materialDesign:HintAssist.Hint="Full Name" materialDesign:HintAssist.IsFloating="True" FontSize="14" TabIndex="1" Margin="0,0,1,0" Height="44" />
