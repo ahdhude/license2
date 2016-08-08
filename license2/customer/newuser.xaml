@@ -61,7 +61,7 @@
                 </ComboBox.ItemsPanel>
             </ComboBox>
             <ComboBox x:Name="combo_island" TabIndex="7" VerticalAlignment="Stretch" FontSize="14" materialDesign:HintAssist.Hint="Island" SelectedIndex="0" Margin="0,0,3,0" Height="44" VerticalContentAlignment="Bottom" materialDesign:HintAssist.IsFloating="True" />
-            <TextBox x:Name="textBox_phone" HorizontalAlignment="Stretch" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap"  VerticalAlignment="Stretch" materialDesign:HintAssist.Hint="Phone No" MaxLength="7" Margin="0,0,3,0" Height="44"/>
+            <TextBox x:Name="textBox_phone" TabIndex="8" materialDesign:HintAssist.IsFloating="True" TextWrapping="Wrap" materialDesign:HintAssist.Hint="Address" FontSize="14" Margin="0,0,3,0" Height="44"/>
         </StackPanel>
 
 

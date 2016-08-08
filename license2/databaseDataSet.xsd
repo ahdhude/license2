@@ -330,7 +330,7 @@ WHERE        (Name = @islandname)</CommandText>
   <xs:element name="databaseDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="databaseDataSet" msprop:Generator_UserDSName="databaseDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="User" msprop:Generator_TableClassName="UserDataTable" msprop:Generator_TableVarName="tableUser" msprop:Generator_RowChangedName="UserRowChanged" msprop:Generator_TablePropName="User" msprop:Generator_RowDeletingName="UserRowDeleting" msprop:Generator_RowChangingName="UserRowChanging" msprop:Generator_RowEvHandlerName="UserRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRowDeleted" msprop:Generator_RowClassName="UserRow" msprop:Generator_UserTableName="User" msprop:Generator_RowEvArgName="UserRowChangeEvent">
+        <xs:element name="User" msprop:Generator_TableClassName="UserDataTable" msprop:Generator_TableVarName="tableUser" msprop:Generator_TablePropName="User" msprop:Generator_RowDeletingName="UserRowDeleting" msprop:Generator_RowChangingName="UserRowChanging" msprop:Generator_RowEvHandlerName="UserRowChangeEventHandler" msprop:Generator_RowDeletedName="UserRowDeleted" msprop:Generator_UserTableName="User" msprop:Generator_RowChangedName="UserRowChanged" msprop:Generator_RowEvArgName="UserRowChangeEvent" msprop:Generator_RowClassName="UserRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -351,7 +351,7 @@ WHERE        (Name = @islandname)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="customer" msprop:Generator_TableClassName="customerDataTable" msprop:Generator_TableVarName="tablecustomer" msprop:Generator_RowChangedName="customerRowChanged" msprop:Generator_TablePropName="customer" msprop:Generator_RowDeletingName="customerRowDeleting" msprop:Generator_RowChangingName="customerRowChanging" msprop:Generator_RowEvHandlerName="customerRowChangeEventHandler" msprop:Generator_RowDeletedName="customerRowDeleted" msprop:Generator_RowClassName="customerRow" msprop:Generator_UserTableName="customer" msprop:Generator_RowEvArgName="customerRowChangeEvent">
+        <xs:element name="customer" msprop:Generator_TableClassName="customerDataTable" msprop:Generator_TableVarName="tablecustomer" msprop:Generator_TablePropName="customer" msprop:Generator_RowDeletingName="customerRowDeleting" msprop:Generator_RowChangingName="customerRowChanging" msprop:Generator_RowEvHandlerName="customerRowChangeEventHandler" msprop:Generator_RowDeletedName="customerRowDeleted" msprop:Generator_UserTableName="customer" msprop:Generator_RowChangedName="customerRowChanged" msprop:Generator_RowEvArgName="customerRowChangeEvent" msprop:Generator_RowClassName="customerRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -395,7 +395,7 @@ WHERE        (Name = @islandname)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Atoll" msprop:Generator_TableClassName="AtollDataTable" msprop:Generator_TableVarName="tableAtoll" msprop:Generator_TablePropName="Atoll" msprop:Generator_RowDeletingName="AtollRowDeleting" msprop:Generator_RowChangingName="AtollRowChanging" msprop:Generator_RowEvHandlerName="AtollRowChangeEventHandler" msprop:Generator_RowDeletedName="AtollRowDeleted" msprop:Generator_UserTableName="Atoll" msprop:Generator_RowChangedName="AtollRowChanged" msprop:Generator_RowEvArgName="AtollRowChangeEvent" msprop:Generator_RowClassName="AtollRow">
+        <xs:element name="Atoll" msprop:Generator_TableClassName="AtollDataTable" msprop:Generator_TableVarName="tableAtoll" msprop:Generator_RowChangedName="AtollRowChanged" msprop:Generator_TablePropName="Atoll" msprop:Generator_RowDeletingName="AtollRowDeleting" msprop:Generator_RowChangingName="AtollRowChanging" msprop:Generator_RowEvHandlerName="AtollRowChangeEventHandler" msprop:Generator_RowDeletedName="AtollRowDeleted" msprop:Generator_RowClassName="AtollRow" msprop:Generator_UserTableName="Atoll" msprop:Generator_RowEvArgName="AtollRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -409,7 +409,7 @@ WHERE        (Name = @islandname)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Island" msprop:Generator_TableClassName="IslandDataTable" msprop:Generator_TableVarName="tableIsland" msprop:Generator_TablePropName="Island" msprop:Generator_RowDeletingName="IslandRowDeleting" msprop:Generator_RowChangingName="IslandRowChanging" msprop:Generator_RowEvHandlerName="IslandRowChangeEventHandler" msprop:Generator_RowDeletedName="IslandRowDeleted" msprop:Generator_UserTableName="Island" msprop:Generator_RowChangedName="IslandRowChanged" msprop:Generator_RowEvArgName="IslandRowChangeEvent" msprop:Generator_RowClassName="IslandRow">
+        <xs:element name="Island" msprop:Generator_TableClassName="IslandDataTable" msprop:Generator_TableVarName="tableIsland" msprop:Generator_RowChangedName="IslandRowChanged" msprop:Generator_TablePropName="Island" msprop:Generator_RowDeletingName="IslandRowDeleting" msprop:Generator_RowChangingName="IslandRowChanging" msprop:Generator_RowEvHandlerName="IslandRowChangeEventHandler" msprop:Generator_RowDeletedName="IslandRowDeleted" msprop:Generator_RowClassName="IslandRow" msprop:Generator_UserTableName="Island" msprop:Generator_RowEvArgName="IslandRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -445,8 +445,8 @@ WHERE        (Name = @islandname)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Table_ToTable" msdata:parent="Island" msdata:child="customer" msdata:parentkey="Id" msdata:childkey="Island" msprop:Generator_UserChildTable="customer" msprop:Generator_ChildPropName="GetcustomerRows" msprop:Generator_UserRelationName="FK_Table_ToTable" msprop:Generator_RelationVarName="relationFK_Table_ToTable" msprop:Generator_UserParentTable="Island" msprop:Generator_ParentPropName="IslandRow" />
-      <msdata:Relationship name="FK_Island_ToTable" msdata:parent="Atoll" msdata:child="Island" msdata:parentkey="Id" msdata:childkey="atoll_id" msprop:Generator_UserChildTable="Island" msprop:Generator_ChildPropName="GetIslandRows" msprop:Generator_UserRelationName="FK_Island_ToTable" msprop:Generator_ParentPropName="AtollRow" msprop:Generator_RelationVarName="relationFK_Island_ToTable" msprop:Generator_UserParentTable="Atoll" />
+      <msdata:Relationship name="FK_Table_ToTable" msdata:parent="Island" msdata:child="customer" msdata:parentkey="Id" msdata:childkey="Island" msprop:Generator_UserChildTable="customer" msprop:Generator_ChildPropName="GetcustomerRows" msprop:Generator_UserRelationName="FK_Table_ToTable" msprop:Generator_ParentPropName="IslandRow" msprop:Generator_RelationVarName="relationFK_Table_ToTable" msprop:Generator_UserParentTable="Island" />
+      <msdata:Relationship name="FK_Island_ToTable" msdata:parent="Atoll" msdata:child="Island" msdata:parentkey="Id" msdata:childkey="atoll_id" msprop:Generator_UserChildTable="Island" msprop:Generator_ChildPropName="GetIslandRows" msprop:Generator_UserRelationName="FK_Island_ToTable" msprop:Generator_RelationVarName="relationFK_Island_ToTable" msprop:Generator_UserParentTable="Atoll" msprop:Generator_ParentPropName="AtollRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

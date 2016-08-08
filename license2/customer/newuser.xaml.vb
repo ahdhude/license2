@@ -89,6 +89,7 @@ Public Class newuser
     Private Sub btn_submit_Click(sender As Object, e As RoutedEventArgs) Handles btn_submit.Click
         Call customervalidate()
 
+
     End Sub
 
 
@@ -99,38 +100,21 @@ Public Class newuser
         Dim db As New databaseDataSetTableAdapters.customerTableAdapter
 
 
-        'db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, dob.Text, textBox_phone.Text, textbox_linum.Text, island_id)
+        db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, dob.Text, textBox_phone.Text, textbox_linum.Text, island_id)
+        MsgBox(textbox_name.Text + vbCrLf + textbox_idnum.Text + vbCrLf + textbox_address.Text, Title:="Customer Added")
 
-
-
-
-        Call customervalidate()
-        'Dim db As New databaseDataSetTableAdapters.customerTableAdapter
-        'db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, DOB.Text, textBox_phone.Text, textbox_idnum.Text, island_id)
-
-        'MsgBox("Customer added")
-    End Function
-
-
-    Function customervalidate()
         For Each ctrl As Control In stack1.Children
 
             If TypeOf ctrl Is TextBox Then
                 Dim tb As TextBox = TryCast(ctrl, TextBox)
-                If tb.Text = "" Then
-                    tb.Foreground = Brushes.Red
-                    tb.Text = "please enter a valid item"
+                tb.Text = Nothing
 
-                End If
             ElseIf TypeOf ctrl Is DatePicker Then
                 Dim dp As DatePicker = TryCast(ctrl, DatePicker)
-                If dp.Text = "" Then
-                    dp.Foreground = Brushes.Red
+                dp.Text = Nothing
 
-                End If
 
             End If
-
 
         Next
 
@@ -139,9 +123,65 @@ Public Class newuser
 
             If TypeOf ctrl Is TextBox Then
                 Dim tb As TextBox = TryCast(ctrl, TextBox)
+                tb.Text = Nothing
+
+            ElseIf TypeOf ctrl Is ComboBox Then
+                Dim cb As ComboBox = TryCast(ctrl, ComboBox)
+                cb.Text = Nothing
+
+
+            End If
+        Next
+
+
+
+    End Function
+
+
+    Function customervalidate()
+
+
+        For Each ctrl As Control In stack1.Children
+
+
+            If TypeOf ctrl Is TextBox Then
+                Dim tb As TextBox = TryCast(ctrl, TextBox)
                 If tb.Text = "" Then
                     tb.Foreground = Brushes.Red
-                    tb.Text = "please enter a valid item"
+
+
+
+
+                End If
+
+                If textbox_linum.Text = Nothing Then
+                    textbox_linum.Text = "0000000"
+                End If
+
+            ElseIf TypeOf ctrl Is DatePicker Then
+                Dim dp As DatePicker = TryCast(ctrl, DatePicker)
+                If dp.Text = "" Then
+                    dp.Foreground = Brushes.Red
+
+                End If
+            Else
+
+                GoTo Line
+
+            End If
+
+
+
+        Next
+
+Line:
+        For Each ctrl As Control In stack2.Children
+
+            If TypeOf ctrl Is TextBox Then
+                Dim tb As TextBox = TryCast(ctrl, TextBox)
+                If tb.Text = "" Then
+                    tb.Foreground = Brushes.Red
+
 
                 End If
             ElseIf TypeOf ctrl Is ComboBox Then
@@ -152,21 +192,26 @@ Public Class newuser
 
 
                         combo.Foreground = Brushes.Red
-                        combo.Text = "please enter a valid item"
+
 
 
 
                     End If
+
                 Catch ex As Exception
 
                 End Try
+            Else
 
+                Call idvalidate()
 
             End If
 
 
 
         Next
+
+
 
     End Function
 
@@ -237,11 +282,24 @@ Public Class newuser
 
     Function idvalidate()
 
+        Dim inputid As String
 
-        idnum = textbox_idnum.Text
+        inputid = textbox_idnum.Text
 
         Dim db As New databaseDataSetTableAdapters.customerTableAdapter
         idnum = db.GetData().Rows(0).Item(2)
+        If inputid = idnum Then
+
+            MsgBox("CUSTOMER ALREADY EXIST")
+
+        Else
+
+            Call addcustomer()
+
+
+
+
+        End If
 
     End Function
 End Class
