@@ -10,7 +10,9 @@ Public Class welcome
         Dim CustomerViewSource As System.Windows.Data.CollectionViewSource = CType(Me.FindResource("CustomerViewSource"), System.Windows.Data.CollectionViewSource)
         CustomerViewSource.View.MoveCurrentToFirst()
         Id_cardComboBox.Text = Nothing
-        stack_customerinfo.Visibility = False
+        stack_customerinfo.Visibility = System.Windows.Visibility.Hidden
+
+
 
 
 
@@ -50,6 +52,7 @@ Public Class welcome
     End Sub
 
     Sub custinfo()
+        stack_customerinfo.Visibility = System.Windows.Visibility.Visible
         Dim inputid As String
 
         Dim atoll As String
