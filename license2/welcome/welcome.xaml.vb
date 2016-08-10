@@ -2,6 +2,10 @@
 
 Public Class welcome
     Public selected_id As String
+    Dim count As Integer
+    Dim inputid As String
+
+
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
 
@@ -55,7 +59,6 @@ Public Class welcome
 
     Sub custinfo()
         stack_customerinfo.Visibility = System.Windows.Visibility.Visible
-        Dim inputid As String
 
         Dim atoll As String
         Dim island As String
@@ -68,6 +71,15 @@ Public Class welcome
         End If
 
         Dim db As New databaseDataSetTableAdapters.customerTableAdapter
+        count = db.GetcustInfo(inputid).Count
+        If count = 0 Then
+            stack_customerinfo.Visibility = System.Windows.Visibility.Hidden
+
+            MsgBox("please enter a valid Id")
+
+            Exit Sub
+
+        End If
         label_name.Content = db.GetcustInfo(inputid).Rows(0).Item(1)
         label_address.Content = db.GetcustInfo(inputid).Rows(0).Item(3)
         atoll = db.GetcustInfo(inputid).Rows(0).Item(8)
@@ -94,9 +106,18 @@ Public Class welcome
     End Sub
 
     Private Sub btn_practice_Click(sender As Object, e As RoutedEventArgs) Handles btn_practice.Click
+        Call checkcount()
+
         If Id_cardComboBox.Text = Nothing Then
 
             Id_cardComboBox.Foreground = Brushes.Red
+            btn_practice.IsEnabled = False
+
+            Exit Sub
+        ElseIf count = 0 Then
+
+            Id_cardComboBox.Foreground = Brushes.Red
+            btn_practice.IsEnabled = False
             Exit Sub
 
 
@@ -113,6 +134,33 @@ Public Class welcome
     End Sub
 
     Private Sub Id_cardComboBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles Id_cardComboBox.SelectionChanged
+
+    End Sub
+
+
+
+
+    Private Sub Id_cardComboBox_GotKeyboardFocus(sender As Object, e As KeyboardFocusChangedEventArgs) Handles Id_cardComboBox.GotKeyboardFocus
+        stack_customerinfo.Visibility = System.Windows.Visibility.Hidden
+        btn_practice.IsEnabled = True
+
+    End Sub
+
+    Private Sub Id_cardComboBox_LostKeyboardFocus(sender As Object, e As KeyboardFocusChangedEventArgs) Handles Id_cardComboBox.LostKeyboardFocus
+        Call checkcount()
+
+        If count = 0 Then
+            btn_practice.IsEnabled = False
+        End If
+    End Sub
+
+
+
+    Sub checkcount()
+        inputid = Id_cardComboBox.Text
+
+        Dim db As New databaseDataSetTableAdapters.customerTableAdapter
+        count = db.GetcustInfo(inputid).Count
 
     End Sub
 End Class

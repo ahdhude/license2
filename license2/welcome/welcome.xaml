@@ -96,10 +96,10 @@
             </Grid.RowDefinitions>
         </Grid>
         <StackPanel x:Name="stack_customerinfo" Grid.ColumnSpan="3" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch">
-            <Label x:Name="label_name" Content="Label" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
-            <Label x:Name="label_address" Content="Label" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
-            <Label x:Name="label_island" Content="Label" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
-            <Label x:Name="label_contact" Content="Label" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
+            <Label x:Name="label_name" Content="" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
+            <Label x:Name="label_address" Content="" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
+            <Label x:Name="label_island" Content="" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
+            <Label x:Name="label_contact" Content="" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
         </StackPanel>
     </Grid>
 </Window>

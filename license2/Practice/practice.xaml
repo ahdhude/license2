@@ -30,13 +30,13 @@
         <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch"   >
             <Image x:Name="question_image" HorizontalAlignment="Stretch" Height="100" VerticalAlignment="Stretch" />
         </StackPanel>
-        <StackPanel Grid.Column="3" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="2" UseLayoutRounding="True"   >
-            <TextBlock x:Name="question" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="މިއަދަކީ ކޮންދުވަހެއް އަދި މިއަގުގެ މެނޫއަކީ ކޮބާ ނަމަކީ އަބްދު ﷲ އަދި މިދުވަދަ" VerticalAlignment="Stretch" FontSize="20" FlowDirection="RightToLeft" Height="98" LineHeight="36" FontFamily="Faruma"/>
+        <StackPanel Grid.Column="3" HorizontalAlignment="Right"  Grid.Row="1" VerticalAlignment="Center" Grid.ColumnSpan="2" UseLayoutRounding="True" RenderTransformOrigin="0.5,0.5"   >
+            <TextBlock x:Name="question" HorizontalAlignment="Right" TextWrapping="Wrap" Text="މިއަދަކީ ކޮންދުވަހެއް އަދި މިއަގުގެ މެނޫއަކީ ކޮބާ ނަމަކީ އަބްދު ﷲ އަދި މިދުވަދަ" VerticalAlignment="Center" FontSize="20" FlowDirection="RightToLeft" Height="98" LineHeight="36" FontFamily="Faruma" Background="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
 
         </StackPanel>
-        <StackPanel Grid.Column="5" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" />
+        <StackPanel Grid.Column="5" HorizontalAlignment="Center"  Grid.Row="1" VerticalAlignment="Center" />
         <Label x:Name="question_num" Grid.Column="5" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Right" FontSize="24" FontWeight="Bold" Margin="0,26,0,35" Height="52">
-            <Label x:Name="label_numb" Content="1"/>
+            <Label x:Name="label_numb" Content="1" Width="41" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Label>
         <Grid Grid.ColumnSpan="5" Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="2" VerticalAlignment="Stretch" >
             <Grid.RowDefinitions>

@@ -19,7 +19,7 @@
             End
         End If
 
-
+        label_numb.Content = q_num
         Dim db As New databaseDataSetTableAdapters.QuestionTableAdapter
         question.Text = db.GetData(q_num).Rows(0).Item(1)
 
