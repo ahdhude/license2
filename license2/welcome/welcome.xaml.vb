@@ -1,6 +1,8 @@
 ﻿Imports System.Windows.Media.Effects
 
 Public Class welcome
+    Public selected_id As String
+
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
 
         Dim DatabaseDataSet As license2.databaseDataSet = CType(Me.FindResource("DatabaseDataSet"), license2.databaseDataSet)
@@ -61,6 +63,10 @@ Public Class welcome
 
         inputid = Id_cardComboBox.Text
 
+        If inputid = Nothing Then
+            Exit Sub
+        End If
+
         Dim db As New databaseDataSetTableAdapters.customerTableAdapter
         label_name.Content = db.GetcustInfo(inputid).Rows(0).Item(1)
         label_address.Content = db.GetcustInfo(inputid).Rows(0).Item(3)
@@ -68,6 +74,7 @@ Public Class welcome
         island = db.GetcustInfo(inputid).Rows(0).Item(9)
         label_island.Content = atoll & " " & island
         label_contact.Content = "+960 " & db.GetcustInfo(inputid).Rows(0).Item(5)
+
 
 
 
@@ -83,5 +90,29 @@ Public Class welcome
 
     Private Sub Id_cardComboBox_DropDownClosed(sender As Object, e As EventArgs) Handles Id_cardComboBox.DropDownClosed
         Call custinfo()
+
+    End Sub
+
+    Private Sub btn_practice_Click(sender As Object, e As RoutedEventArgs) Handles btn_practice.Click
+        If Id_cardComboBox.Text = Nothing Then
+
+            Id_cardComboBox.Foreground = Brushes.Red
+            Exit Sub
+
+
+        End If
+
+
+
+        selected_id = Id_cardComboBox.Text
+        Dim f As practice = New practice
+        f.Show()
+
+
+
+    End Sub
+
+    Private Sub Id_cardComboBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles Id_cardComboBox.SelectionChanged
+
     End Sub
 End Class
