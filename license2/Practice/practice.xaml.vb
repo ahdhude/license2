@@ -127,4 +127,12 @@
     Private Sub ans4_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles ans4.MouseLeftButtonDown
 
     End Sub
+
+    Sub updatefinalscore()
+        Dim td As New databaseDataSetTableAdapters.FinalScoreTableAdapter
+        td.
+
+
+
+    End Sub
 End Class
