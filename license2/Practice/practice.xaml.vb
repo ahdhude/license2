@@ -1,7 +1,11 @@
-﻿Public Class practice
+﻿Imports System.Data
+Public Class practice
     Dim q_num As Integer = 1
     Dim cans As String
     Dim slcans As String
+
+    Dim fullscore As Integer
+    Dim mandscore As Integer
 
 
 
@@ -25,7 +29,9 @@
 
     Sub question_load()
 
-        If q_num = 4 Then ''USE form what happens when all question displayed
+        If q_num = 5 Then ''USE form what happens when all question displayed
+
+
 
             End
         End If
@@ -60,9 +66,11 @@
 
         Call correct()
 
+
         q_num = q_num + 1
         Call question_load()
         Call ans_load()
+        Call updatefinalscore()
 
 
 
@@ -84,26 +92,34 @@
 
     Sub correct()
 
+
+
         Dim dt As New databaseDataSetTableAdapters.ScoreTableAdapter
 
         Dim db As New databaseDataSetTableAdapters.AnswerTableAdapter
-        cans = db.GetDataBy(q_num).Rows(0).Item(1)
+            cans = db.GetDataBy(q_num).Rows(0).Item(1)
 
 
-        If cans = slcans Then
-            dt.InsertQuery(True, q_num)
+            If cans = slcans Then
+                dt.Insert(True, q_num)
+
+
+
+
 
         Else
-            dt.InsertQuery(False, q_num)
+                dt.Insert(False, q_num)
 
 
-        End If
+            End If
+
 
 
 
 
 
     End Sub
+
 
     Private Sub stack_ans_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles stack_ans.MouseLeftButtonDown
 
@@ -129,8 +145,28 @@
     End Sub
 
     Sub updatefinalscore()
-        Dim td As New databaseDataSetTableAdapters.FinalScoreTableAdapter
-        td.
+
+
+        Dim dt As New databaseDataSetTableAdapters.ScoreTableAdapter
+        Dim tb As New databaseDataSetTableAdapters.FinalScoreTableAdapter
+
+        Dim scorecalc As Integer
+
+        fullscore = dt.GetDataBy1.Rows.Count
+        mandscore = dt.GetDataBy2.Rows.Count
+
+        scorecalc = (fullscore / 4) * 75
+
+
+        If mandscore = 5 And scorecalc = 75 Then
+
+
+
+
+        End If
+
+
+
 
 
 

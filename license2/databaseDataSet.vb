@@ -1,6 +1,9 @@
 ﻿Imports System.Data
 
 Partial Class databaseDataSet
+    Partial Public Class ScoreDataTable
+    End Class
+
     Partial Public Class customerDataTable
 
         Private Sub checklastname(row As customerRow)
