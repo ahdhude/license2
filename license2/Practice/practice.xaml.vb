@@ -6,6 +6,7 @@ Public Class practice
 
     Dim fullscore As Integer
     Dim mandscore As Integer
+    Dim finalscore As Integer
 
 
 
@@ -30,6 +31,8 @@ Public Class practice
     Sub question_load()
 
         If q_num = 5 Then ''USE form what happens when all question displayed
+
+            Call updatefinalscore()
 
 
 
@@ -70,7 +73,7 @@ Public Class practice
         q_num = q_num + 1
         Call question_load()
         Call ans_load()
-        Call updatefinalscore()
+
 
 
 
@@ -154,12 +157,18 @@ Public Class practice
 
         fullscore = dt.GetDataBy1.Rows.Count
         mandscore = dt.GetDataBy2.Rows.Count
+        finalscore = fullscore + mandscore / 100
 
-        scorecalc = (fullscore / 4) * 75
 
 
-        If mandscore = 5 And scorecalc = 75 Then
 
+
+        If mandscore = 5 And finalscore >= 75 Then
+            'enter passed into database
+
+        Else
+
+            'enter failed into the database
 
 
 
