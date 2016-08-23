@@ -1,9 +1,11 @@
 ﻿Imports System.Windows.Media.Effects
 
+
 Public Class welcome
-    Public selected_id As String
+
     Dim count As Integer
     Dim inputid As String
+    Dim idint As Integer
 
 
 
@@ -37,6 +39,9 @@ Public Class welcome
         x.Radius = 4
 
         Me.Effect = x
+        stack_customerinfo.Visibility = Visibility.Hidden
+        Id_cardComboBox.Text = Nothing
+
 
         Dim f As newuser = New newuser
         f.ShowDialog()
@@ -80,6 +85,11 @@ Public Class welcome
             Exit Sub
 
         End If
+        customer.selected_id = inputid
+        idint = db.GetcustInfo(inputid).Rows(0).Item(0)
+
+
+        customer.cst_id = idint * (-1)
         label_name.Content = db.GetcustInfo(inputid).Rows(0).Item(1)
         label_address.Content = db.GetcustInfo(inputid).Rows(0).Item(3)
         atoll = db.GetcustInfo(inputid).Rows(0).Item(8)
@@ -125,6 +135,7 @@ Public Class welcome
 
 
 
+
         selected_id = Id_cardComboBox.Text
         Dim f As practice = New practice
         f.Show()
@@ -162,5 +173,15 @@ Public Class welcome
         Dim db As New databaseDataSetTableAdapters.customerTableAdapter
         count = db.GetcustInfo(inputid).Count
 
+    End Sub
+
+    Private Sub Id_cardComboBox_DropDownOpened(sender As Object, e As EventArgs) Handles Id_cardComboBox.DropDownOpened
+        Dim DatabaseDataSet As license2.databaseDataSet = CType(Me.FindResource("DatabaseDataSet"), license2.databaseDataSet)
+        'Load data into the table customer. You can modify this code as needed.
+        Dim DatabaseDataSetcustomerTableAdapter As license2.databaseDataSetTableAdapters.customerTableAdapter = New license2.databaseDataSetTableAdapters.customerTableAdapter()
+        DatabaseDataSetcustomerTableAdapter.Fill(DatabaseDataSet.customer)
+        Dim CustomerViewSource As System.Windows.Data.CollectionViewSource = CType(Me.FindResource("CustomerViewSource"), System.Windows.Data.CollectionViewSource)
+        CustomerViewSource.View.MoveCurrentToFirst()
+        Id_cardComboBox.Text = Nothing
     End Sub
 End Class

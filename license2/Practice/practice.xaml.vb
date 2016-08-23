@@ -1,4 +1,5 @@
 ﻿Imports System.Data
+
 Public Class practice
     Dim q_num As Integer = 1
     Dim cans As String
@@ -80,6 +81,10 @@ Public Class practice
     End Sub
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
+
+        Call data_score_clear()
+
+
         Call question_load()
         Call ans_load()
 
@@ -151,24 +156,29 @@ Public Class practice
 
 
         Dim dt As New databaseDataSetTableAdapters.ScoreTableAdapter
+
         Dim tb As New databaseDataSetTableAdapters.FinalScoreTableAdapter
 
-        Dim scorecalc As Integer
+
 
         fullscore = dt.GetDataBy1.Rows.Count
         mandscore = dt.GetDataBy2.Rows.Count
         finalscore = fullscore + mandscore / 100
 
+        Dim pass As New databaseDataSetTableAdapters.FinalScoreTableAdapter
 
 
 
 
         If mandscore = 5 And finalscore >= 75 Then
-            'enter passed into database
 
+
+
+
+            pass.Insert(customer.cst_id, finalscore, 1, customer.datetime)
         Else
 
-            'enter failed into the database
+            pass.Insert(customer.cst_id, finalscore, 0, customer.datetime)
 
 
 
@@ -180,4 +190,15 @@ Public Class practice
 
 
     End Sub
+
+
+
+    Sub data_score_clear()
+
+        Dim score As New databaseDataSetTableAdapters.ScoreTableAdapter
+        score.GetData().Clear()
+
+
+    End Sub
+
 End Class

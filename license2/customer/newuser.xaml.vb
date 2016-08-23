@@ -4,6 +4,7 @@ Imports System.Windows.Input
 Public Class newuser
     Dim island_id As Integer
     Dim idnum As String
+    Dim license As String
 
     Private Sub btn_close_Click(sender As Object, e As RoutedEventArgs) Handles btn_close.Click
         Me.Close()
@@ -31,12 +32,11 @@ Public Class newuser
         DatabaseDataSetIslandTableAdapter.Fill(DatabaseDataSet.Island)
         Dim IslandViewSource As System.Windows.Data.CollectionViewSource = CType(Me.FindResource("IslandViewSource"), System.Windows.Data.CollectionViewSource)
         IslandViewSource.View.MoveCurrentToFirst()
-    End Sub
-
-    Private Sub AtollComboBox_SelectionChanged(sender As Object, e As SelectionChangedEventArgs) Handles AtollComboBox.SelectionChanged
-
+        AtollComboBox.Text = Nothing
 
     End Sub
+
+
 
     Private Sub AtollComboBox_LostKeyboardFocus(sender As Object, e As KeyboardFocusChangedEventArgs) Handles AtollComboBox.LostKeyboardFocus
         combo_island.Items.Clear()
@@ -100,7 +100,7 @@ Public Class newuser
         Dim db As New databaseDataSetTableAdapters.customerTableAdapter
 
 
-        db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, dob.Text, textBox_phone.Text, textbox_linum.Text, island_id)
+        db.InsertQuery(textbox_name.Text, textbox_idnum.Text, textbox_address.Text, dob.Text, textBox_phone.Text, license, island_id)
         MsgBox(textbox_name.Text + vbCrLf + textbox_idnum.Text + vbCrLf + textbox_address.Text, Title:="Customer Added")
 
         For Each ctrl As Control In stack1.Children
@@ -138,78 +138,53 @@ Public Class newuser
     End Function
 
 
+
+
+
+
     Function customervalidate()
 
+        If textbox_address.Text = Nothing Then
 
-        For Each ctrl As Control In stack1.Children
+            textbox_address.Foreground = Brushes.Red
 
-
-            If TypeOf ctrl Is TextBox Then
-                Dim tb As TextBox = TryCast(ctrl, TextBox)
-                If tb.Text = "" Then
-                    tb.Foreground = Brushes.Red
-
-
-
-
-                End If
-
-                If textbox_linum.Text = Nothing Then
-                    textbox_linum.Text = "0000000"
-                End If
-
-            ElseIf TypeOf ctrl Is DatePicker Then
-                Dim dp As DatePicker = TryCast(ctrl, DatePicker)
-                If dp.Text = "" Then
-                    dp.Foreground = Brushes.Red
-
-                End If
-            Else
-
-                GoTo Line
-
+            If textbox_name.Text = Nothing Then
+                textbox_name.Foreground = Brushes.Red
             End If
 
 
 
-        Next
-
-Line:
-        For Each ctrl As Control In stack2.Children
-
-            If TypeOf ctrl Is TextBox Then
-                Dim tb As TextBox = TryCast(ctrl, TextBox)
-                If tb.Text = "" Then
-                    tb.Foreground = Brushes.Red
 
 
-                End If
-            ElseIf TypeOf ctrl Is ComboBox Then
+            If textbox_idnum.Text = Nothing Then
+                textbox_idnum.Foreground = Brushes.Red
+            End If
+            If combo_island.Text = Nothing Then
 
-                Dim combo As ComboBox = TryCast(ctrl, ComboBox)
-                Try
-                    If combo.SelectedItem = "" Then
-
-
-                        combo.Foreground = Brushes.Red
-
-
-
-
-                    End If
-
-                Catch ex As Exception
-
-                End Try
-            Else
-
-                Call idvalidate()
-
+                combo_island.Foreground = Brushes.Red
             End If
 
+            If AtollComboBox.Text = Nothing Then
+                AtollComboBox.Foreground = Brushes.Red
+
+            End If
+            If textBox_phone.Text = Nothing Then
+
+                textBox_phone.Foreground = Brushes.Red
+            End If
+
+            If dob.Text = Nothing Then
+                dob.Foreground = Brushes.Red
+            End If
+        Else
+
+            Call idvalidate()
 
 
-        Next
+
+
+        End If
+
 
 
 
@@ -218,57 +193,48 @@ Line:
 
     Private Sub textbox_address_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles textbox_address.GotMouseCapture
 
-        If textbox_address.Text = "please enter a valid item" Then
-            textbox_address.Clear()
-            textbox_address.Foreground = Brushes.Black
-        Else
 
-        End If
+
+        textbox_address.Foreground = Brushes.Black
+
+
+
+
+
     End Sub
 
     Private Sub textBox_phone_TextChanged(sender As Object, e As TextChangedEventArgs) Handles textBox_phone.TextChanged
-        If textBox_phone.Text = "please enter a valid item" Then
-            textBox_phone.Clear()
-            textBox_phone.Foreground = Brushes.Black
-        Else
 
-        End If
+        textBox_phone.Foreground = Brushes.Black
+
+
+
     End Sub
 
     Private Sub textbox_idnum_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles textbox_idnum.GotMouseCapture
-        If textbox_idnum.Text = "please enter a valid item" Then
-            textbox_idnum.Clear()
-            textbox_idnum.Foreground = Brushes.Black
-        Else
 
-        End If
+        textbox_idnum.Foreground = Brushes.Black
+
+
+
     End Sub
 
     Private Sub textbox_linum_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles textbox_linum.GotMouseCapture
-        If textbox_linum.Text = "please enter a valid item" Then
-            textbox_linum.Clear()
-            textbox_linum.Foreground = Brushes.Black
-        Else
 
-        End If
+        textbox_linum.Foreground = Brushes.Black
+
     End Sub
 
     Private Sub textbox_name_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles textbox_name.GotMouseCapture
-        If textbox_name.Text = "please enter a valid item" Then
-            textbox_name.Clear()
-            textbox_name.Foreground = Brushes.Black
-        Else
 
-        End If
+        textbox_name.Foreground = Brushes.Black
+
     End Sub
 
     Private Sub textBox_phone_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles textBox_phone.GotMouseCapture
-        If textBox_phone.Text = "please enter a valid item" Then
-            textBox_phone.Clear()
-            textBox_phone.Foreground = Brushes.Black
-        Else
 
-        End If
+        textBox_phone.Foreground = Brushes.Black
+
     End Sub
 
     Private Sub combo_island_GotMouseCapture(sender As Object, e As MouseEventArgs) Handles combo_island.GotMouseCapture
@@ -291,6 +257,13 @@ Line:
         If inputid = idnum Then
 
             MsgBox("CUSTOMER ALREADY EXIST")
+            Call focus_id()
+
+        ElseIf inputid.Count < 7 Then
+
+            Call focus_id()
+
+
 
         Else
 
@@ -302,4 +275,15 @@ Line:
         End If
 
     End Function
+
+
+
+    Function focus_id()
+
+        textbox_idnum.Foreground = Brushes.Red
+
+
+
+    End Function
+
 End Class

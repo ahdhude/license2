@@ -47,9 +47,9 @@ Partial Public Class databaseDataSet
     
     Private relationFK_Score_ToTable As Global.System.Data.DataRelation
     
-    Private relationFK_FinalScore_ToTable As Global.System.Data.DataRelation
-    
     Private relationFK_Answer_ToTable As Global.System.Data.DataRelation
+    
+    Private relationFK_FinalScore_ToTable As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -375,8 +375,8 @@ Partial Public Class databaseDataSet
         Me.relationFK_Table_ToTable = Me.Relations("FK_Table_ToTable")
         Me.relationFK_Island_ToTable = Me.Relations("FK_Island_ToTable")
         Me.relationFK_Score_ToTable = Me.Relations("FK_Score_ToTable")
-        Me.relationFK_FinalScore_ToTable = Me.Relations("FK_FinalScore_ToTable")
         Me.relationFK_Answer_ToTable = Me.Relations("FK_Answer_ToTable")
+        Me.relationFK_FinalScore_ToTable = Me.Relations("FK_FinalScore_ToTable")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -409,10 +409,10 @@ Partial Public Class databaseDataSet
         Me.Relations.Add(Me.relationFK_Island_ToTable)
         Me.relationFK_Score_ToTable = New Global.System.Data.DataRelation("FK_Score_ToTable", New Global.System.Data.DataColumn() {Me.tableQuestion.question_idColumn}, New Global.System.Data.DataColumn() {Me.tableScore.qidColumn}, false)
         Me.Relations.Add(Me.relationFK_Score_ToTable)
-        Me.relationFK_FinalScore_ToTable = New Global.System.Data.DataRelation("FK_FinalScore_ToTable", New Global.System.Data.DataColumn() {Me.tablecustomer.IdColumn}, New Global.System.Data.DataColumn() {Me.tableFinalScore.cst_idColumn}, false)
-        Me.Relations.Add(Me.relationFK_FinalScore_ToTable)
         Me.relationFK_Answer_ToTable = New Global.System.Data.DataRelation("FK_Answer_ToTable", New Global.System.Data.DataColumn() {Me.tableQuestion.question_idColumn}, New Global.System.Data.DataColumn() {Me.tableAnswer.q_idColumn}, false)
         Me.Relations.Add(Me.relationFK_Answer_ToTable)
+        Me.relationFK_FinalScore_ToTable = New Global.System.Data.DataRelation("FK_FinalScore_ToTable", New Global.System.Data.DataColumn() {Me.tablecustomer.IdColumn}, New Global.System.Data.DataColumn() {Me.tableFinalScore.cst_idColumn}, false)
+        Me.Relations.Add(Me.relationFK_FinalScore_ToTable)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2717,8 +2717,6 @@ Partial Public Class databaseDataSet
     Partial Public Class FinalScoreDataTable
         Inherits Global.System.Data.TypedTableBase(Of FinalScoreRow)
         
-        Private columnId As Global.System.Data.DataColumn
-        
         Private columncst_id As Global.System.Data.DataColumn
         
         Private columnScore As Global.System.Data.DataColumn
@@ -2726,6 +2724,8 @@ Partial Public Class databaseDataSet
         Private columnPass As Global.System.Data.DataColumn
         
         Private columnDate As Global.System.Data.DataColumn
+        
+        Private columnId As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -2764,14 +2764,6 @@ Partial Public Class databaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnId
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property cst_idColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columncst_id
@@ -2799,6 +2791,14 @@ Partial Public Class databaseDataSet
         Public ReadOnly Property DateColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnId
             End Get
         End Property
         
@@ -2841,9 +2841,9 @@ Partial Public Class databaseDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overloads Function AddFinalScoreRow(ByVal parentcustomerRowByFK_FinalScore_ToTable As customerRow, ByVal Score As Integer, ByVal Pass As Boolean, ByVal _Date As Date) As FinalScoreRow
             Dim rowFinalScoreRow As FinalScoreRow = CType(Me.NewRow,FinalScoreRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Score, Pass, _Date}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Score, Pass, _Date, Nothing}
             If (Not (parentcustomerRowByFK_FinalScore_ToTable) Is Nothing) Then
-                columnValuesArray(1) = parentcustomerRowByFK_FinalScore_ToTable(0)
+                columnValuesArray(0) = parentcustomerRowByFK_FinalScore_ToTable(0)
             End If
             rowFinalScoreRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowFinalScoreRow)
@@ -2873,18 +2873,16 @@ Partial Public Class databaseDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnId = MyBase.Columns("Id")
             Me.columncst_id = MyBase.Columns("cst_id")
             Me.columnScore = MyBase.Columns("Score")
             Me.columnPass = MyBase.Columns("Pass")
             Me.columnDate = MyBase.Columns("Date")
+            Me.columnId = MyBase.Columns("Id")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnId)
             Me.columncst_id = New Global.System.Data.DataColumn("cst_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncst_id)
             Me.columnScore = New Global.System.Data.DataColumn("Score", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
@@ -2896,6 +2894,8 @@ Partial Public Class databaseDataSet
             Me.columnDate.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnDate")
             Me.columnDate.ExtendedProperties.Add("Generator_UserColumnName", "Date")
             MyBase.Columns.Add(Me.columnDate)
+            Me.columnId = New Global.System.Data.DataColumn("Id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnId)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
             Me.columnId.AutoIncrement = true
             Me.columnId.AutoIncrementSeed = -1
@@ -3926,17 +3926,6 @@ Partial Public Class databaseDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Id() As Integer
-            Get
-                Return CType(Me(Me.tableFinalScore.IdColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableFinalScore.IdColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property cst_id() As Integer
             Get
                 Try 
@@ -3992,6 +3981,17 @@ Partial Public Class databaseDataSet
             End Get
             Set
                 Me(Me.tableFinalScore.DateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Id() As Integer
+            Get
+                Return CType(Me(Me.tableFinalScore.IdColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableFinalScore.IdColumn) = value
             End Set
         End Property
         
@@ -7526,21 +7526,20 @@ Namespace databaseDataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "FinalScore"
-            tableMapping.ColumnMappings.Add("Id", "Id")
             tableMapping.ColumnMappings.Add("cst_id", "cst_id")
             tableMapping.ColumnMappings.Add("Score", "Score")
             tableMapping.ColumnMappings.Add("Pass", "Pass")
             tableMapping.ColumnMappings.Add("Date", "Date")
+            tableMapping.ColumnMappings.Add("Id", "Id")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [FinalScore] WHERE (([Id] = @Original_Id) AND ((@IsNull_cst_id = 1 AN"& _ 
-                "D [cst_id] IS NULL) OR ([cst_id] = @Original_cst_id)) AND ((@IsNull_Score = 1 AN"& _ 
-                "D [Score] IS NULL) OR ([Score] = @Original_Score)) AND ((@IsNull_Pass = 1 AND [P"& _ 
-                "ass] IS NULL) OR ([Pass] = @Original_Pass)) AND ((@IsNull_Date = 1 AND [Date] IS"& _ 
-                " NULL) OR ([Date] = @Original_Date)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [FinalScore] WHERE (((@IsNull_cst_id = 1 AND [cst_id] IS NULL) OR ([c"& _ 
+                "st_id] = @Original_cst_id)) AND ((@IsNull_Score = 1 AND [Score] IS NULL) OR ([Sc"& _ 
+                "ore] = @Original_Score)) AND ((@IsNull_Pass = 1 AND [Pass] IS NULL) OR ([Pass] ="& _ 
+                " @Original_Pass)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Origi"& _ 
+                "nal_Date)) AND ([Id] = @Original_Id))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cst_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cst_id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cst_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cst_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Score", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Score", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -7548,32 +7547,32 @@ Namespace databaseDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Pass", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pass", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Pass", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pass", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [FinalScore] ([cst_id], [Score], [Pass], [Date]) VALUES (@cst_id, @Sc"& _ 
-                "ore, @Pass, @Date);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, cst_id, Score, Pass, Date FROM FinalScore WHERE "& _ 
+                "ore, @Pass, @Date);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cst_id, Score, Pass, Date, Id FROM FinalScore WHERE "& _ 
                 "(Id = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cst_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cst_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Score", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Score", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pass", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pass", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [FinalScore] SET [cst_id] = @cst_id, [Score] = @Score, [Pass] = @Pass, [Da"& _ 
-                "te] = @Date WHERE (([Id] = @Original_Id) AND ((@IsNull_cst_id = 1 AND [cst_id] I"& _ 
-                "S NULL) OR ([cst_id] = @Original_cst_id)) AND ((@IsNull_Score = 1 AND [Score] IS"& _ 
-                " NULL) OR ([Score] = @Original_Score)) AND ((@IsNull_Pass = 1 AND [Pass] IS NULL"& _ 
-                ") OR ([Pass] = @Original_Pass)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR (["& _ 
-                "Date] = @Original_Date)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, cst_id, Score, Pass, Date FROM FinalScore"& _ 
+                "te] = @Date WHERE (((@IsNull_cst_id = 1 AND [cst_id] IS NULL) OR ([cst_id] = @Or"& _ 
+                "iginal_cst_id)) AND ((@IsNull_Score = 1 AND [Score] IS NULL) OR ([Score] = @Orig"& _ 
+                "inal_Score)) AND ((@IsNull_Pass = 1 AND [Pass] IS NULL) OR ([Pass] = @Original_P"& _ 
+                "ass)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) A"& _ 
+                "ND ([Id] = @Original_Id));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT cst_id, Score, Pass, Date, Id FROM FinalScore"& _ 
                 " WHERE (Id = @Id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@cst_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cst_id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Score", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Score", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Pass", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pass", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Date", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_cst_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cst_id", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_cst_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "cst_id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Score", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Score", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -7581,7 +7580,8 @@ Namespace databaseDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Pass", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pass", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Pass", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Pass", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Date", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Date", Global.System.Data.SqlDbType.DateTime, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Date", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -7598,7 +7598,7 @@ Namespace databaseDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        Id, cst_id, Score, Pass, Date"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FinalScore"
+            Me._commandCollection(0).CommandText = "SELECT cst_id, Score, Pass, Date, Id FROM FinalScore"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -7658,36 +7658,36 @@ Namespace databaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_Id As Integer, ByVal Original_cst_id As Global.System.Nullable(Of Integer), ByVal Original_Score As Global.System.Nullable(Of Integer), ByVal Original_Pass As Global.System.Nullable(Of Boolean), ByVal Original_Date As Global.System.Nullable(Of Date)) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id,Integer)
+        Public Overloads Overridable Function Delete(ByVal Original_cst_id As Global.System.Nullable(Of Integer), ByVal Original_Score As Global.System.Nullable(Of Integer), ByVal Original_Pass As Global.System.Nullable(Of Boolean), ByVal Original_Date As Global.System.Nullable(Of Date), ByVal Original_Id As Integer) As Integer
             If (Original_cst_id.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_cst_id.Value,Integer)
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_cst_id.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
             If (Original_Score.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Score.Value,Integer)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_Score.Value,Integer)
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
             If (Original_Pass.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_Pass.Value,Boolean)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Pass.Value,Boolean)
             Else
-                Me.Adapter.DeleteCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             If (Original_Date.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Date.Value,Date)
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_Date.Value,Date)
             Else
-                Me.Adapter.DeleteCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
+            Me.Adapter.DeleteCommand.Parameters(8).Value = CType(Original_Id,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7747,7 +7747,7 @@ Namespace databaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal cst_id As Global.System.Nullable(Of Integer), ByVal Score As Global.System.Nullable(Of Integer), ByVal Pass As Global.System.Nullable(Of Boolean), ByVal _Date As Global.System.Nullable(Of Date), ByVal Original_Id As Integer, ByVal Original_cst_id As Global.System.Nullable(Of Integer), ByVal Original_Score As Global.System.Nullable(Of Integer), ByVal Original_Pass As Global.System.Nullable(Of Boolean), ByVal Original_Date As Global.System.Nullable(Of Date), ByVal Id As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal cst_id As Global.System.Nullable(Of Integer), ByVal Score As Global.System.Nullable(Of Integer), ByVal Pass As Global.System.Nullable(Of Boolean), ByVal _Date As Global.System.Nullable(Of Date), ByVal Original_cst_id As Global.System.Nullable(Of Integer), ByVal Original_Score As Global.System.Nullable(Of Integer), ByVal Original_Pass As Global.System.Nullable(Of Boolean), ByVal Original_Date As Global.System.Nullable(Of Date), ByVal Original_Id As Integer, ByVal Id As Integer) As Integer
             If (cst_id.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(cst_id.Value,Integer)
             Else
@@ -7768,35 +7768,35 @@ Namespace databaseDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Id,Integer)
             If (Original_cst_id.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_cst_id.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_cst_id.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
             If (Original_Score.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Score.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Score.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             End If
             If (Original_Pass.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_Pass.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Pass.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             End If
             If (Original_Date.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Date.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_Date.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(11).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(12).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(11).Value = Global.System.DBNull.Value
             End If
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(Original_Id,Integer)
             Me.Adapter.UpdateCommand.Parameters(13).Value = CType(Id,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -7817,8 +7817,8 @@ Namespace databaseDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal cst_id As Global.System.Nullable(Of Integer), ByVal Score As Global.System.Nullable(Of Integer), ByVal Pass As Global.System.Nullable(Of Boolean), ByVal _Date As Global.System.Nullable(Of Date), ByVal Original_Id As Integer, ByVal Original_cst_id As Global.System.Nullable(Of Integer), ByVal Original_Score As Global.System.Nullable(Of Integer), ByVal Original_Pass As Global.System.Nullable(Of Boolean), ByVal Original_Date As Global.System.Nullable(Of Date)) As Integer
-            Return Me.Update(cst_id, Score, Pass, _Date, Original_Id, Original_cst_id, Original_Score, Original_Pass, Original_Date, Original_Id)
+        Public Overloads Overridable Function Update(ByVal cst_id As Global.System.Nullable(Of Integer), ByVal Score As Global.System.Nullable(Of Integer), ByVal Pass As Global.System.Nullable(Of Boolean), ByVal _Date As Global.System.Nullable(Of Date), ByVal Original_cst_id As Global.System.Nullable(Of Integer), ByVal Original_Score As Global.System.Nullable(Of Integer), ByVal Original_Pass As Global.System.Nullable(Of Boolean), ByVal Original_Date As Global.System.Nullable(Of Date), ByVal Original_Id As Integer) As Integer
+            Return Me.Update(cst_id, Score, Pass, _Date, Original_cst_id, Original_Score, Original_Pass, Original_Date, Original_Id, Original_Id)
         End Function
     End Class
     

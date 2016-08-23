@@ -92,6 +92,7 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </ApplicationDefinition>
+    <Compile Include="customer.vb" />
     <Compile Include="customer\newuser.xaml.vb">
       <DependentUpon>newuser.xaml</DependentUpon>
     </Compile>
@@ -196,6 +197,13 @@
     <None Include="bin\Debug\databaseDataSet.xss">
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="bin\Release\databaseDataSet.xsc">
+      <DependentUpon>databaseDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bin\Release\databaseDataSet.xsd" />
+    <None Include="bin\Release\databaseDataSet.xss">
+      <DependentUpon>databaseDataSet.xsd</DependentUpon>
     </None>
     <None Include="databaseDataSet.xsc">
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
