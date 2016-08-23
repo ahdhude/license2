@@ -39,27 +39,34 @@ Public Class newuser
 
 
     Private Sub AtollComboBox_LostKeyboardFocus(sender As Object, e As KeyboardFocusChangedEventArgs) Handles AtollComboBox.LostKeyboardFocus
-        combo_island.Items.Clear()
-        Dim atoll_id As Integer
-        atoll_id = AtollComboBox.SelectedValue
-        Dim island As String
-        Dim atollcount As Integer
-        Dim index As Integer = 0
+
+        If AtollComboBox.Text = Nothing Then
+        Else
+
+            combo_island.Items.Clear()
+            Dim atoll_id As Integer
+            atoll_id = AtollComboBox.SelectedValue
+            Dim island As String
+            Dim atollcount As Integer
+            Dim index As Integer = 0
 
 
 
-        Dim db As New databaseDataSetTableAdapters.IslandTableAdapter
+            Dim db As New databaseDataSetTableAdapters.IslandTableAdapter
 
-        atollcount = db.GetDataBy(atoll_id).Count
-
-
-        Do
-            island = db.GetDataBy(atoll_id).Rows(index).Item(1)
-            combo_island.Items.Add(island)
+            atollcount = db.GetDataBy(atoll_id).Count
 
 
-            index += 1
-        Loop Until index = atollcount
+            Do
+                island = db.GetDataBy(atoll_id).Rows(index).Item(1)
+                combo_island.Items.Add(island)
+
+
+                index += 1
+            Loop Until index = atollcount
+
+        End If
+
 
     End Sub
 
@@ -286,4 +293,8 @@ Public Class newuser
 
     End Function
 
+    Private Sub combo_island_GotFocus(sender As Object, e As RoutedEventArgs) Handles combo_island.GotFocus
+
+
+    End Sub
 End Class
