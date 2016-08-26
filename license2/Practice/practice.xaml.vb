@@ -29,24 +29,21 @@ Public Class practice
 
 
 
-    Sub question_load()
-
-        If q_num = 5 Then ''USE form what happens when all question displayed
-
-            Call updatefinalscore()
+    Function question_load()
 
 
-
-            End
-        End If
 
         label_numb.Content = q_num
+
         Dim db As New databaseDataSetTableAdapters.QuestionTableAdapter
         question.Text = db.GetData(q_num).Rows(0).Item(1)
 
 
 
-    End Sub
+
+
+
+    End Function
 
     Private Sub button_Click(sender As Object, e As RoutedEventArgs) Handles button.Click
         If (ans1.IsChecked) Then
@@ -68,12 +65,21 @@ Public Class practice
 
         End If
 
-        Call correct()
 
 
         q_num = q_num + 1
-        Call question_load()
-        Call ans_load()
+        If q_num = 5 Then 'whhen all question displayed
+            Call updatefinalscore()
+
+            Close()
+        Else
+            Call correct()
+            Call question_load()
+            Call ans_load()
+
+
+        End If
+
 
 
 
