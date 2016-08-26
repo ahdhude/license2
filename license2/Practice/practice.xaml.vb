@@ -69,9 +69,13 @@ Public Class practice
 
         q_num = q_num + 1
         If q_num = 5 Then 'whhen all question displayed
+            Call correct()
             Call updatefinalscore()
 
             Close()
+            Dim scoresheet As New result
+            scoresheet.Show()
+
         Else
             Call correct()
             Call question_load()
@@ -87,6 +91,10 @@ Public Class practice
     End Sub
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
+
+
+
+
 
         Call data_score_clear()
 
@@ -106,6 +114,7 @@ Public Class practice
 
     Sub correct()
 
+        q_num = q_num - 1
 
 
         Dim dt As New databaseDataSetTableAdapters.ScoreTableAdapter
@@ -114,21 +123,22 @@ Public Class practice
             cans = db.GetDataBy(q_num).Rows(0).Item(1)
 
 
-            If cans = slcans Then
-                dt.Insert(True, q_num)
+
+        If cans = slcans Then
+            dt.Insert(1, q_num)
 
 
 
 
 
         Else
-                dt.Insert(False, q_num)
+            dt.Insert(0, q_num)
 
 
-            End If
+        End If
 
 
-
+        q_num = q_num + 1
 
 
 
@@ -167,16 +177,28 @@ Public Class practice
 
 
 
-        fullscore = dt.GetDataBy1.Rows.Count
-        mandscore = dt.GetDataBy2.Rows.Count
-        finalscore = fullscore + mandscore / 100
+        fullscore = ((dt.GetDataBy1.Rows.Count / 4) * 100)
+
+
+        mandscore = ((dt.GetDataBy2.Rows.Count / 2) * 100) / 100 * 25
+
+
+        finalscore = dt.GetDataBy1.Rows.Count - dt.GetDataBy2.Rows.Count
+
+
+        score.totscore = fullscore
+        score.mandscore = mandscore
+        score.ansscore = ((finalscore / 2) * 100) / 100 * 75
+
+
+
 
         Dim pass As New databaseDataSetTableAdapters.FinalScoreTableAdapter
 
 
 
 
-        If mandscore = 5 And finalscore >= 75 Then
+        If mandscore = 25 And finalscore >= 75 Then
 
 
 
@@ -201,8 +223,10 @@ Public Class practice
 
     Sub data_score_clear()
 
-        Dim score As New databaseDataSetTableAdapters.ScoreTableAdapter
-        score.GetData().Clear()
+        Dim score As New databaseDataSet
+
+
+        score.Score.Clear()
 
 
     End Sub
