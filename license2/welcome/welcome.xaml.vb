@@ -20,6 +20,9 @@ Public Class welcome
         Id_cardComboBox.Text = Nothing
         stack_customerinfo.Visibility = System.Windows.Visibility.Hidden
 
+        Call clearscore()
+
+
 
 
 
@@ -186,4 +189,20 @@ Public Class welcome
         CustomerViewSource.View.MoveCurrentToFirst()
         Id_cardComboBox.Text = Nothing
     End Sub
+
+
+    Function clearscore()
+        Dim score As New databaseDataSetTableAdapters.ScoreTableAdapter
+        Dim scoreid As Integer = 1
+
+
+        Do
+            score.UpdateQuery1(scoreid)
+            scoreid = scoreid + 1
+
+        Loop Until scoreid = 5
+
+
+
+    End Function
 End Class

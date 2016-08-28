@@ -120,19 +120,20 @@ Public Class practice
         Dim dt As New databaseDataSetTableAdapters.ScoreTableAdapter
 
         Dim db As New databaseDataSetTableAdapters.AnswerTableAdapter
-            cans = db.GetDataBy(q_num).Rows(0).Item(1)
+        cans = db.GetDataBy(q_num).Rows(0).Item(1)
 
 
 
         If cans = slcans Then
-            dt.Insert(1, q_num)
+            dt.UpdateQuery(1, q_num, customer.selected_id, q_num)
+
 
 
 
 
 
         Else
-            dt.Insert(0, q_num)
+            dt.UpdateQuery(0, q_num, customer.selected_id, q_num)
 
 
         End If
@@ -173,17 +174,17 @@ Public Class practice
 
         Dim dt As New databaseDataSetTableAdapters.ScoreTableAdapter
 
-        Dim tb As New databaseDataSetTableAdapters.FinalScoreTableAdapter
 
 
 
-        fullscore = ((dt.GetDataBy1.Rows.Count / 4) * 100)
+
+        fullscore = ((dt.GetDataBy1(customer.selected_id).Count / 4) * 100)
 
 
-        mandscore = ((dt.GetDataBy2.Rows.Count / 2) * 100) / 100 * 25
+        mandscore = (((dt.GetDataBy21(customer.selected_id).Rows.Count / 2) * 100) / 100) * 25
 
 
-        finalscore = dt.GetDataBy1.Rows.Count - dt.GetDataBy2.Rows.Count
+        finalscore = dt.GetDataBy1(customer.selected_id).Rows.Count - dt.GetDataBy21(customer.selected_id).Rows.Count
 
 
         score.totscore = fullscore
@@ -223,10 +224,9 @@ Public Class practice
 
     Sub data_score_clear()
 
-        Dim score As New databaseDataSet
 
 
-        score.Score.Clear()
+
 
 
     End Sub
