@@ -9,7 +9,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>license2</RootNamespace>
     <AssemblyName>license2</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MyType>Custom</MyType>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
@@ -27,6 +27,7 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -63,7 +64,13 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="InfragisticsWPF4.DataPresenter.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="InfragisticsWPF4.Editors.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="InfragisticsWPF4.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
       <Private>True</Private>
@@ -72,7 +79,12 @@
       <HintPath>..\packages\MaterialDesignThemes.2.0.0.638\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System" />
@@ -81,6 +93,8 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -93,6 +107,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </ApplicationDefinition>
     <Compile Include="customer.vb" />
+    <Compile Include="customer\allcustomers.xaml.vb">
+      <DependentUpon>allcustomers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="customer\newuser.xaml.vb">
       <DependentUpon>newuser.xaml</DependentUpon>
     </Compile>
@@ -100,16 +117,34 @@
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="Main.xaml.vb">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Practice\practice.xaml.vb">
       <DependentUpon>practice.xaml</DependentUpon>
     </Compile>
     <Compile Include="result\result.xaml.vb">
       <DependentUpon>result.xaml</DependentUpon>
     </Compile>
+    <Compile Include="result\resultslip.Designer.vb">
+      <DependentUpon>resultslip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="result\resultslip.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="result\score.vb" />
     <Compile Include="welcome\welcome.xaml.vb">
       <DependentUpon>welcome.xaml</DependentUpon>
     </Compile>
+    <Page Include="customer\allcustomers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="customer\newuser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,10 +152,6 @@
     <Page Include="login\login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Compile Include="Application.xaml.vb">
       <DependentUpon>Application.xaml</DependentUpon>
@@ -136,10 +167,10 @@
     <Compile Include="login\login.xaml.vb">
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.vb">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Practice\practice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,11 +211,6 @@
       <VBMyExtensionTemplateID>Microsoft.VisualBasic.WPF.MyExtension</VBMyExtensionTemplateID>
       <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
     </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -192,8 +218,14 @@
     </Compile>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="result\resultrep.rdlc" />
+    <EmbeddedResource Include="result\resultslip.resx">
+      <DependentUpon>resultslip.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="bin\Debug\databaseDataSet.xsc">
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
@@ -227,6 +259,7 @@
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
@@ -248,6 +281,13 @@
       <DependentUpon>database.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\1_a1.bmp" />
+    <Resource Include="Resources\1_a2.bmp" />
+    <Resource Include="Resources\1_a3.bmp" />
+    <Resource Include="Resources\1_a4.bmp" />
+    <Resource Include="IMAGES\1.bmp" />
+    <None Include="Resources\1.jpg" />
+    <None Include="Resources\DOWNLOAD.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -261,5 +301,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

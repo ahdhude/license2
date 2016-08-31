@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:license2"
         mc:Ignorable="d"
-        Title="result" Height="464.17" Width="543.617" Loaded="Window_Loaded">
+        Title="result" Height="470.17" Width="543.617" Loaded="Window_Loaded">
     <Grid>
         <Rectangle HorizontalAlignment="Left" Height="128" Margin="26,243,0,0" VerticalAlignment="Top" Width="490" Fill="#FFBAE1F3"/>
 
         <Label x:Name="label" Content="Mandotory" HorizontalAlignment="Left" Margin="32,243,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Label x:Name="label1" Content="Rules/Regulation" HorizontalAlignment="Left" Margin="32,284,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Label x:Name="label2" Content="Overall" HorizontalAlignment="Left" Margin="32,326,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label_mandotory" Content="Label" HorizontalAlignment="Left" Margin="432,243,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label_rules" Content="Label" HorizontalAlignment="Left" Margin="432,284,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label_overall" Content="Label" HorizontalAlignment="Left" Margin="432,326,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_mandotory" Content="Label" HorizontalAlignment="Left" Margin="360,243,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_rules" Content="Label" HorizontalAlignment="Left" Margin="360,285,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_overall" Content="Label" HorizontalAlignment="Left" Margin="360,327,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="102" Margin="122,128,0,0" VerticalAlignment="Top" Width="287" RenderTransformOrigin="0.34,0.215"/>
         <Label x:Name="label_pass" Content="PASS" HorizontalAlignment="Left" Margin="198,140,0,0" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" RenderTransformOrigin="0.513,0.007" Height="74" Width="144"/>
         <Button x:Name="button_print" Content="PRINT" HorizontalAlignment="Left" Margin="229,385,0,0" VerticalAlignment="Top" Width="75"/>
@@ -22,6 +22,9 @@
         <Label x:Name="label_Idnun" Content="Label" HorizontalAlignment="Left" Margin="26,41,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="label_address" Content="Label" HorizontalAlignment="Left" Margin="26,69,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="label_island" Content="Label" HorizontalAlignment="Left" Margin="26,95,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <Label x:Name="label_mandotory_Copy" Content="/5" HorizontalAlignment="Left" Margin="433,243,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_mandotory_Copy1" Content="/35" HorizontalAlignment="Left" Margin="433,284,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_mandotory_Copy2" Content="/40" HorizontalAlignment="Left" Margin="433,326,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
 
     </Grid>
 </Window>

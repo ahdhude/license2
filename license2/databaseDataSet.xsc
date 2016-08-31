@@ -9,14 +9,25 @@
     <TableUISetting Name="customer">
       <ColumnUISettings>
         <ColumnUISetting Name="Id card">
-          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows:WPF" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-              <BindableControlInfo Name="ComboBox" Type="System.Windows.Controls.ComboBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-            </ControlSetting></ControlSettings>
+          <ControlSettings>
+            <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+              <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+            </ControlSetting>
+          </ControlSettings>
+        </ColumnUISetting>
+        <ColumnUISetting Name="Dob">
+          <ControlSettings>
+            <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+              <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+            </ControlSetting>
+          </ControlSettings>
         </ColumnUISetting>
         <ColumnUISetting Name="Island">
-          <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows:WPF" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-              <BindableControlInfo Name="ComboBox" Type="System.Windows.Controls.ComboBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-            </ControlSetting></ControlSettings>
+          <ControlSettings>
+            <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+              <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+            </ControlSetting>
+          </ControlSettings>
         </ColumnUISetting>
       </ColumnUISettings>
     </TableUISetting>
@@ -31,6 +42,17 @@
           <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows:WPF" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
               <BindableControlInfo Name="ComboBox" Type="System.Windows.Controls.ComboBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
             </ControlSetting></ControlSettings>
+        </ColumnUISetting>
+      </ColumnUISettings>
+    </TableUISetting>
+    <TableUISetting Name="DataTable1">
+      <ColumnUISettings>
+        <ColumnUISetting Name="Dob">
+          <ControlSettings>
+            <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+              <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+            </ControlSetting>
+          </ControlSettings>
         </ColumnUISetting>
       </ColumnUISettings>
     </TableUISetting>
