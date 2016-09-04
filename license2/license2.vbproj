@@ -113,6 +113,9 @@
     <Compile Include="customer\newuser.xaml.vb">
       <DependentUpon>newuser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="customer\Window1.xaml.vb">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="databaseDataSet.vb">
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -146,6 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="customer\newuser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="customer\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
