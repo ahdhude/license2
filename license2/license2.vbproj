@@ -68,6 +68,18 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Infragistics4.Documents.Excel.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Documents.IO.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Shared.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.Misc.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinFormattedText.WordWriter.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="Infragistics4.Win.UltraWinGrid.ExcelExport.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinGrid.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.UltraWinGrid.WordWriter.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Infragistics4.Win.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" />
+    <Reference Include="InfragisticsWPF4.Controls.Editors.XamCalendar.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="InfragisticsWPF4.Controls.Menus.XamMenu.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="InfragisticsWPF4.Controls.Schedules.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="InfragisticsWPF4.DataPresenter.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="InfragisticsWPF4.Editors.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="InfragisticsWPF4.v15.1, Version=15.1.20151.1000, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
@@ -83,6 +95,9 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -107,19 +122,26 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </ApplicationDefinition>
     <Compile Include="customer.vb" />
-    <Compile Include="customer\allcustomers.xaml.vb">
-      <DependentUpon>allcustomers.xaml</DependentUpon>
+    <Compile Include="customer\allcust.Designer.vb">
+      <DependentUpon>allcust.vb</DependentUpon>
+    </Compile>
+    <Compile Include="customer\allcust.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="customer\customerReport.Designer.vb">
+      <DependentUpon>customerReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="customer\customerReport.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="customer\newuser.xaml.vb">
       <DependentUpon>newuser.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="customer\Window1.xaml.vb">
-      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Compile Include="databaseDataSet.vb">
       <DependentUpon>databaseDataSet.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="DataGridPrinter.vb" />
     <Compile Include="Main.xaml.vb">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
@@ -144,15 +166,7 @@
     <Compile Include="welcome\welcome.xaml.vb">
       <DependentUpon>welcome.xaml</DependentUpon>
     </Compile>
-    <Page Include="customer\allcustomers.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="customer\newuser.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="customer\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -223,6 +237,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="customer\allcust.resx">
+      <DependentUpon>allcust.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customer\customerReport.resx">
+      <DependentUpon>customerReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
@@ -230,7 +251,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Licenses.licx" />
-    <EmbeddedResource Include="result\resultrep.rdlc" />
+    <EmbeddedResource Include="result\resultrep.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="result\resultslip.resx">
       <DependentUpon>resultslip.vb</DependentUpon>
     </EmbeddedResource>
