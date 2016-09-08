@@ -142,6 +142,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataGridPrinter.vb" />
+    <Compile Include="EXAM_Practice\exampractice.xaml.vb">
+      <DependentUpon>exampractice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Main.xaml.vb">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
       <DependentUpon>welcome.xaml</DependentUpon>
     </Compile>
     <Page Include="customer\newuser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EXAM_Practice\exampractice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
