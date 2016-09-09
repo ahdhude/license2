@@ -4,4 +4,9 @@
         alcst.Show()
 
     End Sub
+
+    Private Sub button1_Click(sender As Object, e As RoutedEventArgs) Handles button1.Click
+        Dim CST As New practice
+        CST.Show()
+    End Sub
 End Class

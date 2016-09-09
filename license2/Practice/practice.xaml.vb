@@ -3,8 +3,16 @@ Imports System.IO
 Imports System.IO.FileStream
 Imports System.Drawing.Imaging
 Imports System.Windows.Controls
+Imports System.Threading
+Imports System.Windows.Threading
 
 Public Class practice
+
+    Private timer As DispatcherTimer
+    Private i As Integer = 1800
+    Dim format As String = " hh:mm:ss"
+
+
     Dim q_num As Integer = 1
     Dim cans As String
     Dim slcans As String
@@ -102,6 +110,10 @@ Public Class practice
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
 
+        Dim dt As DispatcherTimer = New DispatcherTimer()
+        AddHandler dt.Tick, AddressOf dispatcherTimer_Tick
+        dt.Interval = New TimeSpan(0, 0, 1)
+        dt.Start()
 
 
 
@@ -305,5 +317,37 @@ Public Class practice
 
 
 
+
+
+
+
+
+
+    Public Sub dispatcherTimer_Tick(ByVal sender As Object, ByVal e As EventArgs)
+
+        i = i - 1
+        If i = 0 Then
+
+            Me.stack_ans.IsEnabled = False
+            MsgBox("Time Up!")
+            Me.Close()
+
+
+
+
+
+
+        End If
+
+        Dim hms = TimeSpan.FromSeconds(i)
+        Dim h = hms.Hours.ToString
+        Dim m = hms.Minutes.ToString
+        Dim s = hms.Seconds.ToString
+        mytextBlock.Text = h + ":" + m + ":" + s
+
+
+
+
+    End Sub
 
 End Class

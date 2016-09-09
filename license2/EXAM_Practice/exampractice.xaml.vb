@@ -30,6 +30,7 @@ Public Class exampractice
 
 
     Private Function questionload()
+        label.Visibility = Visibility = Visibility.Hidden
 
         label_numbx.Content = q_num
 
@@ -88,8 +89,7 @@ Public Class exampractice
 
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
-        Call questionload()
-        Call ansloadx()
+
 
 
 
@@ -100,6 +100,8 @@ Public Class exampractice
 
 
     Sub correct()
+
+        label.Visibility = Visibility.Visible
 
 
 
@@ -113,6 +115,8 @@ Public Class exampractice
 
         If cans = slcans Then
 
+            label.Foreground = Brushes.Blue
+
             label.Content = "ރަގަޅު"
 
 
@@ -120,6 +124,7 @@ Public Class exampractice
 
 
         Else
+            label.Foreground = Brushes.Red
 
             label.Content = "ނުބައި"
 
@@ -134,25 +139,25 @@ Public Class exampractice
 
     Private Sub ans2x_Checked(sender As Object, e As RoutedEventArgs) Handles ans2x.Checked
 
-        slcans = slcans = ans_2x.Text
+        slcans = ans_2x.Text
         Call correct()
 
 
     End Sub
 
     Private Sub ans1x_Checked(sender As Object, e As RoutedEventArgs) Handles ans1x.Checked
-        slcans = slcans = ans_1x.Text
+        slcans = ans_1x.Text
         Call correct()
 
     End Sub
 
     Private Sub ans3x_Checked(sender As Object, e As RoutedEventArgs) Handles ans3x.Checked
-        slcans = slcans = ans_3x.Text
+        slcans = ans_3x.Text
         Call correct()
     End Sub
 
     Private Sub ans4x_Checked(sender As Object, e As RoutedEventArgs) Handles ans4x.Checked
-        slcans = slcans = ans_4x.Text
+        slcans = ans_4x.Text
         Call correct()
     End Sub
 
@@ -209,5 +214,10 @@ Public Class exampractice
 
 
 
+    End Sub
+
+    Private Sub Window_Loaded_1(sender As Object, e As RoutedEventArgs)
+        Call questionload()
+        Call ansloadx()
     End Sub
 End Class
