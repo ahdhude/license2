@@ -26,10 +26,58 @@
             </ResourceDictionary.MergedDictionaries>
             <local:databaseDataSet x:Key="DatabaseDataSet"/>
             <CollectionViewSource x:Key="CustomerViewSource" Source="{Binding customer, Source={StaticResource DatabaseDataSet}}"/>
+            <Color x:Key="Color1">#FF673AB7</Color>
+            <Storyboard x:Key="Storyboard1">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="listBox">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="toggleButton">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="OnChecked1">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="listBox">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="304"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="toggleButton">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="270"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="OnUnchecked1">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="listBox">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="toggleButton">
+                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
         </ResourceDictionary>
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ToggleButton.Unchecked" SourceName="toggleButton">
+            <BeginStoryboard x:Name="OnUnchecked1_BeginStoryboard" Storyboard="{StaticResource OnUnchecked1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ToggleButton.Checked" SourceName="toggleButton">
+            <BeginStoryboard x:Name="OnChecked1_BeginStoryboard" Storyboard="{StaticResource OnChecked1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="textBlock">
+            <BeginStoryboard x:Name="OnUnchecked1_BeginStoryboard1" Storyboard="{StaticResource OnUnchecked1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="textBlock1">
+            <BeginStoryboard x:Name="OnUnchecked1_BeginStoryboard2" Storyboard="{StaticResource OnUnchecked1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown" SourceName="textBlock2">
+            <BeginStoryboard x:Name="OnUnchecked1_BeginStoryboard3" Storyboard="{StaticResource OnUnchecked1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseLeftButtonDown">
+            <BeginStoryboard x:Name="OnUnchecked1_BeginStoryboard4" Storyboard="{StaticResource OnUnchecked1}"/>
+        </EventTrigger>
+    </Window.Triggers>
 
-    <Grid>
+    <Grid x:Name="grid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="32*"/>
             <ColumnDefinition Width="57*"/>
@@ -40,15 +88,18 @@
             <ColumnDefinition Width="34*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="15*"/>
-            <RowDefinition Height="146*"/>
+            <RowDefinition Height="12"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="126*"/>
             <RowDefinition Height="60*"/>
             <RowDefinition Height="57*"/>
             <RowDefinition Height="121*"/>
             <RowDefinition Height="70*"/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="5" DataContext="{StaticResource CustomerViewSource}" >
+
+        <StackPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="5" DataContext="{StaticResource CustomerViewSource}" >
             <ComboBox x:Name="Id_cardComboBox" DisplayMemberPath="Id card" HorizontalAlignment="Stretch"  ItemsSource="{Binding}" VerticalAlignment="Top" FontSize="18" IsEditable="True" MaxDropDownHeight="150" >
                 <ComboBox.ItemsPanel>
                     <ItemsPanelTemplate>
@@ -57,7 +108,7 @@
                 </ComboBox.ItemsPanel>
             </ComboBox>
         </StackPanel>
-        <StackPanel Grid.Column="6" Grid.Row="5" VerticalAlignment="Stretch"   >
+        <StackPanel Grid.Column="6" Grid.Row="7" VerticalAlignment="Stretch"   >
             <materialDesign:PopupBox Style="{StaticResource MaterialDesignMultiFloatingActionPopupBox}" 
 				PlacementMode="TopAndAlignLeftEdges"
 				ToolTipService.Placement="Right"
@@ -77,29 +128,89 @@
                 </StackPanel>
             </materialDesign:PopupBox>
         </StackPanel>
-        <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="3">
-            <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch" Height="152"  />
+        <StackPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="3">
+            <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch" Height="127"  />
         </StackPanel>
-        <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="3" VerticalAlignment="Stretch" >
+        <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="5" VerticalAlignment="Stretch" >
             <Button x:Name="btn_exam" Content="Exam" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         </StackPanel>
-        <StackPanel Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="3" VerticalAlignment="Stretch" >
+        <StackPanel Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="5" VerticalAlignment="Stretch" >
             <Button x:Name="btn_practice" Content="Practice" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         </StackPanel>
-        <Grid x:Name="Grid1" Grid.Column="1" DataContext="{StaticResource CustomerViewSource}" HorizontalAlignment="Left" Margin="16,33,0,0" Grid.Row="4" VerticalAlignment="Top" Height="0" Width="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-        </Grid>
-        <StackPanel x:Name="stack_customerinfo" Grid.ColumnSpan="3" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch">
+        <StackPanel x:Name="stack_customerinfo" Grid.ColumnSpan="3" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="6" VerticalAlignment="Stretch">
             <Label x:Name="label_name" Content="" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
             <Label x:Name="label_address" Content="" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
             <Label x:Name="label_island" Content="" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
             <Label x:Name="label_contact" Content="" FontWeight="Bold" Margin="0,4,0,0" FontSize="14"/>
+        </StackPanel>
+
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Margin="-307,-0.167,0,0.166" Width="298.359" Grid.RowSpan="8" Height="{Binding ActualHeight, ElementName=grid}" d:LayoutOverrides="TopMargin, BottomMargin" RenderTransformOrigin="0.5,0.5" Background="#FF673AB7">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+            <TreeViewItem x:Name="treeViewItem" Header="Customer"   Margin="0,45,0,0" IsExpanded="True" FontSize="20" FontFamily="Roboto" Foreground="White">
+                <TreeViewItem>
+                    <TreeViewItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Viewbox Width="16" Height="16">
+                                <Canvas Width="24" Height="24">
+                                    <materialDesign:PackIcon Kind="AccountPlus"    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="24" Width="24" Foreground="White"  />
+
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock x:Name="textBlock" Margin="8 0 0 0" Foreground="#FFF7F7F7"><Run Text="Add Customer"/></TextBlock>
+                        </StackPanel>
+                    </TreeViewItem.Header>
+
+                </TreeViewItem>
+                <TreeViewItem>
+                    <TreeViewItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Viewbox Width="16" Height="16">
+                                <Canvas Width="24" Height="24">
+                                    <materialDesign:PackIcon Kind="AccountOff"    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="24" Width="24" Foreground="White"  />
+
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock x:Name="textBlock1" Margin="8 0 0 0" Foreground="White"><Run Text="View \ Edit Customer"/></TextBlock>
+                        </StackPanel>
+                    </TreeViewItem.Header>
+
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem x:Name="treeViewItem_Copy" Header="Exam" IsExpanded="True" FontSize="20" FontFamily="Roboto" Foreground="White">
+                <TreeViewItem>
+                    <TreeViewItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Viewbox Width="16" Height="16">
+                                <Canvas Width="24" Height="24">
+                                    <materialDesign:PackIcon Kind="Pen"    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="24" Width="24" Foreground="White"  />
+
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock x:Name="textBlock2" Margin="8 0 0 0" Foreground="White"><Run Text="View Exam Details"/></TextBlock>
+                        </StackPanel>
+                    </TreeViewItem.Header>
+
+                </TreeViewItem>
+            </TreeViewItem>
+        </ListBox>
+        <StackPanel x:Name="stackPanelx" Grid.ColumnSpan="7" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Background="#FF673AB7" Margin="0,-0.333,0,0.333" Grid.RowSpan="2">
+            <ToggleButton x:Name="toggleButton" Style="{StaticResource MaterialDesignHamburgerToggleButton}" RenderTransformOrigin="0.464,0.5"  HorizontalAlignment="Left" Width="27" Height="{Binding ActualHeight, ElementName=stackPanelx}" VerticalAlignment="Center" Foreground="White" >
+                <ToggleButton.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ToggleButton.RenderTransform>
+            </ToggleButton>
         </StackPanel>
     </Grid>
 </Window>
