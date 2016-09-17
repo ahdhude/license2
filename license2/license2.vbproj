@@ -319,13 +319,30 @@
       <DependentUpon>database.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\21.bmp" />
+    <Resource Include="Resources\30_a1.bmp" />
+    <Resource Include="Resources\30_a2.bmp" />
+    <Resource Include="Resources\30_a3.bmp" />
+    <Resource Include="Resources\30_a4.bmp" />
+    <Resource Include="Resources\32.bmp" />
+    <Resource Include="Resources\38.bmp" />
+    <Resource Include="Resources\40.bmp" />
+    <Resource Include="Resources\43.bmp" />
+    <Resource Include="Resources\45.bmp" />
+    <Resource Include="Resources\46.bmp" />
+    <Resource Include="Resources\47.bmp" />
+    <Resource Include="Resources\48.bmp" />
+    <Resource Include="Resources\49.bmp" />
+    <Resource Include="Resources\50.bmp" />
+    <Resource Include="Resources\52.bmp" />
+    <Resource Include="Resources\53.bmp" />
+    <Resource Include="Resources\54.bmp" />
+    <Resource Include="Resources\55.bmp" />
+    <Resource Include="Resources\56.bmp" />
+    <Resource Include="Resources\57.bmp" />
+    <Resource Include="Resources\58.bmp" />
     <Resource Include="login\13124593_478994962301558_3398885983606415613_n.png" />
-    <Resource Include="Resources\1_a1.bmp" />
-    <Resource Include="Resources\1_a2.bmp" />
-    <Resource Include="Resources\1_a3.bmp" />
-    <Resource Include="Resources\1_a4.bmp" />
     <Resource Include="IMAGES\1.bmp" />
-    <None Include="Resources\1.jpg" />
     <None Include="Resources\DOWNLOAD.jpg" />
   </ItemGroup>
   <ItemGroup>

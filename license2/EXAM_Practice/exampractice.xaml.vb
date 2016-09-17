@@ -30,7 +30,7 @@ Public Class exampractice
 
 
     Private Function questionload()
-        label.Visibility = Visibility = Visibility.Hidden
+        label.Visibility = Visibility.Hidden
 
         label_numbx.Content = q_num
 
@@ -67,7 +67,7 @@ Public Class exampractice
 
 
         q_num = q_num + 1
-        If q_num = 5 Then 'whhen all question displayed
+        If q_num = 58 Then 'whhen all question displayed
 
 
 
@@ -93,12 +93,7 @@ Public Class exampractice
 
 
 
-    Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
 
-        label.Visibility = Visibility = Visibility.Hidden
-
-
-    End Sub
 
 
 
@@ -223,6 +218,21 @@ Public Class exampractice
 
     Private Sub Window_Loaded_1(sender As Object, e As RoutedEventArgs)
         Call questionload()
+        Call unselect()
+
         Call ansloadx()
+        label.Visibility = Visibility.Hidden
+
+    End Sub
+
+
+    Private Sub unselect()
+        ans1x.IsChecked = False
+        ans2x.IsChecked = False
+        ans3x.IsChecked = False
+        ans4x.IsChecked = False
+
+
+
     End Sub
 End Class
