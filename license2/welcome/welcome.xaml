@@ -154,7 +154,7 @@
                 </TransformGroup>
             </ListBox.RenderTransform>
             <TreeViewItem x:Name="treeViewItem" Header="Customer"   Margin="0,45,0,0" IsExpanded="True" FontSize="20" FontFamily="Roboto" Foreground="White">
-                <TreeViewItem>
+                <TreeViewItem x:Name="add_Cst_item">
                     <TreeViewItem.Header>
                         <StackPanel Orientation="Horizontal">
                             <Viewbox Width="16" Height="16">
@@ -163,7 +163,7 @@
 
                                 </Canvas>
                             </Viewbox>
-                            <TextBlock x:Name="textBlock" Margin="8 0 0 0" Foreground="#FFF7F7F7"><Run Text="Add Customer"/></TextBlock>
+                            <TextBlock x:Name="textBlock" Margin="8 0 0 0" Foreground="#FFF7F7F7" Cursor="Hand"><Run Text="Add Customer"/></TextBlock>
                         </StackPanel>
                     </TreeViewItem.Header>
 
@@ -177,7 +177,7 @@
 
                                 </Canvas>
                             </Viewbox>
-                            <TextBlock x:Name="textBlock1" Margin="8 0 0 0" Foreground="White"><Run Text="View \ Edit Customer"/></TextBlock>
+                            <TextBlock x:Name="textBlock1" Margin="8 0 0 0" Foreground="White" Cursor="Hand"><Run Text="View \ Edit Customer"/></TextBlock>
                         </StackPanel>
                     </TreeViewItem.Header>
 
@@ -193,7 +193,7 @@
 
                                 </Canvas>
                             </Viewbox>
-                            <TextBlock x:Name="textBlock2" Margin="8 0 0 0" Foreground="White"><Run Text="View Exam Details"/></TextBlock>
+                            <TextBlock x:Name="textBlock2" Margin="8 0 0 0" Foreground="White" Cursor="Hand"><Run Text="View Exam Details"/></TextBlock>
                         </StackPanel>
                     </TreeViewItem.Header>
 

@@ -319,6 +319,7 @@
       <DependentUpon>database.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="login\13124593_478994962301558_3398885983606415613_n.png" />
     <Resource Include="Resources\1_a1.bmp" />
     <Resource Include="Resources\1_a2.bmp" />
     <Resource Include="Resources\1_a3.bmp" />

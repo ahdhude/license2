@@ -45,4 +45,13 @@
         Dim slip As New resultslip
         slip.Show()
     End Sub
+
+    Private Sub Window_Closed(sender As Object, e As EventArgs)
+
+        Dim wel As New welcome
+        wel.Show()
+
+
+
+    End Sub
 End Class

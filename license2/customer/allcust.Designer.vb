@@ -66,10 +66,10 @@ Partial Class allcust
         Me.CustomerBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.CustomerUltraGrid = New Infragistics.Win.UltraWinGrid.UltraGrid()
+        Me.CustomerBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.UltraGridPrintDocument1 = New Infragistics.Win.UltraWinGrid.UltraGridPrintDocument(Me.components)
         Me.CustomerTableAdapter = New license2.databaseDataSetTableAdapters.customerTableAdapter()
         Me.TableAdapterManager = New license2.databaseDataSetTableAdapters.TableAdapterManager()
-        Me.CustomerBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.CustomerBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CustomerBindingNavigator.SuspendLayout()
         CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -286,6 +286,11 @@ Partial Class allcust
         Me.CustomerUltraGrid.Size = New System.Drawing.Size(597, 397)
         Me.CustomerUltraGrid.TabIndex = 1
         '
+        'CustomerBindingSource1
+        '
+        Me.CustomerBindingSource1.DataMember = "customer"
+        Me.CustomerBindingSource1.DataSource = Me.DatabaseDataSet
+        '
         'UltraGridPrintDocument1
         '
         Me.UltraGridPrintDocument1.Grid = Me.CustomerUltraGrid
@@ -310,11 +315,6 @@ Partial Class allcust
         Me.TableAdapterManager.UpdateOrder = license2.databaseDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         Me.TableAdapterManager.UserTableAdapter = Nothing
         '
-        'CustomerBindingSource1
-        '
-        Me.CustomerBindingSource1.DataMember = "customer"
-        Me.CustomerBindingSource1.DataSource = Me.DatabaseDataSet
-        '
         'allcust
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -332,8 +332,8 @@ Partial Class allcust
         CType(Me.CustomerBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DatabaseDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CustomerUltraGrid, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.UltraGridPrintDocument1, System.Configuration.IPersistComponentSettings).LoadComponentSettings()
         CType(Me.CustomerBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.UltraGridPrintDocument1, System.Configuration.IPersistComponentSettings).LoadComponentSettings()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

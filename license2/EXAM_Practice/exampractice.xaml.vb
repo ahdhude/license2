@@ -70,7 +70,12 @@ Public Class exampractice
         If q_num = 5 Then 'whhen all question displayed
 
 
+
+
             Close()
+
+            Dim wel2 As New welcome
+            wel2.Show()
 
 
 
@@ -90,7 +95,7 @@ Public Class exampractice
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
 
-
+        label.Visibility = Visibility = Visibility.Hidden
 
 
     End Sub

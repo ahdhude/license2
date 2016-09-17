@@ -77,9 +77,12 @@ Public Class login
 
 
             If saveduser = textbox_user.Text And hash = savedhash Then
-                'Dim userform As New users
-                'userform.Show()
-                '''ENTER NEW FORM HERE
+                Dim welcome As New welcome
+                welcome.Show()
+
+                Me.Hide()
+
+
             Else
                 MsgBox("password incorrect", MsgBoxStyle.Exclamation)
                 With password_box
@@ -91,6 +94,17 @@ Public Class login
         End Using
     End Sub
 
+    Private Sub password_box_KeyDown(sender As Object, e As KeyEventArgs) Handles password_box.KeyDown
+        If (e.Key = Key.Return) Then
+            Call btn_login_Click(sender, e)
 
+        End If
+    End Sub
 
+    Private Sub textbox_user_KeyDown(sender As Object, e As KeyEventArgs) Handles textbox_user.KeyDown
+        If (e.Key = Key.Return) Then
+            Call btn_login_Click(sender, e)
+
+        End If
+    End Sub
 End Class

@@ -121,29 +121,17 @@ Public Class welcome
     End Sub
 
     Private Sub btn_practice_Click(sender As Object, e As RoutedEventArgs) Handles btn_practice.Click
-        Call checkcount()
-
-        If Id_cardComboBox.Text = Nothing Then
-
-            Id_cardComboBox.Foreground = Brushes.Red
-            btn_practice.IsEnabled = False
-
-            Exit Sub
-        ElseIf count = 0 Then
-
-            Id_cardComboBox.Foreground = Brushes.Red
-            btn_practice.IsEnabled = False
-            Exit Sub
 
 
-        End If
+
+        Dim pra As exampractice = New exampractice
+        pra.Show()
+
+        Me.Close()
 
 
 
 
-        selected_id = Id_cardComboBox.Text
-        Dim f As practice = New practice
-        f.Show()
 
 
 
@@ -158,7 +146,7 @@ Public Class welcome
 
     Private Sub Id_cardComboBox_GotKeyboardFocus(sender As Object, e As KeyboardFocusChangedEventArgs) Handles Id_cardComboBox.GotKeyboardFocus
         stack_customerinfo.Visibility = System.Windows.Visibility.Hidden
-        btn_practice.IsEnabled = True
+        btn_exam.IsEnabled = True
 
     End Sub
 
@@ -166,7 +154,7 @@ Public Class welcome
         Call checkcount()
 
         If count = 0 Then
-            btn_practice.IsEnabled = False
+            btn_exam.IsEnabled = False
         End If
     End Sub
 
@@ -205,4 +193,79 @@ Public Class welcome
 
 
     End Function
+
+    Private Sub add_Cst_item_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles add_Cst_item.MouseLeftButtonDown
+        toggleButton.IsChecked = False
+        Dim f As newuser = New newuser
+        f.ShowDialog()
+
+
+    End Sub
+
+    Private Sub textBlock_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles textBlock.MouseLeftButtonDown
+        Dim x As BlurEffect = New BlurEffect
+        x.Radius = 4
+
+        Me.Effect = x
+        stack_customerinfo.Visibility = Visibility.Hidden
+        Id_cardComboBox.Text = Nothing
+
+        toggleButton.IsChecked = False
+        Dim f As newuser = New newuser
+        f.ShowDialog()
+    End Sub
+
+    Private Sub grid_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles grid.MouseLeftButtonDown
+
+        toggleButton.IsChecked = False
+
+    End Sub
+
+    Private Sub textBlock1_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles textBlock1.MouseLeftButtonDown
+
+        toggleButton.IsChecked = False
+        Dim allcst As allcust = New allcust
+        allcst.ShowDialog()
+        Me.Close()
+    End Sub
+
+    Private Sub btn_exam_Click(sender As Object, e As RoutedEventArgs) Handles btn_exam.Click
+        Call checkcount()
+
+        If Id_cardComboBox.Text = Nothing Then
+
+            Id_cardComboBox.Foreground = Brushes.Red
+            btn_practice.IsEnabled = False
+
+            Exit Sub
+        ElseIf count = 0 Then
+
+            Id_cardComboBox.Foreground = Brushes.Red
+            btn_practice.IsEnabled = False
+            Exit Sub
+
+
+        End If
+
+
+
+
+        selected_id = Id_cardComboBox.Text
+
+
+        Dim f As practice = New practice
+        f.Show()
+
+        Me.Close()
+
+
+
+    End Sub
+
+    Private Sub textBlock2_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles textBlock2.MouseLeftButtonDown
+        toggleButton.IsChecked = False
+        'Dim allexam As Window1 = New Window1
+        'allexam.ShowDialog()
+        Me.Close()
+    End Sub
 End Class

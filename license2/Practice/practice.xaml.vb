@@ -148,7 +148,7 @@ Public Class practice
 
         If cans = slcans Then
 
-
+            dt.UpdateQuery(1, q_num, customer.selected_id, q_num)
 
 
 
@@ -156,7 +156,7 @@ Public Class practice
 
         Else
 
-
+            dt.UpdateQuery(0, q_num, customer.selected_id, q_num)
 
         End If
 

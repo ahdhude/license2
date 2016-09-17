@@ -26,7 +26,10 @@ Public Class allcust
 
     End Sub
 
+    Private Sub allcust_FormClosed(sender As Object, e As Forms.FormClosedEventArgs) Handles MyBase.FormClosed
+        Dim wel1 As New welcome
+        wel1.Show()
 
 
-
+    End Sub
 End Class
