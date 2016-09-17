@@ -23,8 +23,8 @@
         <Label x:Name="label_address" Content="Label" HorizontalAlignment="Left" Margin="26,69,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="label_island" Content="Label" HorizontalAlignment="Left" Margin="26,95,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="label_mandotory_Copy" Content="/5" HorizontalAlignment="Left" Margin="433,243,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label_mandotory_Copy1" Content="/35" HorizontalAlignment="Left" Margin="433,284,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label_mandotory_Copy2" Content="/40" HorizontalAlignment="Left" Margin="433,326,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_mandotory_Copy1" Content="/52" HorizontalAlignment="Left" Margin="433,284,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_mandotory_Copy2" Content="/57" HorizontalAlignment="Left" Margin="433,326,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
 
     </Grid>
 </Window>

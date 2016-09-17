@@ -86,7 +86,7 @@ Public Class practice
 
 
         q_num = q_num + 1
-        If q_num = 5 Then 'whhen all question displayed
+        If q_num = 58 Then 'whhen all question displayed
             Call correct()
             Call updatefinalscore()
 
@@ -201,10 +201,10 @@ Public Class practice
 
 
 
-        fullscore = ((dt.GetDataBy1(customer.selected_id).Count / 4) * 100)
+        fullscore = ((dt.GetDataBy1(customer.selected_id).Count / 57) * 100)
 
 
-        mandscore = (((dt.GetDataBy21(customer.selected_id).Rows.Count / 2) * 100) / 100) * 25
+        mandscore = (((dt.GetDataBy21(customer.selected_id).Rows.Count / 5) * 100) / 100) * 25
 
 
         finalscore = dt.GetDataBy1(customer.selected_id).Rows.Count + dt.GetDataBy21(customer.selected_id).Rows.Count
@@ -212,7 +212,7 @@ Public Class practice
 
         score.totscore = fullscore
         score.mandscore = mandscore
-        score.ansscore = ((finalscore / 2) * 100) / 100 * 75
+        score.ansscore = ((finalscore / 52) * 100) / 100 * 75
 
         score.mandscorecount = mandscorecount
         score.anscorecount = otherscorecount

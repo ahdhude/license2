@@ -319,6 +319,8 @@
       <DependentUpon>database.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\wcmsg.PNG" />
+    <Resource Include="Resources\favicon.ico" />
     <Resource Include="Resources\21.bmp" />
     <Resource Include="Resources\30_a1.bmp" />
     <Resource Include="Resources\30_a2.bmp" />
@@ -340,7 +342,7 @@
     <Resource Include="Resources\55.bmp" />
     <Resource Include="Resources\56.bmp" />
     <Resource Include="Resources\57.bmp" />
-    <Resource Include="Resources\58.bmp" />
+    <Resource Include="Resources\33.bmp" />
     <Resource Include="login\13124593_478994962301558_3398885983606415613_n.png" />
     <Resource Include="IMAGES\1.bmp" />
     <None Include="Resources\DOWNLOAD.jpg" />
