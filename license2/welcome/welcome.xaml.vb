@@ -266,6 +266,11 @@ Public Class welcome
         toggleButton.IsChecked = False
         'Dim allexam As Window1 = New Window1
         'allexam.ShowDialog()
-        Me.Close()
+        Application.Current.Shutdown()
+    End Sub
+
+    Private Sub Window_Closing(sender As Object, e As ComponentModel.CancelEventArgs)
+
+
     End Sub
 End Class

@@ -7048,10 +7048,10 @@ Namespace databaseDataSetTableAdapters
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT        customer.Name, customer.[Id card], customer.Address, customer.Phone"& _ 
-                ", customer.License, Atoll.Name AS Expr1, Island.Name AS Expr2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            c"& _ 
-                "ustomer INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Atoll ON customer.Id = Atoll.Id INN"& _ 
-                "ER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Island ON customer.Island = Island.Id AND Atol"& _ 
-                "l.Id = Island.atoll_id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (customer.[Id card] = @idnum)"
+                ", customer.License, Island.Name AS Expr1, Atoll.Name AS Expr2"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            c"& _ 
+                "ustomer INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Island ON customer.Island = Island."& _ 
+                "Id INNER JOIN"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         Atoll ON Island.atoll_id = Atoll.Id"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHE"& _ 
+                "RE        (customer.[Id card] = @idnum)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@idnum", Global.System.Data.SqlDbType.VarChar, 7, Global.System.Data.ParameterDirection.Input, 0, 0, "Id card", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()

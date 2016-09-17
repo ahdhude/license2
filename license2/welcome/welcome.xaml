@@ -11,7 +11,7 @@
         
     mc:Ignorable="d" 
           
-    Title="welcome" Height="403.73" Width="588.059" Loaded="Window_Loaded" MinWidth="700" MinHeight="500" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseMove="Window_MouseMove" WindowState="Maximized" Icon="/license2;component/Resources/favicon.ico">
+    Title="welcome" Height="403.73" Width="588.059" Loaded="Window_Loaded" MinWidth="700" MinHeight="500" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseMove="Window_MouseMove" WindowState="Maximized" Icon="/license2;component/Resources/favicon.ico" Closing="Window_Closing">
 
     <Window.Resources>
         <ResourceDictionary>
