@@ -68,6 +68,8 @@ Public Class exampractice
 
 
 
+        itru = Nothing
+
         q_num = q_num + 1
         If q_num = 58 Then 'whhen all question displayed
 

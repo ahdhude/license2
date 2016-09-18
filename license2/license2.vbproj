@@ -309,9 +309,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="login\LOGIN.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="database.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -319,6 +316,7 @@
       <DependentUpon>database.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="login\LOGONEW.png" />
     <Resource Include="Resources\THINGS.ico" />
     <Resource Include="Resources\wcmsg.PNG" />
     <Resource Include="Resources\favicon.ico" />
@@ -344,7 +342,6 @@
     <Resource Include="Resources\56.bmp" />
     <Resource Include="Resources\57.bmp" />
     <Resource Include="Resources\33.bmp" />
-    <Resource Include="login\13124593_478994962301558_3398885983606415613_n.png" />
     <Resource Include="IMAGES\1.bmp" />
     <None Include="Resources\DOWNLOAD.jpg" />
   </ItemGroup>
