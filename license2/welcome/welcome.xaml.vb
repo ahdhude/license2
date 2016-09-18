@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Media.Effects
+﻿Imports System.Windows.Forms
+Imports System.Windows.Media.Effects
 
 
 Public Class welcome
@@ -263,14 +264,28 @@ Public Class welcome
     End Sub
 
     Private Sub textBlock2_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles textBlock2.MouseLeftButtonDown
+
+    End Sub
+
+
+
+    Private Sub textBlock3_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles textBlock3.MouseLeftButtonDown
+
         toggleButton.IsChecked = False
         'Dim allexam As Window1 = New Window1
         'allexam.ShowDialog()
-        Application.Current.Shutdown()
+        Select Case MsgBox("Are you sure you want to Exit", MsgBoxStyle.YesNoCancel, "Close")
+            Case MsgBoxResult.Yes
+                Application.Current.Shutdown()
+            Case MsgBoxResult.Cancel
+
+            Case MsgBoxResult.No
+
+        End Select
+
+
+
     End Sub
 
-    Private Sub Window_Closing(sender As Object, e As ComponentModel.CancelEventArgs)
 
-
-    End Sub
 End Class

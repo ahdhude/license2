@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="login" Height="317.556" Width="438.852" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Icon="/license2;component/Resources/THINGS.ico">
     <Window.Background>
-        <SolidColorBrush Color="{DynamicResource Color1}"/>
+        <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}"/>
     </Window.Background>
     <Window.Resources>
         <Color x:Key="Color1">#FF00BCD4</Color>

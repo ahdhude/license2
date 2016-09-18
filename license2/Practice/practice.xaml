@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:license2"
         xmlns:ig="http://schemas.infragistics.com/xaml" x:Class="practice"
         mc:Ignorable="d"
-        Title="practice" Height="658.128" Width="949.07" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded">
+        Title="practice" Height="658.128" Width="949.07" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded" Icon="/license2;component/Resources/THINGS.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="12*"/>
@@ -26,7 +26,7 @@
             <RowDefinition Height="16*"/>
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Grid.Column="5" Grid.ColumnSpan="3">
-            <TextBlock x:Name="mytextBlock"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="36"/>
+            <TextBlock x:Name="mytextBlock"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" FontSize="36" Background="White" Foreground="Red"/>
         </StackPanel>
         <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch"   >
             <Image x:Name="question_image" HorizontalAlignment="Stretch" Height="118" VerticalAlignment="Stretch" Stretch="UniformToFill" />
