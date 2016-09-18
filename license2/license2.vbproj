@@ -319,6 +319,7 @@
       <DependentUpon>database.mdf</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Resources\THINGS.ico" />
     <Resource Include="Resources\wcmsg.PNG" />
     <Resource Include="Resources\favicon.ico" />
     <Resource Include="Resources\21.bmp" />

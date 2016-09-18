@@ -11,7 +11,7 @@
         
     mc:Ignorable="d" 
           
-    Title="welcome" Height="403.73" Width="588.059" Loaded="Window_Loaded" MinWidth="700" MinHeight="500" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseMove="Window_MouseMove" WindowState="Maximized" Icon="/license2;component/Resources/favicon.ico" Closing="Window_Closing">
+    Title="welcome" Height="403.73" Width="588.059" Loaded="Window_Loaded" MinWidth="700" MinHeight="500" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" MouseMove="Window_MouseMove" WindowState="Maximized" Icon="/license2;component/Resources/THINGS.ico" Closing="Window_Closing">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -130,7 +130,7 @@
         </StackPanel>
         <StackPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="3">
             <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch" Height="127"  >
-                <Image x:Name="image" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Width="263" Source="/license2;component/Resources/wcmsg.PNG" />
+                <Image x:Name="image" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Width="263" Source="/license2;component/Resources/wcmsg.PNG" />
             </materialDesign:Card>
         </StackPanel>
         <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="5" VerticalAlignment="Stretch" >

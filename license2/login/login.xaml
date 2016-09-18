@@ -6,7 +6,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:license2"
         mc:Ignorable="d"
-        Title="login" Height="317.556" Width="438.852" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Icon="/license2;component/Resources/favicon.ico">
+        Title="login" Height="317.556" Width="438.852" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="None" Icon="/license2;component/Resources/THINGS.ico">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="54*"/>

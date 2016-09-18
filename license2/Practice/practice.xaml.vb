@@ -16,6 +16,9 @@ Public Class practice
     Dim q_num As Integer = 1
     Dim cans As String
     Dim slcans As String
+    Dim sltru As String = "True"
+    Dim itru As String
+
 
     Dim fullscore As Integer
     Dim mandscore As Integer
@@ -146,7 +149,7 @@ Public Class practice
 
 
 
-        If cans = slcans Then
+        If cans = slcans And itru = sltru Then
 
             dt.UpdateQuery(1, q_num, customer.selected_id, q_num)
 

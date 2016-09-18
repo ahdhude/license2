@@ -10,7 +10,9 @@ Imports System.Windows.Controls
 Public Class exampractice
     Dim q_num As Integer = 1
     Dim cans As String
+    Dim itru As String
     Dim slcans As String
+    Dim sltru As String = "True"
 
     Dim fullscore As Integer
     Dim mandscore As Integer
@@ -110,10 +112,10 @@ Public Class exampractice
 
         Dim db As New databaseDataSetTableAdapters.AnswerTableAdapter
         cans = db.GetDataBy(q_num).Rows(0).Item(1)
+        itru = db.GetDataBy(q_num).Rows(0).Item(2)
 
 
-
-        If cans = slcans Then
+        If cans = slcans And itru = sltru Then
 
             label.Foreground = Brushes.Blue
 
