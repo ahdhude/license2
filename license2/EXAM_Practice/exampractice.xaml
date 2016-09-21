@@ -31,11 +31,11 @@
         <StackPanel Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" Grid.ColumnSpan="2" UseLayoutRounding="True"     >
 
             <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch" Background="#FF2979FF"   >
-                <TextBlock x:Name="questionx" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="މިއަދަކީ ކޮންދުވަހެއް އަދި މިއަގުގެ މެނޫއަކީ ކޮބާ ނަމަކީ އަބްދު ﷲ އަދި މިދުވަދަ" VerticalAlignment="Center" FontSize="36" FlowDirection="RightToLeft" Height="137" LineHeight="36" FontFamily="Faruma" Padding="38,38,0,0" FontWeight="Bold" Background="#FF5A98FF"/>
+                <TextBlock x:Name="questionx" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="މިއަދަކީ ކޮންދުވަހެއް އަދި މިއަގުގެ މެނޫއަކީ ކޮބާ ނަމަކީ އަބްދު ﷲ އަދި މިދުވަދަ" VerticalAlignment="Center" FontSize="36" FlowDirection="RightToLeft" Height="137" LineHeight="36" FontFamily="Faruma" Padding="38,7,0,0" FontWeight="Bold" Background="#FF5A98FF"/>
             </materialDesign:Card>
         </StackPanel>
         <StackPanel Grid.Column="6" HorizontalAlignment="Stretch"  Grid.Row="1" VerticalAlignment="Stretch" />
-        <Label x:Name="question_num" Grid.Column="6" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontSize="24" FontWeight="Bold" Padding="15,63,25,5" >
+        <Label x:Name="question_num" Grid.Column="6" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontSize="24" FontWeight="Bold" Padding="15,13,25,5" >
             <Label x:Name="label_numbx" Content="1" Width="41" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Label>
         <StackPanel x:Name="stack_ans" Grid.Column="4"  Grid.Row="2" VerticalAlignment="Stretch"  Grid.ColumnSpan="3" Margin="0,17,0,0">

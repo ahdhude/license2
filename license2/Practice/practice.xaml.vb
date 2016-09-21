@@ -70,16 +70,20 @@ Public Class practice
         If (ans1.IsChecked) Then
             slcans = ans_1.Text
             ans1.IsChecked = False
+            ans1_card.Background = Brushes.CornflowerBlue
 
         ElseIf (ans2.IsChecked) Then
             slcans = ans_2.Text
             ans2.IsChecked = False
+            ans2_card.Background = Brushes.CornflowerBlue
         ElseIf (ans3.IsChecked) Then
             slcans = ans_3.Text
             ans3.IsChecked = False
+            ans3_card.Background = Brushes.CornflowerBlue
         ElseIf (ans4.IsChecked) Then
             slcans = ans_4.Text
             ans4.IsChecked = False
+            ans4_card.Background = Brushes.CornflowerBlue
         Else
             MsgBox("please select something")
             Exit Sub
@@ -180,17 +184,23 @@ Public Class practice
 
 
 
+
     End Sub
 
     Private Sub ans2_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles ans2.MouseLeftButtonDown
+
+
 
     End Sub
 
     Private Sub ans3_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles ans3.MouseLeftButtonDown
 
+
+
     End Sub
 
     Private Sub ans4_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles ans4.MouseLeftButtonDown
+
 
     End Sub
 
@@ -353,4 +363,64 @@ Public Class practice
 
     End Sub
 
+    Private Sub ans1_Checked(sender As Object, e As RoutedEventArgs) Handles ans1.Checked
+        ans2.IsChecked = False
+        ans3.IsChecked = False
+        ans4.IsChecked = False
+
+
+        ans1_card.Background = Brushes.Aqua
+        ans2_card.Background = Brushes.CornflowerBlue
+
+        ans3_card.Background = Brushes.CornflowerBlue
+
+        ans4_card.Background = Brushes.CornflowerBlue
+
+
+    End Sub
+
+    Private Sub ans2_Checked(sender As Object, e As RoutedEventArgs) Handles ans2.Checked
+        ans3.IsChecked = False
+        ans1.IsChecked = False
+        ans4.IsChecked = False
+
+
+        ans1_card.Background = Brushes.CornflowerBlue
+        ans2_card.Background = Brushes.Aqua
+
+        ans3_card.Background = Brushes.CornflowerBlue
+
+        ans4_card.Background = Brushes.CornflowerBlue
+    End Sub
+
+    Private Sub ans3_Checked(sender As Object, e As RoutedEventArgs) Handles ans3.Checked
+
+        ans2.IsChecked = False
+        ans1.IsChecked = False
+        ans4.IsChecked = False
+
+
+        ans1_card.Background = Brushes.CornflowerBlue
+        ans3_card.Background = Brushes.Aqua
+
+        ans2_card.Background = Brushes.CornflowerBlue
+
+        ans4_card.Background = Brushes.CornflowerBlue
+
+    End Sub
+
+    Private Sub ans4_Checked(sender As Object, e As RoutedEventArgs) Handles ans4.Checked
+
+        ans2.IsChecked = False
+        ans1.IsChecked = False
+        ans3.IsChecked = False
+
+
+        ans1_card.Background = Brushes.CornflowerBlue
+        ans4_card.Background = Brushes.Aqua
+
+        ans2_card.Background = Brushes.CornflowerBlue
+
+        ans3_card.Background = Brushes.CornflowerBlue
+    End Sub
 End Class
