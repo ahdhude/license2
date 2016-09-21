@@ -18,6 +18,10 @@ Public Class exampractice
     Dim mandscore As Integer
     Dim finalscore As Integer
 
+    Dim realans As Integer
+
+
+
 
     Public Function ansloadx()
         Dim db As New databaseDataSetTableAdapters.AnswerTableAdapter
@@ -66,6 +70,7 @@ Public Class exampractice
 
         End If
 
+        Call unselect()
 
 
         itru = Nothing
@@ -123,6 +128,11 @@ Public Class exampractice
 
             label.Content = "ރަގަޅު"
 
+            realans = 1
+
+
+
+
 
 
 
@@ -131,6 +141,7 @@ Public Class exampractice
             label.Foreground = Brushes.Red
 
             label.Content = "ނުބައި"
+            realans = 0
 
         End If
 
@@ -145,6 +156,29 @@ Public Class exampractice
 
         slcans = ans_2x.Text
         Call correct()
+        ans1x.IsChecked = False
+        ans3x.IsChecked = False
+        ans4x.IsChecked = False
+
+
+        If realans = 1 Then
+            ans4x_card.Background = Brushes.Aqua
+            ans1x_card.Background = Brushes.CornflowerBlue
+
+            ans3x_card.Background = Brushes.CornflowerBlue
+
+            ans4x_card.Background = Brushes.CornflowerBlue
+        Else
+
+            ans1x_card.Background = Brushes.CornflowerBlue
+
+            ans3x_card.Background = Brushes.CornflowerBlue
+
+            ans4x_card.Background = Brushes.CornflowerBlue
+            ans2x_card.Background = Brushes.Crimson
+
+
+        End If
 
 
     End Sub
@@ -152,17 +186,89 @@ Public Class exampractice
     Private Sub ans1x_Checked(sender As Object, e As RoutedEventArgs) Handles ans1x.Checked
         slcans = ans_1x.Text
         Call correct()
+        ans2x.IsChecked = False
+        ans3x.IsChecked = False
+        ans4x.IsChecked = False
+
+
+        If realans = 1 Then
+            ans4x_card.Background = Brushes.Aqua
+            ans2x_card.Background = Brushes.CornflowerBlue
+
+            ans3x_card.Background = Brushes.CornflowerBlue
+
+            ans4x_card.Background = Brushes.CornflowerBlue
+        Else
+            ans2x_card.Background = Brushes.CornflowerBlue
+
+            ans3x_card.Background = Brushes.CornflowerBlue
+
+            ans4x_card.Background = Brushes.CornflowerBlue
+
+            ans1x_card.Background = Brushes.Crimson
+
+
+        End If
 
     End Sub
 
     Private Sub ans3x_Checked(sender As Object, e As RoutedEventArgs) Handles ans3x.Checked
         slcans = ans_3x.Text
+
+
+
         Call correct()
+        ans2x.IsChecked = False
+        ans1x.IsChecked = False
+        ans4x.IsChecked = False
+
+
+        If realans = 1 Then
+            ans3x_card.Background = Brushes.Aqua
+            ans2x_card.Background = Brushes.CornflowerBlue
+
+            ans1x_card.Background = Brushes.CornflowerBlue
+
+            ans4x_card.Background = Brushes.CornflowerBlue
+        Else
+
+            ans2x_card.Background = Brushes.CornflowerBlue
+
+            ans1x_card.Background = Brushes.CornflowerBlue
+
+            ans4x_card.Background = Brushes.CornflowerBlue
+            ans3x_card.Background = Brushes.Crimson
+
+        End If
+
+
     End Sub
 
     Private Sub ans4x_Checked(sender As Object, e As RoutedEventArgs) Handles ans4x.Checked
         slcans = ans_4x.Text
         Call correct()
+        ans2x.IsChecked = False
+        ans3x.IsChecked = False
+        ans1x.IsChecked = False
+
+        If realans = 1 Then
+            ans4x_card.Background = Brushes.Aqua
+            ans2x_card.Background = Brushes.CornflowerBlue
+
+            ans3x_card.Background = Brushes.CornflowerBlue
+
+            ans1x_card.Background = Brushes.CornflowerBlue
+
+        Else
+            ans2x_card.Background = Brushes.CornflowerBlue
+
+            ans3x_card.Background = Brushes.CornflowerBlue
+
+            ans1x_card.Background = Brushes.CornflowerBlue
+            ans4x_card.Background = Brushes.Crimson
+
+        End If
+
     End Sub
 
 
@@ -236,7 +342,10 @@ Public Class exampractice
         ans3x.IsChecked = False
         ans4x.IsChecked = False
 
-
+        ans1x_card.Background = Brushes.CornflowerBlue
+        ans2x_card.Background = Brushes.CornflowerBlue
+        ans3x_card.Background = Brushes.CornflowerBlue
+        ans4x_card.Background = Brushes.CornflowerBlue
 
     End Sub
 End Class
