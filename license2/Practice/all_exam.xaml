@@ -1,0 +1,21 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:license2"
+        xmlns:Custom="http://infragistics.com/DataPresenter" x:Class="all_exam"
+        mc:Ignorable="d"
+        Title="all_exam" Height="300" Width="300" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.Resources>
+        <local:databaseDataSet x:Key="DatabaseDataSet"/>
+        <CollectionViewSource x:Key="DataTable3ViewSource" Source="{Binding DataTable3, Source={StaticResource DatabaseDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource DataTable3ViewSource}">
+        <Custom:XamDataGrid x:Name="DataTable3XamDataGrid" DataSource="{Binding}" Theme="MetroDark" AutoFit="True">
+            <Custom:XamDataGrid.FieldSettings>
+                <Custom:FieldSettings AllowRecordFiltering="True"/>
+            </Custom:XamDataGrid.FieldSettings>
+        </Custom:XamDataGrid>
+    </Grid>
+</Window>

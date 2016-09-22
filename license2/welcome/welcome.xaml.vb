@@ -264,6 +264,10 @@ Public Class welcome
     End Sub
 
     Private Sub textBlock2_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles textBlock2.MouseLeftButtonDown
+        Dim all_exam As all_exam = New all_exam
+        all_exam.ShowDialog()
+
+
 
     End Sub
 
@@ -272,8 +276,7 @@ Public Class welcome
     Private Sub textBlock3_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles textBlock3.MouseLeftButtonDown
 
         toggleButton.IsChecked = False
-        'Dim allexam As Window1 = New Window1
-        'allexam.ShowDialog()
+
         Select Case MsgBox("Are you sure you want to Exit", MsgBoxStyle.YesNoCancel, "Close")
             Case MsgBoxResult.Yes
                 Application.Current.Shutdown()
