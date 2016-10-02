@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Controls
 Imports System.Windows.Input
+Imports System.Windows.Media.Effects
 
 Public Class newuser
     Dim island_id As Integer
@@ -8,6 +9,11 @@ Public Class newuser
 
     Private Sub btn_close_Click(sender As Object, e As RoutedEventArgs) Handles btn_close.Click
         Me.Close()
+
+
+
+
+
 
 
 

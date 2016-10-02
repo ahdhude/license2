@@ -153,7 +153,7 @@ Public Class practice
 
 
 
-        If cans = slcans And itru = sltru Then
+        If cans = slcans Then
 
             dt.UpdateQuery(1, q_num, customer.selected_id, q_num)
 

@@ -33,7 +33,7 @@
             </materialDesign:Card>
         </StackPanel>
         <StackPanel Grid.Column="2" HorizontalAlignment="Stretch"  Grid.Row="2" VerticalAlignment="Stretch"   >
-            <Image x:Name="question_image" HorizontalAlignment="Stretch" Height="118" VerticalAlignment="Stretch" Stretch="UniformToFill" />
+            <Image x:Name="question_image" HorizontalAlignment="Stretch" Height="118" VerticalAlignment="Stretch" />
         </StackPanel>
         <StackPanel Grid.Column="4" HorizontalAlignment="Stretch"  Grid.Row="2" VerticalAlignment="Stretch" Grid.ColumnSpan="2" UseLayoutRounding="True"     >
 

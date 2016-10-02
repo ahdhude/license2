@@ -41,21 +41,13 @@ Public Class welcome
     End Sub
 
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
-        Dim x As BlurEffect = New BlurEffect
-        x.Radius = 4
 
-        Me.Effect = x
         stack_customerinfo.Visibility = Visibility.Hidden
         Id_cardComboBox.Text = Nothing
 
 
         Dim f As newuser = New newuser
         f.ShowDialog()
-
-
-
-
-
 
     End Sub
 
