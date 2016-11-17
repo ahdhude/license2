@@ -27,7 +27,7 @@
             <RowDefinition Height="62*"/>
             <RowDefinition Height="16*"/>
         </Grid.RowDefinitions>
-        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.ColumnSpan="8" Margin="0,0,0,5">
+        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.ColumnSpan="6" >
             <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch" Background="#FF2979FF"   >
                 <TextBlock x:Name="mytextBlock"  TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Stretch" HorizontalAlignment="Left" FontSize="36" Background="#FF2979FF" Foreground="White"/>
             </materialDesign:Card>
@@ -104,6 +104,14 @@
         <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="4" VerticalAlignment="Center"  Grid.ColumnSpan="6" Height="54" Margin="0,4">
             <Button x:Name="button" Content="ކުރިޔަށް" FlowDirection="RightToLeft" FontFamily="Faruma" FontSize="20" FontWeight="Bold" Height="54" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Grid.Column="6" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.RowSpan="1" Grid.Row="0" >
+            <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch" Background="#FF8ACAFD" Height="47"    >
+                <TextBlock x:Name="Categoryname"  TextWrapping="Wrap" Text="ދިވެހި" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="36" Background="#FF8ACAFD" Foreground="Black" Grid.Row="0" Grid.RowSpan="1" FontFamily="Faruma" FlowDirection="RightToLeft" />
+              
+            </materialDesign:Card>
+
+        </StackPanel>
+
 
 
     </Grid>

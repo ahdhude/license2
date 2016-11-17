@@ -55,6 +55,7 @@ Public Class practice
 
         Dim db As New databaseDataSetTableAdapters.QuestionTableAdapter
         question.Text = db.GetData(q_num).Rows(0).Item(1)
+        Call loadcategory()
 
         loadimage()
 
@@ -423,4 +424,17 @@ Public Class practice
 
         ans3_card.Background = Brushes.CornflowerBlue
     End Sub
+
+
+
+    Function loadcategory()
+
+        Dim category As New databaseDataSetTableAdapters.QuestionTableAdapter
+        Categoryname.Text = category.GetDataBy(q_num).Rows(0).Item(6).ToString
+
+
+
+
+
+    End Function
 End Class

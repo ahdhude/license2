@@ -101,9 +101,16 @@
         <StackPanel Grid.Column="1" HorizontalAlignment="Stretch"  Grid.Row="3" VerticalAlignment="Center"  Grid.ColumnSpan="6" Height="54" Margin="0,6">
             <Button x:Name="buttonx" Content="ކުރިޔަށް" FlowDirection="RightToLeft" FontFamily="Faruma" FontSize="20" FontWeight="Bold" Height="54" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </StackPanel>
-        <StackPanel Grid.ColumnSpan="8" HorizontalAlignment="Stretch" Height="90" VerticalAlignment="Top"  Grid.RowSpan="2">
+        <StackPanel Grid.ColumnSpan="5" HorizontalAlignment="Stretch" Height="90" VerticalAlignment="Top"  Grid.RowSpan="2">
             <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch" Height="88"  >
                 <Label x:Name="label" Content="Label" FontSize="50" FontFamily="Faruma" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FlowDirection="RightToLeft" />
+            </materialDesign:Card>
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="3" Grid.Column="5" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" >
+            <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch" Height="88"  Background="#FF8ACAFD" >
+
+                <Label x:Name="categoryname" Content="Label" FontSize="48" FontFamily="Faruma" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontWeight="Bold" FlowDirection="RightToLeft" />
+
             </materialDesign:Card>
         </StackPanel>
 

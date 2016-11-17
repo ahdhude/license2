@@ -43,6 +43,9 @@ Public Class exampractice
         Dim db As New databaseDataSetTableAdapters.QuestionTableAdapter
         questionx.Text = db.GetData(q_num).Rows(0).Item(1)
 
+
+        Call loadcategory()
+
         loadimage()
 
 
@@ -162,7 +165,7 @@ Public Class exampractice
 
 
         If realans = 1 Then
-            ans4x_card.Background = Brushes.Aqua
+            ans2x_card.Background = Brushes.Aqua
             ans1x_card.Background = Brushes.CornflowerBlue
 
             ans3x_card.Background = Brushes.CornflowerBlue
@@ -192,7 +195,7 @@ Public Class exampractice
 
 
         If realans = 1 Then
-            ans4x_card.Background = Brushes.Aqua
+            ans1x_card.Background = Brushes.Aqua
             ans2x_card.Background = Brushes.CornflowerBlue
 
             ans3x_card.Background = Brushes.CornflowerBlue
@@ -348,4 +351,17 @@ Public Class exampractice
         ans4x_card.Background = Brushes.CornflowerBlue
 
     End Sub
+
+    Function loadcategory()
+
+        Dim category As New databaseDataSetTableAdapters.QuestionTableAdapter
+        categoryname.Content = category.GetDataBy(q_num).Rows(0).Item(6).ToString
+
+
+
+
+
+
+
+    End Function
 End Class
