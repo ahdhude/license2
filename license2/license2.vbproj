@@ -157,6 +157,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="New Exam\Exam.xaml.vb">
+      <DependentUpon>Exam.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Practice\all_exam.xaml.vb">
       <DependentUpon>all_exam.xaml</DependentUpon>
     </Compile>
@@ -203,6 +206,10 @@
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
     <Page Include="Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="New Exam\Exam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
