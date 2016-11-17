@@ -11,6 +11,7 @@ Public Class Exam
     Private timer As DispatcherTimer
     Private i As Integer = 1800
     Dim format As String = " hh:mm:ss"
+    Dim q_label As Integer = 1
 
 
     Dim q_num As Integer = 1
@@ -28,19 +29,39 @@ Public Class Exam
     Dim mandarray(4) As Integer
 
     Dim randomarray() As Integer
+    Dim rand_q_num As Integer
 
 
 
 
-    Sub ans_load()
+    Sub load_random_quest()
 
-        Dim db As New databaseDataSetTableAdapters.AnswerTableAdapter
-        ans_1.Text = db.GetData(q_num).Rows(0).Item(1)
-        ans_2.Text = db.GetData(q_num).Rows(1).Item(1)
-        ans_3.Text = db.GetData(q_num).Rows(2).Item(1)
-        ans_4.Text = db.GetData(q_num).Rows(3).Item(1)
+        Call addlistbox()
+        Call remover()
+        Call addrandom()
+        listBox.Items.Clear()
+        Call addmandatory()
+        Call addrandman()
 
-        loadimageans()
+
+        Dim q_gen As New databaseDataSetTableAdapters.TableTableAdapter
+
+        For i As Integer = 0 To 29
+            q_gen.Insert(finalarray(i), "NULL")
+        Next
+
+    End Sub
+
+
+
+    'GEtting the question number
+
+
+    Sub getquestion_num()
+
+        Dim getq As New databaseDataSetTableAdapters.TableTableAdapter
+        rand_q_num = getq.GetDataBy(q_label).Rows(0).Item(1)
+
 
 
     End Sub
@@ -54,21 +75,33 @@ Public Class Exam
 
 
 
-        label_numb.Content = q_num
+        label_numb.Content = q_label
+
 
         Dim db As New databaseDataSetTableAdapters.QuestionTableAdapter
-        question.Text = db.GetData(q_num).Rows(0).Item(1)
+        question.Text = db.GetData(rand_q_num).Rows(0).Item(1)
         Call loadcategory()
 
         loadimage()
 
 
-
-
-
-
-
     End Function
+
+
+    Sub ans_load()
+
+        Dim db As New databaseDataSetTableAdapters.AnswerTableAdapter
+        ans_1.Text = db.GetData(rand_q_num).Rows(0).Item(1)
+        ans_2.Text = db.GetData(rand_q_num).Rows(1).Item(1)
+        ans_3.Text = db.GetData(rand_q_num).Rows(2).Item(1)
+        ans_4.Text = db.GetData(rand_q_num).Rows(3).Item(1)
+
+        loadimageans()
+
+
+    End Sub
+
+    "
 
     Private Sub button_Click(sender As Object, e As RoutedEventArgs) Handles button.Click
         If (ans1.IsChecked) Then
@@ -120,6 +153,9 @@ Public Class Exam
     End Sub
 
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
+
+        Call load_random_quest()
+
 
         Dim dt As DispatcherTimer = New DispatcherTimer()
         AddHandler dt.Tick, AddressOf dispatcherTimer_Tick
@@ -280,7 +316,7 @@ Public Class Exam
     Sub loadimage()
 
         Dim imagestring As String
-        Dim uri As String = CStr(q_num)
+        Dim uri As String = CStr(rand_q_num)
 
         imagestring = "/license2;component/Resources/" + uri + ".bmp"
         imagestring = imagestring.Trim
@@ -302,7 +338,7 @@ Public Class Exam
         Dim ans3 As String
         Dim ans4 As String
 
-        Dim uri As String = CStr(q_num)
+        Dim uri As String = CStr(rand_q_num)
 
         ans1 = "/license2;component/Resources/" + uri + "_a1" + ".bmp"
         ans1 = ans1.Trim
@@ -433,7 +469,7 @@ Public Class Exam
     Function loadcategory()
 
         Dim category As New databaseDataSetTableAdapters.QuestionTableAdapter
-        Categoryname.Text = category.GetDataBy(q_num).Rows(0).Item(6).ToString
+        Categoryname.Text = category.GetDataBy(rand_q_num).Rows(0).Item(6).ToString
 
 
 
