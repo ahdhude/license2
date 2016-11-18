@@ -25,7 +25,7 @@ Public Class Exam
     Dim mandscore As Integer
     Dim finalscore As Integer
 
-    Dim finalarray(29) As Integer
+    Dim finalarray(30) As Integer
     Dim mandarray(4) As Integer
 
     Dim randomarray() As Integer
@@ -43,11 +43,16 @@ Public Class Exam
         Call addmandatory()
         Call addrandman()
 
+        Dim qst As Integer = 1
 
         Dim q_gen As New databaseDataSetTableAdapters.TableTableAdapter
 
-        For i As Integer = 0 To 29
-            q_gen.Insert(finalarray(i), "NULL")
+        For x As Integer = 0 To 30
+
+
+            q_gen.UpdateQuery(finalarray(x), qst)
+            qst = qst + 1
+
         Next
 
     End Sub
@@ -76,6 +81,9 @@ Public Class Exam
 
 
         label_numb.Content = q_label
+
+        Dim dt As New databaseDataSetTableAdapters.TableTableAdapter
+        rand_q_num = dt.GetDataBy(q_label).Rows(0).Item(1)
 
 
         Dim db As New databaseDataSetTableAdapters.QuestionTableAdapter
@@ -130,7 +138,7 @@ Public Class Exam
 
 
         q_label = q_label + 1
-        If q_num = 31 Then 'whhen all question displayed
+        If q_label = 31 Then 'whhen all question displayed
             Call correct()
             Call updatefinalscore()
 
@@ -486,7 +494,7 @@ Public Class Exam
 
     Function addlistbox()
 
-        For i As Integer = 0 To 10000
+        For y As Integer = 0 To 10000
             Dim value As Integer = CInt(Int((53 * Rnd())) + 1)
 
 
@@ -511,30 +519,30 @@ Public Class Exam
 
     Function remover()
 
-        For i As Integer = 0 To 56
+        For z As Integer = 0 To 56
 
 
 
             Try
 
-                If listBox.Items.Item(i) = 1 Then
-                    listBox.Items.RemoveAt(i)
+                If listBox.Items.Item(z) = 1 Then
+                    listBox.Items.RemoveAt(z)
 
-                ElseIf listBox.Items.Item(i) = 2 Then
-                    listBox.Items.RemoveAt(i)
+                ElseIf listBox.Items.Item(z) = 2 Then
+                    listBox.Items.RemoveAt(z)
 
-                ElseIf listBox.Items.Item(i) = 3 Then
+                ElseIf listBox.Items.Item(z) = 3 Then
 
-                    listBox.Items.RemoveAt(i)
+                    listBox.Items.RemoveAt(z)
 
-                ElseIf listBox.Items.Item(i) = 4 Then
+                ElseIf listBox.Items.Item(z) = 4 Then
 
-                    listBox.Items.RemoveAt(i)
-                ElseIf listBox.Items.Item(i) = 16 Then
-                    listBox.Items.RemoveAt(i)
+                    listBox.Items.RemoveAt(z)
+                ElseIf listBox.Items.Item(z) = 16 Then
+                    listBox.Items.RemoveAt(z)
 
-                ElseIf listBox.Items.Item(i) = 14 Then
-                    listBox.Items.RemoveAt(i)
+                ElseIf listBox.Items.Item(z) = 14 Then
+                    listBox.Items.RemoveAt(z)
 
                 End If
             Catch ex As Exception
@@ -597,10 +605,10 @@ Public Class Exam
     'it randomly adds values in listbox into the final array
     Function addrandom()
 
-        For i = 0 To 24
+        For a = 0 To 24
 
 
-            finalarray(i) = (listBox.Items.Item(i))
+            finalarray(a) = (listBox.Items.Item(a))
         Next
 
     End Function
@@ -608,10 +616,10 @@ Public Class Exam
     Function addrandman()
 
 
-        For i = 0 To 4
+        For b = 0 To 4
 
 
-            mandarray(i) = (listBox.Items.Item(i))
+            mandarray(b) = (listBox.Items.Item(b))
 
         Next
         mandarray.CopyTo(finalarray, 25)
@@ -620,9 +628,23 @@ Public Class Exam
 
     End Function
 
+    Private Sub exam_Loaded(sender As Object, e As RoutedEventArgs) Handles MyBase.Loaded, MyBase.Loaded
+        Call load_random_quest()
+
+
+        Dim dt As DispatcherTimer = New DispatcherTimer()
+        AddHandler dt.Tick, AddressOf dispatcherTimer_Tick
+        dt.Interval = New TimeSpan(0, 0, 1)
+        dt.Start()
 
 
 
 
+        Call data_score_clear()
 
+
+        Call question_load()
+        Call ans_load()
+
+    End Sub
 End Class

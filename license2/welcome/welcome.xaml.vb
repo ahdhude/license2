@@ -246,7 +246,7 @@ Public Class welcome
         selected_id = Id_cardComboBox.Text
 
 
-        Dim f As practice = New practice
+        Dim f As Exam = New Exam
         f.Show()
 
         Me.Close()
