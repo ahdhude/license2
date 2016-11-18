@@ -101,7 +101,7 @@ Public Class Exam
 
     End Sub
 
-    "
+
 
     Private Sub button_Click(sender As Object, e As RoutedEventArgs) Handles button.Click
         If (ans1.IsChecked) Then
@@ -129,8 +129,8 @@ Public Class Exam
 
 
 
-        q_num = q_num + 1
-        If q_num = 58 Then 'whhen all question displayed
+        q_label = q_label + 1
+        If q_num = 31 Then 'whhen all question displayed
             Call correct()
             Call updatefinalscore()
 
@@ -140,8 +140,7 @@ Public Class Exam
 
         Else
             Call correct()
-            Call question_load()
-            Call ans_load()
+
 
 
         End If
@@ -183,19 +182,19 @@ Public Class Exam
 
     Sub correct()
 
-        q_num = q_num - 1
+        q_label = q_label - 1
 
 
         Dim dt As New databaseDataSetTableAdapters.ScoreTableAdapter
 
         Dim db As New databaseDataSetTableAdapters.AnswerTableAdapter
-        cans = db.GetDataBy(q_num).Rows(0).Item(1)
+        cans = db.GetDataBy(rand_q_num).Rows(0).Item(1)
 
 
 
         If cans = slcans Then
 
-            dt.UpdateQuery(1, q_num, customer.selected_id, q_num)
+            dt.UpdateQuery(1, rand_q_num, customer.selected_id, q_label)
 
 
 
@@ -203,14 +202,15 @@ Public Class Exam
 
         Else
 
-            dt.UpdateQuery(0, q_num, customer.selected_id, q_num)
+            dt.UpdateQuery(0, rand_q_num, customer.selected_id, q_label)
 
         End If
 
 
-        q_num = q_num + 1
+        q_label = q_label + 1
 
-
+        Call question_load()
+        Call ans_load()
 
     End Sub
 
@@ -254,7 +254,7 @@ Public Class Exam
 
 
 
-        fullscore = ((dt.GetDataBy1(customer.selected_id).Count / 57) * 100)
+        fullscore = ((dt.GetDataBy1(customer.selected_id).Count / 30) * 100)
 
 
         mandscore = (((dt.GetDataBy21(customer.selected_id).Rows.Count / 5) * 100) / 100) * 25
