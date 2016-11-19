@@ -810,6 +810,12 @@ line1:
     End Sub
 
     Private Sub btn_finish_Click(sender As Object, e As RoutedEventArgs) Handles btn_finish.Click
+        If ans1.IsChecked = False And ans2.IsChecked = False And ans3.IsChecked = False And ans4.IsChecked = False Then
+            MsgBox("please select something")
+            Exit Sub
+
+        End If
+
         Call correct()
         Call updatefinalscore()
         Call calculatefinalscore()
