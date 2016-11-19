@@ -1,10 +1,44 @@
 ﻿Public Class result
     Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
-        label_mandotory.Content = score.mandscorecount
-        label_overall.Content = score.anscorecount + score.mandscorecount
-        label_rules.Content = score.anscorecount
+        label_mandotory.Content = score.majubooru_score_count
+        label_gannon_total.Content = score.gavaidhu_quest_count
+        label_curtosy_total.Content = score.adhabu_quest_count
+        label_nishaan_total.Content = score.nishaan_quest_count
 
-        If score.mandscore = 25 And score.totscore >= 75 Then
+        label_gaanoon_score.Content = score.gavaidhu_score_count
+        label_curtosy_score.Content = score.adhabu_score_count
+        label_nishaan_score.Content = score.nishaan_score_count
+
+
+
+
+        label_overall_score.Content = score.majubooru_score_count + score.gavaidhu_score_count + score.adhabu_score_count + score.nishaan_score_count
+
+        Dim madpercent As Integer
+
+
+        Dim others As Integer
+
+        Dim overall As Integer
+
+        madpercent = (((score.majubooru_score_count / 5) * 100) / 100) * 25
+        label_mandotory_percentage.Content = madpercent
+
+
+
+
+        others = ((((score.gavaidhu_score_count + score.adhabu_score_count + score.nishaan_score_count) / 25) * 100) / 100) * 75
+        label_others_percentage.Content = others
+
+        overall = madpercent + others
+        label_total_percentage.Content = overall
+
+
+
+
+
+
+        If madpercent = 25 And overall >= 75 Then
 
             label_pass.Content = "PASS"
 

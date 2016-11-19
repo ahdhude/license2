@@ -5,26 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:license2"
         mc:Ignorable="d"
-        Title="result" Height="470.17" Width="543.617" Loaded="Window_Loaded" Closed="Window_Closed" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/license2;component/Resources/THINGS.ico">
+        Title="result" Height="602" Width="1083" Loaded="Window_Loaded" Closed="Window_Closed" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Icon="/license2;component/Resources/THINGS.ico">
     <Grid>
-        <Rectangle HorizontalAlignment="Left" Height="128" Margin="26,243,0,0" VerticalAlignment="Top" Width="490" Fill="#FFBAE1F3"/>
 
-        <Label x:Name="label" Content="Mandotory" HorizontalAlignment="Left" Margin="32,243,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label1" Content="Rules/Regulation" HorizontalAlignment="Left" Margin="32,284,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label2" Content="Overall" HorizontalAlignment="Left" Margin="32,326,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label_mandotory" Content="Label" HorizontalAlignment="Left" Margin="360,243,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label_rules" Content="Label" HorizontalAlignment="Left" Margin="360,285,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label_overall" Content="Label" HorizontalAlignment="Left" Margin="360,327,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="102" Margin="122,128,0,0" VerticalAlignment="Top" Width="287" RenderTransformOrigin="0.34,0.215"/>
-        <Label x:Name="label_pass" Content="PASS" HorizontalAlignment="Left" Margin="198,140,0,0" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" RenderTransformOrigin="0.513,0.007" Height="74" Width="144"/>
-        <Button x:Name="button_print" Content="PRINT" HorizontalAlignment="Left" Margin="229,385,0,0" VerticalAlignment="Top" Width="75"/>
+        <Rectangle Height="275" Margin="539,209,0,0" VerticalAlignment="Top" Fill="#FFBAE1F3" HorizontalAlignment="Left" Width="122"/>
+
+        <Rectangle Height="279" Margin="16,205,0,0" VerticalAlignment="Top" Fill="#FFBAE1F3" HorizontalAlignment="Left" Width="511"/>
+
+        <Label x:Name="label" Content="Mandotory /" HorizontalAlignment="Left" Margin="32,213,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Height="41"/>
+        <Label x:Name="label1" Content="Rules &amp; Regulation / " HorizontalAlignment="Left" Margin="32,270,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label2" Content="Overall /" HorizontalAlignment="Left" Margin="32,426,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_mandotory" Content="5" HorizontalAlignment="Left" Margin="560,215,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_gaanoon_score" Content="52" HorizontalAlignment="Left" Margin="551,271,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_curtosy_score" Content="57" HorizontalAlignment="Left" Margin="553,325,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="102" Margin="768,24,0,0" VerticalAlignment="Top" Width="287" RenderTransformOrigin="0.34,0.215"/>
+        <Label x:Name="label_pass" Content="PASS" HorizontalAlignment="Left" Margin="850,36,0,0" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" RenderTransformOrigin="0.513,0.007" Height="74" Width="144"/>
+        <Button x:Name="button_print" Content="PRINT" HorizontalAlignment="Left" Margin="488,527,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="label_name" Content="Label" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="label_Idnun" Content="Label" HorizontalAlignment="Left" Margin="26,41,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="label_address" Content="Label" HorizontalAlignment="Left" Margin="26,69,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="label_island" Content="Label" HorizontalAlignment="Left" Margin="26,95,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <Label x:Name="label_mandotory_Copy" Content="/5" HorizontalAlignment="Left" Margin="433,243,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label_mandotory_Copy1" Content="/52" HorizontalAlignment="Left" Margin="433,284,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Label x:Name="label_mandotory_Copy2" Content="/57" HorizontalAlignment="Left" Margin="433,326,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_mandotory_Copy" Content="5" HorizontalAlignment="Left" Margin="619,215,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_gannon_total" Content="52" HorizontalAlignment="Left" Margin="619,270,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_curtosy_total" Content="57" HorizontalAlignment="Left" Margin="619,324,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_Copy" Content="މަޖުބޫރު" HorizontalAlignment="Left" Margin="161,211,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"   FlowDirection="RightToLeft" FontFamily="faruma" Height="41"/>
+        <Label x:Name="label_Copy1" Content="ޤާނޫނާއި ގަވާއިދު" HorizontalAlignment="Left" Margin="226,264,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"   FlowDirection="RightToLeft" FontFamily="faruma" Height="55" Width="158"/>
+        <Label x:Name="label1_Copy" Content="Road Courtesy /" HorizontalAlignment="Left" Margin="32,325,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_Copy2" Content="މަގުމަތީގެ އަދަބުތައް" HorizontalAlignment="Left" Margin="181,323,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"   FlowDirection="RightToLeft" FontFamily="faruma" Height="55" Width="183"/>
+        <Label x:Name="label1_Copy1" Content="Road Signs /" HorizontalAlignment="Left" Margin="32,374,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_Copy3" Content="މަގުމަތީގެ ނިޝާން" HorizontalAlignment="Left" Margin="159,371,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"   FlowDirection="RightToLeft" FontFamily="faruma" Height="55" Width="163"/>
+        <Label x:Name="label_nishaan_score" Content="57" HorizontalAlignment="Left" Margin="553,378,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_nishaan_total" Content="57" HorizontalAlignment="Left" Margin="619,378,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_overall_score" Content="30" HorizontalAlignment="Left" Margin="553,424,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_overall_total" Content="30" HorizontalAlignment="Left" Margin="619,424,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="label_Copy4" Content="ޖުމްލަ" HorizontalAlignment="Left" Margin="122,419,0,0" VerticalAlignment="Top" FontSize="26" FontWeight="Bold"   FlowDirection="RightToLeft" FontFamily="faruma" Height="55" Width="61" RenderTransformOrigin="-1.082,0.455"/>
+        <Rectangle Height="75" Margin="748,205,0,0" VerticalAlignment="Top" Fill="#FFBAE1F3" HorizontalAlignment="Left" Width="311"/>
+        <Rectangle Height="126" Margin="748,285,0,0" VerticalAlignment="Top" Fill="#FFBAE1F3" HorizontalAlignment="Left" Width="311"/>
+        <Rectangle Height="65" Margin="748,419,0,0" VerticalAlignment="Top" Fill="#FFBAE1F3" HorizontalAlignment="Left" Width="311"/>
+        <Label x:Name="label_mandotory_Copy1" Content="/25 " HorizontalAlignment="Left" Margin="893,209,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="67"/>
+        <Label x:Name="label_mandotory_Copy2" Content="/75 " HorizontalAlignment="Left" Margin="891,313,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="67"/>
+        <Label x:Name="label_mandotory_Copy3" Content="/100 " HorizontalAlignment="Left" Margin="893,419,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="67"/>
+        <Label x:Name="label_pass_Copy" Content="%PERCENTAGE%" HorizontalAlignment="Center" Margin="744,147,14,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" RenderTransformOrigin="0.513,0.007" Height="51" Width="311"/>
+        <Label x:Name="label_pass_Copy1" Content="DETAILS" HorizontalAlignment="Center" Margin="268,147,631,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" RenderTransformOrigin="0.513,0.007" Height="51" Width="170"/>
+        <Label x:Name="label_mandotory_percentage" Content="25 " HorizontalAlignment="Left" Margin="833,211,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="67"/>
+        <Label x:Name="label_others_percentage" Content="75 " HorizontalAlignment="Left" Margin="833,313,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="67"/>
+        <Label x:Name="label_total_percentage" Content="100 " HorizontalAlignment="Left" Margin="823,419,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Height="67"/>
+        <Label x:Name="label_mandotory_Copy4" Content="/" HorizontalAlignment="Left" Margin="591,215,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" RenderTransformOrigin="2.5,0.351"/>
+        <Label x:Name="label_mandotory_Copy5" Content="/" HorizontalAlignment="Left" Margin="591,269,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" RenderTransformOrigin="2.5,0.351"/>
+        <Label x:Name="label_mandotory_Copy6" Content="/" HorizontalAlignment="Left" Margin="591,325,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" RenderTransformOrigin="2.5,0.351"/>
+        <Label x:Name="label_mandotory_Copy7" Content="/" HorizontalAlignment="Left" Margin="591,378,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" RenderTransformOrigin="2.5,0.351"/>
+        <Label x:Name="label_mandotory_Copy8" Content="/" HorizontalAlignment="Left" Margin="591,424,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" RenderTransformOrigin="2.5,0.351"/>
 
     </Grid>
 </Window>

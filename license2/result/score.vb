@@ -12,4 +12,17 @@
     Public atollis As String
 
 
+
+
+    Public gavaidhu_quest_count As Integer
+    Public nishaan_quest_count As Integer
+    Public adhabu_quest_count As Integer
+
+
+    Public gavaidhu_score_count As Integer
+    Public nishaan_score_count As Integer
+    Public adhabu_score_count As Integer
+    Public majubooru_score_count As Integer
+
+
 End Module

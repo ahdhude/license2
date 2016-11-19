@@ -25,6 +25,20 @@ Public Class Exam
     Dim mandscore As Integer
     Dim finalscore As Integer
 
+
+
+    Dim majuboorscore As Integer
+
+    Dim rulescount As Integer
+    Dim adhabucount As Integer
+    Dim nishaancount As Integer
+
+    Dim unaswered As Integer
+    Dim rulescore As Integer
+    Dim adhabuscore As Integer
+    Dim nishaanscore As Integer
+
+
     Dim finalarray(30) As Integer
     Dim mandarray(4) As Integer
 
@@ -77,7 +91,9 @@ Public Class Exam
 
 
     Function question_load()
+        button.IsEnabled = True
 
+        btn_finish.IsEnabled = False
 
 
         label_numb.Content = q_label
@@ -112,23 +128,33 @@ Public Class Exam
 
 
     Private Sub button_Click(sender As Object, e As RoutedEventArgs) Handles button.Click
+        Dim selincount As Integer
+        Dim selcheck As New databaseDataSetTableAdapters.TableTableAdapter
+        Dim sindex As Integer
+        Dim selected As New databaseDataSetTableAdapters.TableTableAdapter
+
+
         If (ans1.IsChecked) Then
             slcans = ans_1.Text
             ans1.IsChecked = False
             ans1_card.Background = Brushes.CornflowerBlue
+            selected.UpdateQuery1(1, q_label)
 
         ElseIf (ans2.IsChecked) Then
             slcans = ans_2.Text
             ans2.IsChecked = False
             ans2_card.Background = Brushes.CornflowerBlue
+            selected.UpdateQuery1(2, q_label)
         ElseIf (ans3.IsChecked) Then
             slcans = ans_3.Text
             ans3.IsChecked = False
             ans3_card.Background = Brushes.CornflowerBlue
+            selected.UpdateQuery1(3, q_label)
         ElseIf (ans4.IsChecked) Then
             slcans = ans_4.Text
             ans4.IsChecked = False
             ans4_card.Background = Brushes.CornflowerBlue
+            selected.UpdateQuery1(4, q_label)
         Else
             MsgBox("please select something")
             Exit Sub
@@ -138,20 +164,60 @@ Public Class Exam
 
 
         q_label = q_label + 1
-        If q_label = 31 Then 'whhen all question displayed
-            Call correct()
-            Call updatefinalscore()
 
-            Close()
-            Dim scoresheet As New result
-            scoresheet.Show()
+
+        selincount = selcheck.GetDataBy(q_label).Rows(0).Item(2)
+
+        If selincount = 0 Then
+
+            If q_label = 31 Then 'whhen all question displayed
+
+                btn_finish.IsEnabled = True
+                button.IsEnabled = False
+
+
+
+
+
+            Else
+                Call correct()
+
+
+
+            End If
+
 
         Else
-            Call correct()
+
+
+
+
+            Call question_load()
+            Call ans_load()
+
+            Dim selectedindex As New databaseDataSetTableAdapters.TableTableAdapter
+            sindex = selectedindex.GetDataBy(q_label).Rows(0).Item(2)
+
+            If sindex = 1 Then
+                ans1.IsChecked = True
+            ElseIf sindex = 2 Then
+                ans2.IsChecked = True
+
+            ElseIf sindex = 3 Then
+                ans3.IsChecked = True
+            Else
+                ans4.IsChecked = True
+            End If
+
 
 
 
         End If
+
+
+
+
+
 
 
 
@@ -273,7 +339,7 @@ Public Class Exam
 
         score.totscore = fullscore
         score.mandscore = mandscore
-        score.ansscore = ((finalscore / 52) * 100) / 100 * 75
+        score.ansscore = ((finalscore / 30) * 100) / 100 * 75
 
         score.mandscorecount = mandscorecount
         score.anscorecount = otherscorecount
@@ -307,6 +373,62 @@ Public Class Exam
 
 
     End Sub
+
+    Sub calculatefinalscore()
+
+        Dim unans As New databaseDataSetTableAdapters.TableTableAdapter
+        unaswered = unans.GetDataBy11().Rows.Count  ' counts the total unaswered questions 
+
+
+
+        Dim ad As New databaseDataSetTableAdapters.TableTableAdapter
+        adhabucount = ad.GetDataBy4().Rows.Count  ' counts the total adhabu questions 
+
+        adhabu_quest_count = adhabucount
+
+
+        Dim gav As New databaseDataSetTableAdapters.TableTableAdapter
+        rulescount = gav.GetDataBy5().Rows.Count  ' counts the total gavaidhu questions 
+        gavaidhu_quest_count = rulescount
+
+
+
+
+        Dim sig As New databaseDataSetTableAdapters.TableTableAdapter
+        nishaancount = sig.GetDataBy6.Rows.Count  ' counts the total signs questions 
+
+        nishaan_quest_count = nishaancount
+
+
+        Dim tomaj As New databaseDataSetTableAdapters.TableTableAdapter
+        majuboorscore = tomaj.GetDataBy7.Rows.Count
+        majubooru_score_count = majuboorscore
+
+
+
+
+        Dim totad As New databaseDataSetTableAdapters.TableTableAdapter
+        adhabuscore = totad.GetDataBy8().Rows.Count  ' counts the total adhabu score
+        adhabu_score_count = adhabuscore
+
+
+        Dim totgav As New databaseDataSetTableAdapters.TableTableAdapter
+        rulescore = totgav.GetDataBy9().Rows.Count  ' counts the total gavaidhu score 
+
+        gavaidhu_score_count = rulescore
+
+
+
+        Dim totsig As New databaseDataSetTableAdapters.TableTableAdapter
+        nishaanscore = totsig.GetDataBy10.Rows.Count  ' counts the total signs score 
+
+        nishaan_score_count = nishaanscore
+
+
+
+    End Sub
+
+
 
 
 
@@ -646,5 +768,55 @@ Public Class Exam
         Call question_load()
         Call ans_load()
 
+    End Sub
+
+    Private Sub btn_back_Click(sender As Object, e As RoutedEventArgs) Handles btn_back.Click
+        Dim sindex As Integer
+
+        q_label = q_label - 1
+
+
+        If q_label <= 0 Then
+            q_label = q_label + 1
+
+            Exit Sub
+
+        End If
+
+line1:
+        Call question_load()
+        Call ans_load()
+
+        Dim selectedindex As New databaseDataSetTableAdapters.TableTableAdapter
+        sindex = selectedindex.GetDataBy(q_label).Rows(0).Item(2)
+
+        If sindex = 1 Then
+            ans1.IsChecked = True
+        ElseIf sindex = 2 Then
+            ans2.IsChecked = True
+
+        ElseIf sindex = 3 Then
+            ans3.IsChecked = True
+        Else
+            ans4.IsChecked = True
+        End If
+
+
+
+
+
+
+
+    End Sub
+
+    Private Sub btn_finish_Click(sender As Object, e As RoutedEventArgs) Handles btn_finish.Click
+        Call correct()
+        Call updatefinalscore()
+        Call calculatefinalscore()
+
+
+        Close()
+        Dim scoresheet As New result
+        scoresheet.Show()
     End Sub
 End Class

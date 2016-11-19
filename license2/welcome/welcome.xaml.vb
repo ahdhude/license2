@@ -245,6 +245,13 @@ Public Class welcome
 
         selected_id = Id_cardComboBox.Text
 
+        Dim clear As New databaseDataSetTableAdapters.TableTableAdapter
+        clear.UpdateQuery2()
+
+
+        Dim scoreclear As New databaseDataSetTableAdapters.ScoreTableAdapter
+        scoreclear.UpdateQuery2()
+
 
         Dim f As Exam = New Exam
         f.Show()
