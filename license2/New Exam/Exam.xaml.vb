@@ -49,15 +49,16 @@ Public Class Exam
 
 
     Sub load_random_qst()
-
+        listBox.Items.Clear()
         Call addlistbox()
         Call remover()
         Call addrandom()
         listBox.Items.Clear()
         Call addmandatory()
         Call addrandman()
+        Call repeatedv()
 
-        mandarray.CopyTo(finalarray, 25)
+        Shuffle(finalarray)
 
 
 
@@ -107,6 +108,13 @@ Public Class Exam
         Dim dt As New databaseDataSetTableAdapters.TableTableAdapter
         rand_q_num = dt.GetDataBy(q_label).Rows(0).Item(1)
 
+        If rand_q_num = 0 Then
+
+            exam.Close()
+            Dim a As New Exam
+            a.Show()
+
+        End If
 
         Dim db As New databaseDataSetTableAdapters.QuestionTableAdapter
         question.Text = db.GetData(rand_q_num).Rows(0).Item(1)
@@ -606,11 +614,11 @@ line1:
         Dim value As Integer = CInt(Int((53 * Rnd())) + 1)
 
 
-        If listBox.Items.Contains(value) And listBox.Items.Count = 53 Then
+        If listBox.Items.Contains(value) And listBox.Items.Count <> 53 Then
 
             GoTo line1
 
-        ElseIf listBox.Items.Count = 53 Then
+        ElseIf listBox.Items.Count >= 53 Then
 
             Exit Function
 
@@ -623,6 +631,7 @@ line1:
         End If
 
         GoTo line1
+
 
 
 
@@ -760,6 +769,7 @@ line1:
             finalarray(a) = (listBox.Items.Item(a))
         Next
 
+
     End Function
 
     Function addrandman()
@@ -772,7 +782,10 @@ line1:
 
         Next
 
+        Shuffle(mandarray)
         listBox.Items.Clear()
+
+        mandarray.CopyTo(finalarray, 25)
 
         Exit Function
 
@@ -858,8 +871,8 @@ line1:
 
     Sub repeatedv()
 
-
-        MsgBox(finalarray.Distinct.Count)
+        Dim dt As New databaseDataSetTableAdapters.TableTableAdapter
+        dt.UpdateQuery(50, 30)
 
 
     End Sub
