@@ -48,7 +48,7 @@ Public Class Exam
 
 
 
-    Sub load_random_quest()
+    Sub load_random_qst()
 
         Call addlistbox()
         Call remover()
@@ -56,6 +56,12 @@ Public Class Exam
         listBox.Items.Clear()
         Call addmandatory()
         Call addrandman()
+
+        mandarray.CopyTo(finalarray, 25)
+
+
+
+
 
         Dim qst As Integer = 1
 
@@ -225,27 +231,7 @@ Public Class Exam
 
     End Sub
 
-    Private Sub Window_Loaded(sender As Object, e As RoutedEventArgs)
 
-        Call load_random_quest()
-
-
-        Dim dt As DispatcherTimer = New DispatcherTimer()
-        AddHandler dt.Tick, AddressOf dispatcherTimer_Tick
-        dt.Interval = New TimeSpan(0, 0, 1)
-        dt.Start()
-
-
-
-
-        Call data_score_clear()
-
-
-        Call question_load()
-        Call ans_load()
-
-
-    End Sub
 
 
 
@@ -616,23 +602,29 @@ Public Class Exam
 
     Function addlistbox()
 
-        For y As Integer = 0 To 10000
-            Dim value As Integer = CInt(Int((53 * Rnd())) + 1)
+line1:
+        Dim value As Integer = CInt(Int((53 * Rnd())) + 1)
 
 
-            If listBox.Items.Contains(value) Then
+        If listBox.Items.Contains(value) And listBox.Items.Count = 53 Then
+
+            GoTo line1
+
+        ElseIf listBox.Items.Count = 53 Then
+
+            Exit Function
 
 
+        Else
 
-            Else
-
-                listBox.Items.Add(value)
-
-            End If
+            listBox.Items.Add(value)
 
 
+        End If
 
-        Next
+        GoTo line1
+
+
 
 
     End Function
@@ -641,37 +633,72 @@ Public Class Exam
 
     Function remover()
 
-        For z As Integer = 0 To 56
+
+        Dim indexx As Integer = listBox.Items.Count
+        indexx = listBox.Items.Count
+        Dim z As Integer = 1
 
 
 
-            Try
+        While indexx <> z
 
-                If listBox.Items.Item(z) = 1 Then
-                    listBox.Items.RemoveAt(z)
 
-                ElseIf listBox.Items.Item(z) = 2 Then
-                    listBox.Items.RemoveAt(z)
+            If listBox.Items.Item(z) = 1 Then
+                listBox.Items.RemoveAt(z)
+                indexx = listBox.Items.Count
+                z = z - 1
 
-                ElseIf listBox.Items.Item(z) = 3 Then
 
-                    listBox.Items.RemoveAt(z)
+            ElseIf listBox.Items.Item(z) = 2 Then
+                listBox.Items.RemoveAt(z)
+                indexx = listBox.Items.Count
+                z = z - 1
 
-                ElseIf listBox.Items.Item(z) = 4 Then
+            ElseIf listBox.Items.Item(z) = 3 Then
 
-                    listBox.Items.RemoveAt(z)
-                ElseIf listBox.Items.Item(z) = 16 Then
-                    listBox.Items.RemoveAt(z)
+                listBox.Items.RemoveAt(z)
+                indexx = listBox.Items.Count
+                z = z - 1
 
-                ElseIf listBox.Items.Item(z) = 14 Then
-                    listBox.Items.RemoveAt(z)
+            ElseIf listBox.Items.Item(z) = 4 Then
 
-                End If
-            Catch ex As Exception
+                listBox.Items.RemoveAt(z)
+                indexx = listBox.Items.Count
+                z = z - 1
+            ElseIf listBox.Items.Item(z) = 16 Then
+                listBox.Items.RemoveAt(z)
+                indexx = listBox.Items.Count
+                z = z - 1
 
-            End Try
+            ElseIf listBox.Items.Item(z) = 14 Then
+                listBox.Items.RemoveAt(z)
+                indexx = listBox.Items.Count
+                z = z - 1
+            ElseIf listBox.Items.Item(z) = 0 Then
+                listBox.Items.RemoveAt(z)
+                indexx = listBox.Items.Count
+                z = z - 1
 
-        Next
+            Else
+
+
+            End If
+
+            z = z + 1
+
+
+        End While
+
+
+
+
+
+
+
+
+
+
+
 
 
     End Function
@@ -744,14 +771,15 @@ Public Class Exam
             mandarray(b) = (listBox.Items.Item(b))
 
         Next
-        mandarray.CopyTo(finalarray, 25)
 
-        Shuffle(finalarray)
+        listBox.Items.Clear()
+
+        Exit Function
 
     End Function
 
     Private Sub exam_Loaded(sender As Object, e As RoutedEventArgs) Handles MyBase.Loaded, MyBase.Loaded
-        Call load_random_quest()
+        Call load_random_qst()
 
 
         Dim dt As DispatcherTimer = New DispatcherTimer()
@@ -762,7 +790,7 @@ Public Class Exam
 
 
 
-        Call data_score_clear()
+
 
 
         Call question_load()
@@ -825,4 +853,17 @@ line1:
         Dim scoresheet As New result
         scoresheet.Show()
     End Sub
+
+
+
+    Sub repeatedv()
+
+
+        MsgBox(finalarray.Distinct.Count)
+
+
+    End Sub
+
+
+
 End Class
