@@ -49,16 +49,20 @@ Public Class Exam
 
 
     Sub load_random_qst()
-        listBox.Items.Clear()
-        Call addlistbox()
-        Call remover()
+        ListBox1.Items.Clear()
+        listbox2.Items.Clear()
+        listbox3.Items.Clear()
+        Call add_listbox_1()
+        Call randomize_listbox1()
+        Call randomize_listbox2()
+        Call add_listbox3()
+        Call randomize_listbox3()
+
         Call addrandom()
-        listBox.Items.Clear()
-        Call addmandatory()
-        Call addrandman()
+
+
         Call repeatedv()
 
-        Shuffle(finalarray)
 
 
 
@@ -276,9 +280,16 @@ Public Class Exam
 
 
         q_label = q_label + 1
+        If q_label = 31 Then
+            Exit Sub
+        Else
 
-        Call question_load()
-        Call ans_load()
+            Call question_load()
+            Call ans_load()
+
+        End If
+
+
 
     End Sub
 
@@ -608,97 +619,95 @@ Public Class Exam
 
 
 
-    Function addlistbox()
+    '    Function addlistbox()
 
-line1:
-        Dim value As Integer = CInt(Int((53 * Rnd())) + 1)
-
-
-        If listBox.Items.Contains(value) And listBox.Items.Count <> 53 Then
-
-            GoTo line1
-
-        ElseIf listBox.Items.Count >= 53 Then
-
-            Exit Function
+    'line1:
+    '        Dim value As Integer = CInt(Int((53 * Rnd())) + 1)
 
 
-        Else
+    '        If listBox.Items.Contains(value) And listBox.Items.Count <> 53 Then
 
-            listBox.Items.Add(value)
+    '            GoTo line1
+
+    '        ElseIf listBox.Items.Count >= 53 Then
+
+    '            Exit Function
 
 
-        End If
+    '        Else
 
-        GoTo line1
+    '            listBox.Items.Add(value)
 
 
+    '        End If
+
+    '        GoTo line1
 
 
 
-    End Function
+
+
+    '    End Function
 
 
 
-    Function remover()
+    'Function remover()
 
 
-        Dim indexx As Integer = listBox.Items.Count
-        indexx = listBox.Items.Count
-        Dim z As Integer = 1
+    '    Dim indexx As Integer = listBox.Items.Count
+    '    indexx = listBox.Items.Count
+    '    Dim z As Integer = 1
 
 
 
-        While indexx <> z
+    '    While indexx <> z
 
 
-            If listBox.Items.Item(z) = 1 Then
-                listBox.Items.RemoveAt(z)
-                indexx = listBox.Items.Count
-                z = z - 1
+    '        If listBox.Items.Item(z) = 1 Then
+    '            listBox.Items.RemoveAt(z)
+    '            indexx = listBox.Items.Count
+    '            z = z - 1
 
 
-            ElseIf listBox.Items.Item(z) = 2 Then
-                listBox.Items.RemoveAt(z)
-                indexx = listBox.Items.Count
-                z = z - 1
+    '        ElseIf listBox.Items.Item(z) = 2 Then
+    '            listBox.Items.RemoveAt(z)
+    '            indexx = listBox.Items.Count
+    '            z = z - 1
 
-            ElseIf listBox.Items.Item(z) = 3 Then
+    '        ElseIf listBox.Items.Item(z) = 3 Then
 
-                listBox.Items.RemoveAt(z)
-                indexx = listBox.Items.Count
-                z = z - 1
+    '            listBox.Items.RemoveAt(z)
+    '            indexx = listBox.Items.Count
+    '            z = z - 1
 
-            ElseIf listBox.Items.Item(z) = 4 Then
+    '        ElseIf listBox.Items.Item(z) = 4 Then
 
-                listBox.Items.RemoveAt(z)
-                indexx = listBox.Items.Count
-                z = z - 1
-            ElseIf listBox.Items.Item(z) = 16 Then
-                listBox.Items.RemoveAt(z)
-                indexx = listBox.Items.Count
-                z = z - 1
+    '            listBox.Items.RemoveAt(z)
+    '            indexx = listBox.Items.Count
+    '            z = z - 1
+    '        ElseIf listBox.Items.Item(z) = 16 Then
+    '            listBox.Items.RemoveAt(z)
+    '            indexx = listBox.Items.Count
+    '            z = z - 1
 
-            ElseIf listBox.Items.Item(z) = 14 Then
-                listBox.Items.RemoveAt(z)
-                indexx = listBox.Items.Count
-                z = z - 1
-            ElseIf listBox.Items.Item(z) = 0 Then
-                listBox.Items.RemoveAt(z)
-                indexx = listBox.Items.Count
-                z = z - 1
+    '        ElseIf listBox.Items.Item(z) = 14 Then
+    '            listBox.Items.RemoveAt(z)
+    '            indexx = listBox.Items.Count
+    '            z = z - 1
+    '        ElseIf listBox.Items.Item(z) = 0 Then
+    '            listBox.Items.RemoveAt(z)
+    '            indexx = listBox.Items.Count
+    '            z = z - 1
 
-            Else
-
-
-            End If
-
-            z = z + 1
+    '        Else
 
 
-        End While
+    '        End If
+
+    '        z = z + 1
 
 
+    '    End While
 
 
 
@@ -710,86 +719,219 @@ line1:
 
 
 
-    End Function
+
+
+    'End Function
 
 
 
 
 
     'THIS is used for shuffle array randomly
-    Public Shared Sub Shuffle(ByRef shuffleArray() As Integer)
-        Dim counter As Integer
-        Dim newPosition As Integer
-        Dim shuffleMethod As New Random
-        Dim tempObject As Integer
 
-        For counter = 0 To shuffleArray.Length - 1
-            newPosition = shuffleMethod.Next(0, shuffleArray.Length - 1)
 
-            tempObject = shuffleArray(counter)
-            shuffleArray(counter) = shuffleArray(newPosition)
-            shuffleArray(newPosition) = tempObject
-        Next counter
+
+    'Public Shared Sub Shuffle(ByRef shuffleArray() As Integer)
+    '    Dim counter As Integer
+    '    Dim newPosition As Integer
+    '    Dim shuffleMethod As New Random
+    '    Dim tempObject As Integer
+
+    '    For counter = 0 To shuffleArray.Length - 1
+    '        newPosition = shuffleMethod.Next(0, shuffleArray.Length - 1)
+
+    '        tempObject = shuffleArray(counter)
+    '        shuffleArray(counter) = shuffleArray(newPosition)
+    '        shuffleArray(newPosition) = tempObject
+    '    Next counter
+    'End Sub
+
+
+
+    ''this is used to add mandotory values into the q list 
+
+    'Function addmandatory()
+
+    '    Dim mand() As Integer = {1, 2, 3, 4, 16, 14}
+
+    '    Shuffle(mand)
+
+
+    '    For Each num In mand
+
+    '        listBox.Items.Add(num)
+    '    Next
+
+    '    Dim lastitem As Integer
+    '    lastitem = listBox.Items.Count
+    '    lastitem = lastitem - 1
+
+    '    listBox.Items.RemoveAt(lastitem)
+
+
+
+    'End Function
+
+
+
+
+
+
+
+
+    Sub add_listbox_1()
+
+
+        For index = 1 To 53
+
+            ListBox1.Items.Add(index)
+
+            If ListBox1.Items.Contains(1) Then
+                listbox2.Items.Add(1)
+                ListBox1.Items.Remove(1)
+
+            ElseIf ListBox1.Items.Contains(2) Then
+                listbox2.Items.Add(2)
+                ListBox1.Items.Remove(2)
+            ElseIf ListBox1.Items.Contains(3) Then
+                listbox2.Items.Add(3)
+                ListBox1.Items.Remove(3)
+            ElseIf ListBox1.Items.Contains(4) Then
+                listbox2.Items.Add(4)
+                ListBox1.Items.Remove(4)
+            ElseIf ListBox1.Items.Contains(16) Then
+                listbox2.Items.Add(16)
+                ListBox1.Items.Remove(16)
+            ElseIf ListBox1.Items.Contains(14) Then
+                listbox2.Items.Add(14)
+                ListBox1.Items.Remove(14)
+
+            End If
+
+        Next
+
     End Sub
 
 
+    Sub randomize_listbox1()
 
-    'this is used to add mandotory values into the q list 
+        Dim rng As New Random()
 
-    Function addmandatory()
+        ' Helps with flicker
 
-        Dim mand() As Integer = {1, 2, 3, 4, 16, 14}
-
-        Shuffle(mand)
-
-
-        For Each num In mand
-
-            listBox.Items.Add(num)
+        ListBox1.BeginInit()
+        ' Start at end, work down to first element
+        For i As Integer = ListBox1.Items.Count - 1 To 1 Step -1
+            ' Get random index
+            Dim swapIndex As Integer = rng.Next(0, i + 1)
+            ' Swap
+            Dim temp As Object = ListBox1.Items(i)
+            ListBox1.Items(i) = ListBox1.Items(swapIndex)
+            ListBox1.Items(swapIndex) = temp
         Next
 
-        Dim lastitem As Integer
-        lastitem = listBox.Items.Count
-        lastitem = lastitem - 1
-
-        listBox.Items.RemoveAt(lastitem)
+        ListBox1.EndInit()
+    End Sub
 
 
+    Sub randomize_listbox2()
 
-    End Function
+        Dim rng As New Random()
+
+        ' Helps with flicker
+        listbox2.BeginInit()
+
+        ' Start at end, work down to first element
+        For i As Integer = listbox2.Items.Count - 1 To 1 Step -1
+            ' Get random index
+            Dim swapIndex As Integer = rng.Next(0, i + 1)
+            ' Swap
+            Dim temp As Object = listbox2.Items(i)
+            listbox2.Items(i) = listbox2.Items(swapIndex)
+            listbox2.Items(swapIndex) = temp
+        Next
+
+        listbox2.EndInit()
+    End Sub
+
+
+    Sub randomize_listbox3()
+
+        Dim rng As New Random()
+
+        ' Helps with flicker
+        listbox3.BeginInit()
+
+        ' Start at end, work down to first element
+        For i As Integer = listbox3.Items.Count - 1 To 1 Step -1
+            ' Get random index
+            Dim swapIndex As Integer = rng.Next(0, i + 1)
+            ' Swap
+            Dim temp As Object = listbox3.Items(i)
+            listbox3.Items(i) = listbox3.Items(swapIndex)
+            listbox3.Items(swapIndex) = temp
+        Next
+
+        listbox3.EndInit()
+    End Sub
+
+
+    Sub add_listbox3()
+
+
+        For index = 0 To 24
+
+            listbox3.Items.Add(ListBox1.Items.Item(index))
+
+
+        Next
+
+        For index = 0 To 4
+
+
+
+            listbox3.Items.Add(listbox2.Items.Item(index))
+
+
+
+        Next
+
+
+    End Sub
+
 
 
 
     'it randomly adds values in listbox into the final array
     Function addrandom()
 
-        For a = 0 To 24
+        For a = 0 To 29
 
 
-            finalarray(a) = (listBox.Items.Item(a))
+            finalarray(a) = (listbox3.Items.Item(a))
         Next
 
 
     End Function
 
-    Function addrandman()
+    'Function addrandman()
 
 
-        For b = 0 To 4
+    '    For b = 0 To 4
 
 
-            mandarray(b) = (listBox.Items.Item(b))
+    '        mandarray(b) = (listBox.Items.Item(b))
 
-        Next
+    '    Next
 
-        Shuffle(mandarray)
-        listBox.Items.Clear()
+    '    Shuffle(mandarray)
+    '    listBox.Items.Clear()
 
-        mandarray.CopyTo(finalarray, 25)
+    '    mandarray.CopyTo(finalarray, 25)
 
-        Exit Function
+    '    Exit Function
 
-    End Function
+    'End Function
 
     Private Sub exam_Loaded(sender As Object, e As RoutedEventArgs) Handles MyBase.Loaded, MyBase.Loaded
         Call load_random_qst()
@@ -858,6 +1000,7 @@ line1:
         End If
 
         Call correct()
+
         Call updatefinalscore()
         Call calculatefinalscore()
 

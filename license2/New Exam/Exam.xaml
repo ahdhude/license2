@@ -112,7 +112,7 @@
             </materialDesign:Card>
 
         </StackPanel>
-        <ListBox x:Name="listBox" Grid.Column="8" HorizontalAlignment="Left" Height="497" Margin="384,21,-548,0" Grid.Row="2" VerticalAlignment="Top" Width="193" RenderTransformOrigin="1.26,0.45" Grid.RowSpan="2"/>
+        <ListBox x:Name="ListBox1" Grid.Column="8" HorizontalAlignment="Left" Height="50" Margin="183,21,-347,0" Grid.Row="2" VerticalAlignment="Top" Width="193" RenderTransformOrigin="1.26,0.45"/>
         <StackPanel Grid.Column="5" HorizontalAlignment="Stretch"  Grid.Row="4" VerticalAlignment="Bottom" Height="54"   >
 
             <Button x:Name="btn_back" Content="ފަހަތަށް" FlowDirection="RightToLeft" FontFamily="Faruma" FontSize="20" FontWeight="Bold" Height="54" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
@@ -124,6 +124,8 @@
             <Button x:Name="btn_finish" Content="ނިމުނީ" FlowDirection="RightToLeft" FontFamily="Faruma" FontSize="20" FontWeight="Bold" Height="54" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"/>
 
         </StackPanel>
+        <ListBox x:Name="listbox2" Grid.Column="8" HorizontalAlignment="Left" Height="50" Margin="183,17,-347,0" Grid.Row="3" VerticalAlignment="Top" Width="193" RenderTransformOrigin="1.26,0.45"/>
+        <ListBox x:Name="listbox3" Grid.Column="8" HorizontalAlignment="Left" Height="50" Margin="183,160,-347,0" Grid.Row="3" VerticalAlignment="Top" Width="193" RenderTransformOrigin="1.26,0.45"/>
 
 
 
