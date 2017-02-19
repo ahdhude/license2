@@ -430,7 +430,7 @@ Public Class practice
     Function loadcategory()
 
         Dim category As New databaseDataSetTableAdapters.QuestionTableAdapter
-        Categoryname.Text = category.GetDataBy(q_num).Rows(0).Item(6).ToString
+        Categoryname.Text = category.GetDataBy(q_num).Rows(0).Item(2).ToString
 
 
 

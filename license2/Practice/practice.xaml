@@ -10,14 +10,14 @@
         Title="practice" Height="658.128" Width="949.07" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" WindowState="Maximized" Loaded="Window_Loaded" Icon="/license2;component/Resources/THINGS.ico" Background="#FF8ACAFD" >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="12*"/>
-            <ColumnDefinition Width="28*"/>
-            <ColumnDefinition Width="95*"/>
-            <ColumnDefinition Width="22*"/>
-            <ColumnDefinition Width="405*"/>
-            <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="48*"/>
-            <ColumnDefinition Width="14*"/>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="566*"/>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="85*"/>
+            <ColumnDefinition Width="19*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="45*"/>
@@ -41,7 +41,7 @@
                 <TextBlock x:Name="question" HorizontalAlignment="Stretch" TextWrapping="Wrap" Text="މިއަދަކީ ކޮންދުވަހެއް އަދި މިއަގުގެ މެނޫއަކީ ކޮބާ ނަމަކީ އަބްދު ﷲ އަދި މިދުވަދަ" VerticalAlignment="Center" FontSize="36" FlowDirection="RightToLeft" Height="123" LineHeight="36" FontFamily="Faruma" Padding="38,1,0,0" FontWeight="Bold" Background="#FF5A98FF"/>
             </materialDesign:Card>
         </StackPanel>
-        <StackPanel Grid.Column="6" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Margin="33,66,34,57" Height="0" Width="0" />
+        <StackPanel Grid.Column="6" HorizontalAlignment="Center"  Grid.Row="2" VerticalAlignment="Center" Margin="43,66,42,57" Height="0" Width="0" />
         <Label x:Name="label_numb" Grid.Column="6" HorizontalAlignment="Stretch" Grid.Row="2" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" FontSize="24" FontWeight="Bold" Padding="15,10,25,5" >
             <Label x:Name="label_numbx" Content="1" Width="41" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Label>
@@ -106,7 +106,7 @@
         </StackPanel>
         <StackPanel Grid.ColumnSpan="2" Grid.Column="6" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Grid.RowSpan="1" Grid.Row="0" >
             <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch" Background="#FF8ACAFD" Height="47"    >
-                <TextBlock x:Name="Categoryname"  TextWrapping="Wrap" Text="ދިވެހި" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="36" Background="#FF8ACAFD" Foreground="Black" Grid.Row="0" Grid.RowSpan="1" FontFamily="Faruma" FlowDirection="RightToLeft" />
+                <TextBlock x:Name="Categoryname"  TextWrapping="Wrap" Text="ދިވެހި" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" FontSize="36" Background="#FF8ACAFD" Foreground="Black" Grid.Row="0" Grid.RowSpan="1" FontFamily="Faruma" FlowDirection="RightToLeft" Margin="-12,-10,0,0" />
 
             </materialDesign:Card>
 

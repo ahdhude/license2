@@ -13,8 +13,8 @@
             <ColumnDefinition Width="41*"/>
             <ColumnDefinition Width="158*"/>
             <ColumnDefinition Width="36*"/>
-            <ColumnDefinition Width="656*"/>
-            <ColumnDefinition Width="89*"/>
+            <ColumnDefinition Width="627*"/>
+            <ColumnDefinition Width="118*"/>
             <ColumnDefinition Width="78*"/>
             <ColumnDefinition Width="22*"/>
         </Grid.ColumnDefinitions>
@@ -107,9 +107,9 @@
             </materialDesign:Card>
         </StackPanel>
         <StackPanel Grid.ColumnSpan="3" Grid.Column="5" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" >
-            <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  HorizontalContentAlignment="Stretch" Height="88"  Background="#FF8ACAFD" >
+            <materialDesign:Card VerticalAlignment="Stretch"  VerticalContentAlignment="Stretch"  Height="88"  Background="#FF8ACAFD" >
 
-                <Label x:Name="categoryname" Content="Label" FontSize="48" FontFamily="Faruma" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontWeight="Bold" FlowDirection="RightToLeft" />
+                <Label x:Name="categoryname" Content="ދިވެހި" FontSize="40" FontFamily="Faruma"   FontWeight="Bold" FlowDirection="RightToLeft" HorizontalAlignment="Stretch" Margin="0,0,1,0" />
 
             </materialDesign:Card>
         </StackPanel>
