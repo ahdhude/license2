@@ -288,5 +288,8 @@ Public Class welcome
 
     End Sub
 
-
+    Private Sub textBlock_2_MouseLeftButtonDown(sender As Object, e As MouseButtonEventArgs) Handles textBlock_2.MouseLeftButtonDown
+        Dim slip As New QandA
+        slip.Show()
+    End Sub
 End Class

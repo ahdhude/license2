@@ -201,7 +201,26 @@
 
                 </TreeViewItem>
             </TreeViewItem>
-            <TreeViewItem BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="79,170,0,0">
+
+            <TreeViewItem x:Name="treeViewItem_2" Header="Q and A" IsExpanded="True" FontSize="20" FontFamily="Roboto" Foreground="White">
+                <TreeViewItem>
+                    <TreeViewItem.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <Viewbox Width="16" Height="16">
+                                <Canvas Width="24" Height="24">
+                                    <materialDesign:PackIcon Kind="Book"    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="24" Width="24" Foreground="White"  />
+
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock x:Name="textBlock_2" Margin="8 0 0 0" Foreground="White" Cursor="Hand"><Run Text="Report"/></TextBlock>
+                        </StackPanel>
+                    </TreeViewItem.Header>
+
+                </TreeViewItem>
+            </TreeViewItem>
+
+
+            <TreeViewItem BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="79,70,0,0">
                 <TreeViewItem.Header>
                     <StackPanel Orientation="Horizontal">
                         <Viewbox Width="16" Height="16">

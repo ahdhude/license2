@@ -166,6 +166,12 @@
     <Compile Include="Practice\practice.xaml.vb">
       <DependentUpon>practice.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QandA\QandA.Designer.vb">
+      <DependentUpon>QandA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="QandA\QandA.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="result\result.xaml.vb">
       <DependentUpon>result.xaml</DependentUpon>
     </Compile>
@@ -276,6 +282,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Licenses.licx" />
+    <EmbeddedResource Include="QandA\QandA.resx">
+      <DependentUpon>QandA.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="result\resultrep.rdlc">
       <SubType>Designer</SubType>
     </EmbeddedResource>

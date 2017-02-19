@@ -74,7 +74,7 @@ WHERE        (username = @username)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="customerTableAdapter" GeneratorDataComponentClassName="customerTableAdapter" Name="customer" UserDataComponentName="customerTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="databaseConnectionString (MySettings)" DbObjectName="dbo.Customer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="databaseConnectionString (MySettings)" DbObjectName="dbo.customer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [Customer] WHERE (([Id] = @Original_Id) AND ((@IsNull_Id_card = 1 AND [Id card] IS NULL) OR ([Id card] = @Original_Id_card)) AND ((@IsNull_Address = 1 AND [Address] IS NULL) OR ([Address] = @Original_Address)) AND ((@IsNull_Dob = 1 AND [Dob] IS NULL) OR ([Dob] = @Original_Dob)) AND ((@IsNull_Phone = 1 AND [Phone] IS NULL) OR ([Phone] = @Original_Phone)) AND ((@IsNull_License = 1 AND [License] IS NULL) OR ([License] = @Original_License)) AND ((@IsNull_Island = 1 AND [Island] IS NULL) OR ([Island] = @Original_Island)))</CommandText>
@@ -1024,6 +1024,27 @@ SET                question_num = NULL, selected_ans_index = 0;
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable4TableAdapter" GeneratorDataComponentClassName="DataTable4TableAdapter" Name="DataTable4" UserDataComponentName="DataTable4TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="databaseConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Question.question_id, Question.question, Answer.ans
+FROM            Answer INNER JOIN
+                         Question ON Answer.q_id = Question.question_id
+WHERE        (Answer.correct = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="question_id" DataSetColumn="question_id" />
+              <Mapping SourceColumn="question" DataSetColumn="question" />
+              <Mapping SourceColumn="ans" DataSetColumn="ans" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1331,6 +1352,27 @@ SET                question_num = NULL, selected_ans_index = 0;
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DataTable4" msprop:Generator_TableClassName="DataTable4DataTable" msprop:Generator_TableVarName="tableDataTable4" msprop:Generator_TablePropName="DataTable4" msprop:Generator_RowDeletingName="DataTable4RowDeleting" msprop:Generator_RowChangingName="DataTable4RowChanging" msprop:Generator_RowEvHandlerName="DataTable4RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable4RowDeleted" msprop:Generator_UserTableName="DataTable4" msprop:Generator_RowChangedName="DataTable4RowChanged" msprop:Generator_RowEvArgName="DataTable4RowChangeEvent" msprop:Generator_RowClassName="DataTable4Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="question_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnquestion_id" msprop:Generator_ColumnPropNameInRow="question_id" msprop:Generator_ColumnPropNameInTable="question_idColumn" msprop:Generator_UserColumnName="question_id" type="xs:int" />
+              <xs:element name="question" msprop:Generator_ColumnVarNameInTable="columnquestion" msprop:Generator_ColumnPropNameInRow="question" msprop:Generator_ColumnPropNameInTable="questionColumn" msprop:Generator_UserColumnName="question" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ans" msprop:Generator_ColumnVarNameInTable="columnans" msprop:Generator_ColumnPropNameInRow="ans" msprop:Generator_ColumnPropNameInTable="ansColumn" msprop:Generator_UserColumnName="ans" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1372,6 +1414,10 @@ SET                question_num = NULL, selected_ans_index = 0;
     <xs:unique name="Table_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Table" />
       <xs:field xpath="mstns:Id" />
+    </xs:unique>
+    <xs:unique name="DataTable4_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable4" />
+      <xs:field xpath="mstns:question_id" />
     </xs:unique>
   </xs:element>
   <xs:annotation>
