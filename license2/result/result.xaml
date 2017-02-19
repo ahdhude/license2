@@ -20,7 +20,7 @@
         <Label x:Name="label_curtosy_score" Content="57" HorizontalAlignment="Left" Margin="553,325,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
         <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="102" Margin="768,24,0,0" VerticalAlignment="Top" Width="287" RenderTransformOrigin="0.34,0.215"/>
         <Label x:Name="label_pass" Content="PASS" HorizontalAlignment="Left" Margin="850,36,0,0" VerticalAlignment="Top" FontSize="50" FontWeight="Bold" RenderTransformOrigin="0.513,0.007" Height="74" Width="144"/>
-        <Button x:Name="button_print" Content="PRINT" HorizontalAlignment="Left" Margin="488,527,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button_print" Content="PRINT" IsEnabled="False" HorizontalAlignment="Left" Margin="488,527,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="label_name" Content="Label" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="label_Idnun" Content="Label" HorizontalAlignment="Left" Margin="26,41,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
         <Label x:Name="label_address" Content="Label" HorizontalAlignment="Left" Margin="26,69,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
